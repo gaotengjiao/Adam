@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>预约单</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" href="../css/zepto.mdater.css">
+		<link href="../css/styleCss.css" rel="stylesheet" />
+		<script>
+	    	var oHtml=document.getElementsByTagName("html")[0];
+            var iWidth=document.documentElement.clientWidth;
+              	oHtml.style.fontSize=iWidth/16+"px";         	
+	   </script>
+	</head>
+	<body>
+		<section class="project_main">
+			<div class="pro_title clear">
+				<span id="bian">编辑</span>
+			</div>
+		</section>
+		<article>
+			<section class="shoushu">
+				<section class="ss_wz" id="ss_wz">
+					
+				</section>
+			</section>
+			<section class="chooseTime clear">
+				<span>请选择预约日期：</span>
+				<div class="chooseRili">
+					<input id="in" type="text"  disabled="true" value="请选择日期" readonly="readonly">
+					<img src="../img/xiala.png">
+				</div>
+			</section>
+			<section class="nowYuyue" id="nowYuyue">
+				<a href="#"><input type="button" value="立即预约"></a>
+			</section>
+		</article>
+		<script src="../js/zepto.js"></script>
+		<script src="../js/zepto.mdater.js"></script>
+	    <script src="../js/touch.js"></script>
+	    <script src="../js/allJs.js"></script>
+	    <script src="../js/cookie.js"></script>
+		<script src="../js/yuyuedan.js"></script>
+		<script src="../js/yuming.js"></script>
+	</body>
+</html>

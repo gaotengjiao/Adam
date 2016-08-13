@@ -1,0 +1,320 @@
+<admintpl file="header" />
+</head>
+<html>
+<head>
+    <title>TODO supply a title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="__PUBLIC__/js/jquery-1.8.3.min.js"></script>
+    <style>
+        .texta{text-overflow: ellipsis; white-space: nowrap; overflow: hidden; cursor: pointer;}
+    </style>
+    <script src="__PUBLIC__/js/jquery-1.8.3.min.js"></script>
+    <script src="__PUBLIC__/js/xcConfirm.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/jquery.layerModel.js"></script>
+    <link type="text/css" rel="stylesheet" href="__PUBLIC__/css/layerModel.css"/>
+    <link type="text/css" rel="stylesheet" href="__PUBLIC__/css/tishi.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/xcConfirm.css"/>
+</head>
+<body>
+<div class="wrap js-check-wrap">
+    <ul class="nav nav-tabs">
+        <li class=""><a href="{:U('Authorization/index',array('type'=>1))}">全部授权</a></li>
+        <li class=""><a href="{:U('Authorization/AlreadyAuthorized',array('type'=>2))}">已授权</a></li>
+        <li class="active"><a href="{:U('Authorization/NotAuthorized',array('type'=>3))}">未授权</a></li>
+        <li class=""><a href="{:U('Authorization/InsufficientScore',array('type'=>4))}">评分不足</a></li>
+        <li class=""><a href="{:U('Authorization/VolumeManagement',array('type'=>5))}">提额管理</a></li>
+    </ul>
+        时间：
+        <input type="text" id="starttime" name="start_time" class="sang_Calender" value="{$time1}" style="width: 80px;" autocomplete="off">-
+        <input type="text" id="endtime" class="sang_Calender" name="end_time" value="{$time2}" style="width: 80px;" autocomplete="off"> &nbsp; &nbsp;
+        商品名称：
+        <input type="text" id="phone" name="keyword" style="width: 200px;" value="{$wordkey}" placeholder="输入手机号">
+        <input type="button" id="searchAll" class="btn btn-primary" style="margin-top: -12px;" value="搜索" />
+    <div class="table-actions">
+        <button class="btn btn-primary btn-small" id="nos">下架</button>
+        <button class="btn btn-primary btn-small" id="gsorder" style="">排序</button>
+    </div>
+    <form method="post" class="js-ajax-form">
+        <table class="table table-hover table-bordered table-list" style="table-layout:fixed">
+            <thead>
+            <tr>
+                <th width="15"><input type="checkbox" id="jschecks"></th>
+                <th width="50">排序</th>
+                <th>用户名</th>
+                <th>手机号</th>
+                <th>信用评分</th>
+                <th>建议额度</th>
+                <th>申请时间</th>
+                <th>审核状态</th>
+                <th>是否提额</th>
+                <th width="50"> 操作</th>
+            </tr>
+            </thead>
+            <tbody id="searchresult">
+            <foreach name="lists" item="vo">
+                <tr class="del{$vo.id}">
+                    <td>
+                        <input type="checkbox" name="chk_list[]" value="{$vo.id}" class="checkas">
+                    </td>
+                    <td>
+                        {$vo.id}
+                    </td>
+                    <td>
+                        {$vo.nickname}
+                    </td>
+                    <td>
+                        {$vo.iphone}
+                    </td>
+                    <td>
+                        {$vo.score}
+                    </td>
+                    <td>
+                        <input type="text"  dd="{$vo.id}" class="money" value="{$vo.limit}" style="width:120px;" >.00元
+                    </td>
+                    <td>
+                        <if condition="$vo['uplimitdate'] eq '' ">
+                            {$vo.createdate}
+                            <else />
+                            {$vo.uplimitdate}
+                        </if>
+                    </td>
+                    <td id="status{$vo.id}">
+                        <if condition="$vo['status'] eq 1 ">
+                            <font color="#a9a9a9">已授权</font>
+                            <elseif condition="$vo['status'] eq 2"/>
+                            <a href="javascript:void(0)" class="shou" dd="{$vo.id}">授权</a>/<a href="javascript:void(0)" class="btn6" dd="{$vo.id}" uid="{$vo.uid}">驳回</a>
+                            <elseif condition="$vo['status'] eq 0"/>
+                            <a href="javascript:void(0)" class="shou" dd="{$vo.id}">授权</a>/<a href="javascript:void(0)" class="btn6" dd="{$vo.id}" uid="{$vo.uid}">驳回</a>
+                            <elseif condition="$vo['status'] eq 3"/>
+                            <font color="red">已拒回</font>
+                            <elseif condition="$vo['status'] eq 4"/>
+                            <font color="red">评分不足，不允许授权</font>
+                            <elseif condition="$vo['status'] eq 6"/>
+                            <a href="javascript:void(0)" class="shou" dd="{$vo.id}">授权</a>/<a href="javascript:void(0)" class="btn6" dd="{$vo.id}" uid="{$vo.uid}">驳回</a>
+                            <else />
+                            <a href="javascript:void(0)" class="shou" dd="{$vo.id}">授权</a>/<a href="javascript:void(0)" class="btn6" dd="{$vo.id}" uid="{$vo.uid}">驳回</a>
+                        </if>
+                    </td>
+                    <td id="status2{$vo.id}">
+                        <if condition="$vo['status'] eq 1 ">
+                            <a href="javascript:void(0)" dd="{$vo.id}"><font color="red">已申请</font></a>
+                            <elseif condition="$vo['status'] eq 2"/>
+                            <font color="#a9a9a9">未申请</font>
+                            <elseif condition="$vo['status'] eq 0"/>
+                            <font color="#a9a9a9">未申请</font>
+                            <elseif condition="$vo['status'] eq 3"/>
+                            <a href="javascript:void(0)" class="jujue" dd="{$vo.id}"><font color="#006400">查看拒回原因</font></a>
+                            <elseif condition="$vo['status'] eq 4"/>
+
+                            <elseif condition="$vo['status'] eq 6"/>
+                            <a href="javascript:void(0)" dd="{$vo.id}"><font color="red">已申请</font></a>
+                            <else />
+                            <font color="#a9a9a9">已提额</font>
+                        </if>
+                    </td>
+                </tr>
+            </foreach>
+            </tbody>
+        </table>
+        <div class="table-actions">
+            <center>{$page}</center>
+        </div>
+        <div id="demo0" style="width:400px;height: 200px;background: #e5e5e5;display: none;text-align: left;border:1px solid;text-indent:2em;overflow:scroll"></div>
+    </form>
+    <div id="tip"></div>
+</div>
+<script src="__PUBLIC__/js/common.js"></script>
+<script src="__PUBLIC__/js/datetime.js"></script>
+<script>
+    $(".btn6").click(function(){
+        var id = $(this).attr("dd");
+        var Uid = $(this).attr("uid");
+        var txt=  "拒绝原因：<select id='yuanyin'><option value='信用分不足'>信用分不足</option><option value='资料不全'>资料不全</option></select>"
+        window.wxc.xcConfirm(txt, window.wxc.xcConfirm.typeEnum.input,{
+            onOk:function(v){
+                var yuan = $("#yuanyin").val();
+                $.post("{:U('Authorization/RefuseAuthorization')}", {id: id,uid:Uid, refuse: yuan}, function (msg) {
+                    if (msg == 1) {
+                        $("#status"+id).html( "<font color='red'>已拒回</font>");
+                        $("#status2"+id).live().html( "<a href='javascript:void(0)' class='jujue' dd='"+id+"'><font color='#006400'>查看拒回原因</font></a>");
+                        console.log(v);
+                        $("#tip").html("拒回成功").show(300).delay(3000).hide(300);
+                    } else {
+                        $("#tip").html("拒回失败").show(300).delay(3000).hide(300);
+                    }
+                })
+            }
+        });
+    });
+
+    $(".jujue").click(function (){
+        var id = $(this).attr("dd");
+        $.post("{:U('Authorization/ReasonsForRefusal')}", {id: id}, function (msg) {
+            alert(msg)
+        })
+    })
+
+    $(".money").blur(function () {
+        var id = $(this).attr("dd");
+        var money = $(this).val();
+        $.post("{:U('Authorization/EditMonet')}", {id: id, money: money,type:"editmoney"}, function (msg) {
+            if (msg == 1) {
+
+                $("#tip").html("修改成功").show(300).delay(3000).hide(300);
+            } else {
+                $("#tip").html("修改失败").show(300).delay(3000).hide(300);
+            }
+        })
+    })
+    $(".bo").click(function (){
+        var id = $(this).attr("dd");
+        alert(id)
+    })
+    $(".shou").click(function (){
+        var id = $(this).attr("dd");
+        var money = $(this).val();
+        $.post("{:U('Authorization/Authorization')}", {id:id, money: money}, function(msg){
+            if(msg==1){
+                $("#status"+id).html( "<font color='#a9a9a9'>已授权</font>");
+                $("#tip").html("授权成功").show(300).delay(3000).hide(300);
+                $(".del"+id).remove()
+            }else{
+                $("#tip").html("授权失败").show(300).delay(3000).hide(300);
+            }
+        })
+    })
+    $("#searchAll").click(function (){
+        var starttime = $("#starttime").val();
+        var endtime   = $("#endtime").val();
+        var phone     = $("#phone").val();
+        if(starttime=="" & endtime=="" & phone==""){
+            $("#errormsg").html("<font color='red' style='font-size: 2ch'>您还没有选填任何搜索项</font>").show();
+            $("#errormsg").attr("display","none").hide(4000);// 这个是渐渐消失
+        }else{
+            $.post("{:U('Authorization/AuthorizationSearch')}", {starttime:starttime,endtime:endtime,phone:phone,type:"NotLimit"}, function(msg){
+                $("#searchresult").html(" ");
+                $("#searchresult").html(msg);
+            })
+        }
+    })
+    $('.status').click(function(){
+        var that = $(this);
+        var state = $(this).attr('data');
+        var id = $(this).attr('date');
+        var test1 = that.prev().text();
+        var test2 = that.children().text();
+
+        $.get("{:U('Goods/state')}", {state:state, id:id}, function(msg){
+            if(msg == 1 && state == 0){
+                that.prev().text(test2);
+                that.children().text(test1);
+                that.attr('data', 1);
+                that.parent().parent().remove();
+            }
+            if(msg == 1 && state == 1){
+                that.prev().text(test2);
+                that.children().text(test1);
+                that.attr('data', 0);
+                that.parent().parent().remove();
+            }
+        })
+    })
+    $('.contents').dblclick(function(){
+        console.log($(this).attr('data'))
+        $('#demo0').text($(this).attr('data'));
+        $("#demo0").layerModel({
+            blurClose : true,
+            title:'商品介绍',
+        });
+
+    })
+
+    $('.abouts').dblclick(function(){
+        $('#demo0').text($(this).text());
+        $("#demo0").layerModel({
+            blurClose : true,
+            title:'商品简介',
+        });
+
+    })
+
+    $('.typename').click(function(){
+        $(this).css('display','none');
+        $(this).next().css('display', '');
+    })
+
+    $('.typename').next().blur(function(){
+        var that = $(this);
+        $(this).css('display','none');
+        $(this).prev().css('display', '');
+        var id = $(this).prev().attr('data');
+        var value = $(this).val();
+        $.post("{:U('Goods/Price')}", {id:id, value:value}, function(msg){
+            if(msg == 1){
+                that.prev().html(value);
+                that.html(value);
+            }
+        })
+    })
+
+    $('#gsorder').click(function(){
+        self.location.reload();
+    })
+
+    $('.keywords').dblclick(function(){
+        $('#demo0').text($(this).text());
+        $("#demo0").layerModel({
+            blurClose : true,
+            title:'商品关键字',
+        });
+
+    })
+    if($('.h1').text() == ''){
+        $('#h2').css('display', '');
+    }
+
+    $("#jschecks").click(function() {
+        var s = $(this).attr('checked');
+        if(s == 'checked'){
+            $('.checkas').attr('checked', true);
+        }else{
+            $('.checkas').attr('checked', false);
+        }
+    });
+
+    $('#nos').click(function(e){
+        var checkedList = new Array();
+        $("input[name='chk_list[]']:checked").each(function() {
+            checkedList.push($(this).val());
+        });
+
+        if(checkedList == ''){
+            e.preventDefault();
+            var $_this = this;
+            art.dialog({
+                title: false,
+                icon: 'question',
+                content: '至少选择一个',
+                follow: $_this,
+                close: function () {
+                    $_this.focus();; //关闭时让触发弹窗的元素获取焦点
+                    return true;
+                },
+                cancelVal: '关闭',
+                cancel: true
+            });
+        }else{
+            $.get("{:U('goods/outs')}", {id:checkedList}, function(msg){
+                if(msg == 1){
+                    $("input[name='chk_list[]']:checked").parent().parent().remove();
+                }
+            })
+        }
+    })
+
+
+
+</script>
+</body>
+</html>

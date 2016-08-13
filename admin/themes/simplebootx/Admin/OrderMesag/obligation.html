@@ -1,0 +1,117 @@
+<admintpl file="header" />
+</head>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <script src="__PUBLIC__/js/jquery-1.8.3.min.js"></script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            .texta{text-overflow: ellipsis; white-space: nowrap; overflow: hidden; cursor: pointer;}
+        </style>
+    </head>
+    <body>
+        <div class="wrap js-check-wrap"> 
+        <ul class="nav nav-tabs">
+            <li><a href="{:U('OrderMesag/OrderManagement')}">所有订单</a></li>
+            <li class="active"><a href="{:U('OrderMesag/obligation')}">待付款</a></li>
+            <li><a href="{:U('OrderMesag/spend')}">已付款</a></li>
+            <li><a href="{:U('OrderMesag/refund')}">退款订单管理</a></li>
+        </ul>
+        <form class="well form-search" method="get" action="{:U('OrderMesag/obligation')}">
+            订单号： <input type="text" name="search" value="{$num}" placeholder="请输入订单号/手机号……"> &nbsp;&nbsp;
+            时间：
+            <input type="text" name="start_time" class="sang_Calender" value="{$time1}" style="width: 80px;" autocomplete="off">-
+            <input type="text" class="sang_Calender" name="end_time" value="{$time2}" style="width: 80px;" autocomplete="off"> &nbsp;
+            <input type="submit" class="btn btn-primary" value="搜索" />
+        </form>
+            <form method="post" class="js-ajax-form">
+                <table class="table table-hover table-bordered table-list" style="table-layout:fixed">
+                <thead>
+                    <tr>
+                        <th width="20">订单编号</th>
+                        <th width="45">手机号</th>
+                        <th width="45">订单内容</th>
+                        <th width="45">交易时间</th>
+                        <th width="45">付款状态</th>
+                        <th width="45">订单状态</th>
+                        <th width="45"> 操作</th> 
+                    </tr>
+                </thead>
+                <tbody>
+                    <volist name="data" id="vo">
+                        <tr>
+                        <td>{$vo['num']}</td>
+                        <td>{$vo['iphone']}</td>
+                        <td>{$vo['order_mess']}</td>
+                        <td>{$vo['pay_time']}</td>
+                        <td>{$vo['pay_status'] == 1 ? '已付款' : ''} {$vo['pay_status'] == 0 ? '未付款' : ''}</td>
+                        <td data="{$vo['order_status']}" class="order_h">
+                            {$vo['order_status'] == 1 ? '已完成' : ''} {$vo['order_status'] == 2 ? '等待支付…' : ''} {$vo['order_status'] == 3 ?    '正在退款中' : ''} {$vo['order_status'] == 4 ? '已退款' : ''} {$vo['order_status'] == 5 ? '已取消' : ''}
+                        </td>
+                        <td class="subm" date="{$vo['oid']}"></td>
+                        </tr>
+                    </volist>
+                </tbody>
+                </table>  
+                <div class="table-actions">
+                    <center>{$show}</center>
+            </div>
+            </form>
+        </div>
+    
+        <script src="__PUBLIC__/js/common.js"></script>
+        <script src="__PUBLIC__/js/jquery-1.8.3.min.js"></script>
+        <script src="__PUBLIC__/js/datetime.js"></script>
+        <script>
+            window.onload = function(){
+                $('.order_h').each(function(){
+                    var that = $(this);
+                    var v = that.attr('data');
+                    if(v == 1){
+                        that.next().text('退款申请').css('color','red');
+                        that.next().attr('data','3');
+                    }
+
+                    if(v == 2){
+                        that.css('color', 'blue');
+                        that.next().text('取消订单').css('color','red');
+                        that.next().attr('data','5');
+                    }
+
+                    if(v == 3){
+                        that.css('color','red');
+                        that.next().text('查看进度').css('color','blue');
+                    }
+
+                    if(v == 4){
+                        that.next().text('查看进度');
+                    }
+                    if(v == 5){
+                        that.next().text('查看原因');
+                    }
+                })
+            }
+
+            $('.subm').click(function(){
+                var that = $(this);
+                var v = that.attr('data');
+                var id = that.attr('date');
+                if(!isNaN(v)){
+                    $.get("{:U('OrderMesag/order_status')}", {v:v, id:id}, function(msg){
+                        if(msg == 1 && v == 3){
+                            that.text('查看进度').css('color','blue');
+                            that.prev().text('正在退款中').css('color','red');
+                        }
+
+                        if(msg == 1 && v == 5){
+                            that.text('查看原因').css('color','');
+                            that.prev().text('已取消').css('color','');
+                        }
+                    })
+                }
+               
+            })
+        </script>
+    </body>
+</html>

@@ -1,0 +1,125 @@
+/*通配*/
+img{vertical-align: top; border: none;}
+html *{-webkit-tap-highlight-color: rgba(0,0,0,0);}
+button{-webkit-appearance: none; border: none;}
+a,input,textarea{outline: none;}
+html{height: 100%;}
+form,p,ul,h3,h2,body{margin:0; padding:0; font-family: "微软雅黑";}
+li{list-style: none;}
+a{text-decoration: none;}
+table{border-collapse: collapse;}
+td,th{padding:0; border: 1px solid #d6d7dc;}
+td{text-align: center;}
+input{ -webkit-appearance: none;}
+i,em{ font-style: normal;}
+.clear{ zoom: 1;}
+.clear:after{ content: ""; display: block; clear: both;}
+body{height:100% ;position: relative;  background: #f1f1f1;}
+/*通配*/
+
+/*整体内容  start*/
+.act_main{
+	width: 100%;
+	position: relative;
+}
+/*header   start*/
+.act_header{
+	width: 100%;
+	height: 10.2rem;
+	background: #f1f1f1;
+	overflow: hidden;
+}
+.act_header a{
+	width: 100%;
+	display: block;
+	margin-bottom: 0.25rem;
+}
+.act_header a:nth-of-type(2){
+	margin-bottom: 0;
+}
+.act_header a img{
+	width: 100%;
+}
+.act_title{
+	width: 100%;
+	height: 2.2rem;
+	position: relative;
+	display: flex;
+}
+.act_title span{
+	width: 10.7rem;
+	height: 0;
+	border-bottom: 0.025rem #8a8a8a solid;
+	display: block;
+	margin: auto auto;
+}
+.act_title p{
+	width: 5.625rem;
+	height: 100%;
+	background: #F1F1F1;
+	position: absolute;
+	left: 5.2rem;
+	top: 0;
+	line-height: 2.2rem;
+	font-size: 0.75rem;
+	color: #282828;
+	text-align: center;
+}
+/*header   end*/
+
+/*content   start*/
+.act_project{
+	width: 100%;
+	background: white;
+}
+.act_project li{
+	width: 15rem;
+	height: 4.3rem;
+	border-bottom: 0.025rem #d6d7dc solid;
+	margin: 0 auto;
+	position: relative;
+}
+.act_project li img{
+	position: absolute;
+	top: 0.375rem;
+	left: 0;
+	width: 3.3rem;
+	height: 3.5rem;
+}
+.act_project li p{
+	width: 10rem;
+	height: 1.85rem;
+	-webkit-line-clamp:2; 
+	text-overflow: ellipsis; 
+	display: -webkit-box; 
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	font-size: 0.6rem;
+	color: #3c3c3c;
+	line-height: 0.95rem;
+	position: absolute;
+	left: 4rem;
+	top: 0.4rem;
+}
+.act_project li span{
+	width: 10rem;
+	height: 1.6rem;
+	line-height: 1.6rem;
+	display: block;
+	position: absolute;
+	left: 4rem;
+	top: 2.25rem;
+	font-size: 0.5rem;
+	color: #B0B0B0;
+}
+.act_project li a{
+	width: 100%;
+	height: 100%;
+	display: block;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+/*content   end*/
+/*整体内容  end*/

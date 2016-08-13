@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <script src="js/jquery-2.2.1.js"></script>
+    <title>Title</title>
+</head>
+<body>
+<div>
+    weixin：//wxpay/bizpayurl?sign=33A20F6C9BEA565B62D3CBAC94485747&appid=wxaf6078a557ceeeec&mch_id=1283521401&product_id=2016220165&time_stamp=1470210503&nonce_str=BtzGu0wpKDNDt2uH
+</div>
+    <script>
+        var a={
+            uid:'654',
+            token:'6283547',
+            type:0,
+            serverId:{
+                0:"NJLSijeRB5-sxH15Ihg6kRVeZtIGa4_21-bom3UIuViNTfyL0PVo7GfKhDZiQSBF",
+                1:"iEZJ7NDGDu6t2e7wmiDN4jFHmppKvyZ7Ai2G9GdAeQreGLklubjfnhWM9OO41zkZ",
+                2:'qJPlUFE_KEYMdD7dJRleqtAcUWMdKCVpm40N9S2TKmWV85IpmZBZ-95TWUnYVhP_'
+            }
+        };
+        console.log(JSON.stringify(a));
+        $.post('http://www.buruwo.com/index.php?g=Portal&m=Vxin&a=upload',{userinfo:JSON.stringify(a)},function (data) {
+            console.log(data);
+            document.write(data);
+        },'json')
+    </script>
+</body>
+</html>

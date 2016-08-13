@@ -1,0 +1,57 @@
+<admintpl file="header" />
+</head>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div class="wrap js-check-wrap">
+            <form method="post" class="js-ajax-form">
+                <table class="table table-hover table-bordered table-list">
+				<thead>
+					<tr>
+						<th align="center">ID</th>
+						<th>用户名</th>
+						<th>密码</th>
+						<th>身份证号</th>
+						<th>手机号</th>
+						<th>积分</th>
+						<th>等级</th>
+						<th>影响力</th>
+						<th>邀请人</th>
+						<th align="center">注册时间</th>
+					</tr>
+				</thead>
+                                <tbody>
+					<foreach name="lists" item="vo">
+					<tr>
+						
+						<td>{$vo.id}</td>
+						<td>{$vo.uname}</td>
+						<td>{$vo.password}</td>
+						<td>{$vo.number}</td>
+						<td>{$vo.iphone}</td>
+						<td>{$vo.points}</td>
+						<td>{$vo.level}</td>
+						<td>{$vo.influence}</td>
+						<td>{$vo.openid}</td>
+						<td align="center">
+						{$vo.starttime|date='Y-m-d H:i:s',###}
+				
+						</td>
+					</tr>
+					</foreach>
+				</tbody>
+                </table>  
+                <div class="table-actions">
+				<center>{$page}</center>
+			</div>
+            </form>
+        </div>
+        <script src="__PUBLIC__/js/common.js"></script>
+    </body>
+</html>
+
+

@@ -1,0 +1,283 @@
+<admintpl file="header" />
+<style type="text/css">
+.pic-list li {
+	margin-bottom: 5px;
+}
+</style>
+<link href="__PUBLIC__/js/umeditor/themes/default/css/umeditor.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+	<div class="wrap js-check-wrap">
+		<ul class="nav nav-tabs">
+			<li><a href="{:U('Goods/Goods')}">产品管理</a></li>
+			<li><a href="{:U('Goods/Goodsadd')}" target="_self">产品添加</a></li>
+                        <li class="active"><a href="{:U('Goods/Goodswedit')}">产品修改</a></li>
+		</ul>
+		<form action="{:U('Goods/Goodsedit')}" method="post" class="form-horizontal js-ajax-forms" enctype="multipart/form-data">
+			<div class="row-fluid">
+				<div class="span9">
+					<table class="table table-bordered">
+					<tr>
+                        <th width="100">推荐医师</th>
+                        <td>
+                            <volist name="users" id="he">
+                                {$he['user_login']} <input type="checkbox" style="margin-top:-2px" name="usersid[]" value="{$he['id']}">&nbsp&nbsp
+                            </volist>
+                        </td>
+                    </tr>
+						<tr>
+							<th width="80">产品名称</th>
+							<td>
+                               <input type="text" name="gname" id="gname" value="{$lists['gname']}" style="width: 400px" placeholder="产品名称"></td>
+                               <input type="hidden" name="id" value="{$lists['id']}">
+							</td>
+						</tr>
+						<tr>
+							<th>产品类型</th>
+							<td>
+                                <select name="gtype" id="gtype">
+                                  <option value='0'>全部</option>
+	                                    <foreach name="type" item="vo">
+	                                    	<option value='{$vo.id}' {$vo['id'] == $lists['gtype'] ? 'selected' : ''}>{$vo.html}{$vo.typename}</option>
+	                                    </foreach>
+                                  </select>
+								<span class="form-required">*</span>
+							</td>
+						</tr>
+						<tr>
+							<th>商品简介</th>
+							<td>
+								<textarea name="about" id="about" required style="width: 98%; height: 50px;" placeholder="请填写商品简介">{$lists['about']}</textarea>
+							</td>
+						</tr>
+						<tr>
+							<th>商品介绍</th>
+							<td>
+								<!--<textarea name="content" id="content" required style="width: 98%; height: 300px;" placeholder="请填写商品介绍">{$lists['content']}</textarea>-->
+								<script type="text/plain" id="myEditor" name="content" style="width:1000px;height:240px;"></script>
+							</td>
+						</tr>
+						<tr>
+							<th>商品价格</th>
+							<td><input type="text" style="width:400px;" name="price" id="price" required value="{$lists['price']}" placeholder="请输入商品价格"/>元</td>
+						</tr>
+                                                <tr>
+							<th>是否上架</th>
+							<td>
+                                <select name="state" id="state">
+                                    <option value="{$lists['state']}">{$lists['state']}</option>
+                                    <option value="1">上架</option>
+                                    <option value="0">下架</option>
+                                </select>
+								<span class="form-required">*</span>
+							</td>
+						</tr>
+						<tr>
+                        <th>服务流程</th>
+	                        <td>
+	                            <select name="service" id="">
+	                                    <option value="0">点击获取</option>
+	                                <volist name="service" id="tser">
+	                                    <option value="{$tser['sid']}" {$lists['service'] == $tser['sid'] ? 'selected' : ''}>{$tser['sname']}</option>
+	                                </volist>
+	                            </select>
+	                        </td>
+                    	</tr>
+                        <tr>
+							<th>关键词</th>
+							<td><input type="text" name="keyword" id="keyword" value="{$lists['keyword']}" style="width: 400px" placeholder="请输入关键字"> 多关键词之间用空格或者英文逗号隔开</td>
+						</tr>
+						<tr>
+							<th>相册图集</th>
+							<td>
+								<fieldset>
+									<legend>原图列表</legend>
+									<ul id="img" class="pic-list unstyled"></ul>
+								</fieldset>
+								<a href="javascript:;" onclick="javascript:flashupload('albums_images', '图片上传','img',change_images,'10,gif|jpg|jpeg|png|bmp,0','','','')" class="btn btn-small">选择图片</a>
+                                                                <input type="text" name='img' value="{$lists['img']}" readonly="true">
+							</td>
+						</tr>
+                                                <tr>
+							<th>相册图集</th>
+							<td>
+								<fieldset>
+									<legend>缩略图列表</legend>
+									<ul id="humbimg" class="pic-list unstyled"></ul>
+								</fieldset>
+								<a href="javascript:;" onclick="javascript:flashupload('albums_images', '图片上传','humbimg',change_images,'10,gif|jpg|jpeg|png|bmp,0','','','')" class="btn btn-small">选择图片</a>
+                                 	<input type="text" name='humbimg' value="{$lists['humbimg']}" readonly="true">
+							</td>
+						</tr>
+                                                <tr>
+							<th>排序</th>
+							<td><input type="text" name="gorder" id="order" value="{$lists['gorder']}" style="width: 400px" placeholder="请输入排序"></td>
+						</tr>
+                                                <tr>
+							<th>颜值活动</th>
+							<td>
+	                            <select name='pid'>
+	                                 <option value="0">点击可选择颜值活动</option>
+	                                <foreach name="face" item="face">
+	                                     <option value="{$face['id']}"  {$lists['pid'] == $face['id'] ? 'selected' : ''}>{$face['p_name']}</option>
+	                                </foreach>
+	                            </select>
+	                        </td>
+						</tr>
+					</table>
+				</div>
+				<div class="span3">
+					<table class="table table-bordered">
+                                            
+					</table>
+				</div>
+			</div>
+			<div class="form-actions">
+				<button class="btn btn-primary js-ajax-submit" type="submit">修改</button>
+				<a class="btn" href="{:U('Goods/index')}">重置</a>
+			</div>
+		</form>
+	</div>
+	<script type="text/javascript" src="__PUBLIC__/js/common.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/js/content_addtop.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/js/umeditor/third-party/jquery.min.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/js/umeditor/umeditor.config.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/js/umeditor/umeditor.min.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/js/umeditor/lang/zh-cn/zh-cn.js"></script>
+	<script type="text/javascript">
+		var um = UM.getEditor('myEditor');
+		um.addListener('blur',function(){
+			$('#focush2').html('编辑器失去焦点了')
+		});
+		um.addListener('focus',function(){
+			$('#focush2').html('')
+		});
+		$(function() {
+			$(".js-ajax-close-btn").on('click', function(e) {
+				e.preventDefault();
+				Wind.use("artDialog", function() {
+					art.dialog({
+						id : "question",
+						icon : "question",
+						fixed : true,
+						lock : true,
+						background : "#CCCCCC",
+						opacity : 0,
+						content : "您确定需要关闭当前页面嘛？",
+						ok : function() {
+							setCookie("refersh_time", 1);
+							window.close();
+							return true;
+						}
+					});
+				});
+			});
+			/////---------------------
+			Wind.use('validate', 'ajaxForm', 'artDialog', function() {
+				//javascript
+
+				//编辑器
+				editorcontent = new baidu.editor.ui.Editor();
+				editorcontent.render('content');
+				try {
+					editorcontent.sync();
+				} catch (err) {
+				}
+				//增加编辑器验证规则
+				jQuery.validator.addMethod('editorcontent', function() {
+					try {
+						editorcontent.sync();
+					} catch (err) {
+					}
+					return editorcontent.hasContents();
+				});
+				var form = $('form.js-ajax-forms');
+				//ie处理placeholder提交问题
+				if ($.browser.msie) {
+					form.find('[placeholder]').each(function() {
+						var input = $(this);
+						if (input.val() == input.attr('placeholder')) {
+							input.val('');
+						}
+					});
+				}
+			});
+			////-------------------------
+		});
+	</script>
+</body>
+</html>   
+<script type="text/javascript">
+$("#gname").blur(function (){
+    	var Activity = $("#gname").val();
+    	if(Activity==""){
+    		$(".form-gname").text(" ");
+    		$(".form-gname").text("产品名称不能为空");
+
+    	}else{
+    		$(".form-gname").text(" ");
+    		$(".form-gname").text("产品名称可用");
+    	}
+    })
+$("#gtype").blur(function (){
+    	var gtype = $("#gtype").val();
+    	if(gtype==""){
+    		$(".form-gtype").text(" ");
+    		$(".form-gtype").text("产品类型不能为空");
+
+    	}else{
+    		$(".form-gtype").text(" ");
+    		$(".form-gtype").text("产品类型可用");
+    	}
+    })
+        $("#price").blur(function (){
+    	var price = $("#price").val();
+    	if(price == ""){
+    		$(".form-price").text(" ");
+    		$(".form-price").text("价格不能为空");
+    	}else{
+    		$(".form-price").text(" ");
+    		$(".form-price").text("价格可用");
+    	}
+    }) 
+        $("#keyword").blur(function (){
+    	var keyword = $("#keyword").val();
+    	if(keyword == ""){
+    		$(".form-keyword").text(" ");
+    		$(".form-keyword").text("关键字不能为空");
+    	}else{
+    		$(".form-keyword").text(" ");
+    		$(".form-keyword").text("关键字可用");
+    	}
+    }) 
+        $("#order").blur(function (){
+    	var order = $("#order").val();
+    	if(order == ""){
+    		$(".form-order").text(" ");
+    		$(".form-order").text("排序不能为空");
+    	}else{
+    		$(".form-order").text(" ");
+    		$(".form-order").text("排序可用");
+    	}
+    }) 
+            $("#content").blur(function (){
+    	var content = $("#content").val();
+    	if(content == ""){
+    		$(".form-content").text(" ");
+    		$(".form-content").text("介绍不能为空");
+    	}else{
+    		$(".form-content").text(" ");
+    		$(".form-content").text("介绍可用");
+    	}
+    }) 
+            $("#img").blur(function (){
+    	var img = $("#img").val();
+    	if(img == ""){
+    		$(".form-img").text(" ");
+    		$(".form-img").text("原图不能为空");
+    	}else{
+    		$(".form-img").text(" ");
+    		$(".form-img").text("原图可用");
+    	}
+    }) 
+    	</script>

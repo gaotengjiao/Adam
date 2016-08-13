@@ -1,0 +1,125 @@
+<admintpl file="header" />
+</head>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <script src="__PUBLIC__/js/jquery-1.8.3.min.js"></script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            .texta{text-overflow: ellipsis; white-space: nowrap; overflow: hidden; cursor: pointer;}
+        </style>
+    </head>
+    <body>
+        <div class="wrap js-check-wrap"> 
+		<ul class="nav nav-tabs">
+            <li><a href="{:U('Installment/index')}">期数设置</a></li>
+            <li><a href="{:U('Installment/cyclebilling')}">分期项目</a></li>
+            <li class="active"><a href="{:U('Installment/userInstall')}">用户组分期</a></li>
+            <li><a href="{:U('Installment/add')}">新增期数</a></li>
+		</ul>
+        <form class="well form-search" method="post" action="{:U('Installment/index')}">
+            利率类型： <input type="text" name="search" value="{$num}" placeholder="请输入利率类型……"> &nbsp;&nbsp;
+            时间：
+            <input type="text" name="start_time" class="sang_Calender" value="{$time1}" style="width: 80px;" autocomplete="off">--
+            <input type="text" class="sang_Calender" name="end_time" value="{$time2}" style="width: 80px;" autocomplete="off"> &nbsp;
+            <input type="submit" class="btn btn-primary" value="搜索" />
+        </form>
+                <table class="table table-hover table-bordered table-list" style="table-layout:fixed">
+				<thead>
+					<tr>
+						<th width="20">用户组id</th>
+                        <th width="20">是否分期</th>
+                        <th width="20">分期项目</th>
+                        <th width="20">是否使用</th>
+					</tr>
+				</thead>
+                <tbody>
+					<volist name="list" id="vo">
+                        <tr>
+                            <td>{$vo['usergroupid']}</td>
+                            <td>
+                                <select name="" style="margin:0px; padding:0px; font-size:11px; height:25px;" class="isinstallment" data={$vo['id']} date="1">
+                                    <option value="1" {$vo['isinstallment'] == 1 ? 'selected' : ''}>分期</option>
+                                    <option value="0" {$vo['isinstallment'] == 0 ? 'selected' : ''}>不分期</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select name="" style="margin:0px; padding:0px; font-size:10px; height:25px;" class="installment" data={$vo['id']} date="2">
+                                    <option value="0" {$vo['installment'] == 0 ? 'selected' : ''}>无分期项目</option>
+                                    <volist name="type" id="v1">
+                                    <option value="{$v1['periodstype']}" {$vo['installment'] == $v1['periodstype'] ? 'selected' : ''}>{$v1['periodstype']}</option>
+                                    </volist>
+                                </select>
+                            </td>
+                            <td>
+                                <if condition="$vo['isusess'] == 0">    
+                                    <div class="cuts" style="border:1px solid #63B8FF; width:50px; text-align:center; background-color:#00BFFF; font-color:yellow;cursor:pointer" data="0" date={$vo['id']}>start</div>
+                                <else />
+                                    <div class="cuts" style="border:1px solid #63B8FF; width:50px; text-align:center; background-color:red; font-color:yellow;cursor:pointer" data="1" date={$vo['id']}>stop</div>
+                                </if>
+                            </td>
+                        </tr>
+                    </volist>
+				</tbody>
+                </table>
+            <div class="table-actions">
+			    <center>{$show}</center>
+		     </div>
+        </div>
+    </body>
+</html>
+<script src="__PUBLIC__/js/jquery-1.8.3.min.js"></script>
+<script>
+    $(function(){
+        $('.isinstallment').change(function(){
+            var that = $(this);
+            var val  = that.val();
+            var id   = that.attr('data');
+            var s   = that.attr('date');
+            $.post("{:U('Installment/editisinstall')}",{val:val, id:id, s:s}, function(msg){
+                if(!msg){
+                    alert('失败');
+                }
+            })
+        })
+        $('.installment').change(function(){
+            var that = $(this);
+            var val  = that.val();
+            var id   = that.attr('data');
+            var s   = that.attr('date');
+            $.post("{:U('Installment/editisinstall')}",{val:val, id:id, s:s}, function(msg){
+                if(!msg){
+                    alert('失败');
+                }
+            })
+        })
+        $('.cuts').click(function(){
+            var that = $(this);
+            var dat = that.attr('data'); // 获取现在的值，0为停止 1 位使用
+            var value = that.text();
+            var id = that.attr('date');
+            alert(value);
+            if(value == 'start'){
+                $.post("{:U('Installment/editisusess')}", {dat:dat, id:id}, function(msg){
+                    if(msg){
+                        that.text('stop');
+                        that.attr('data','1');
+                        that.css('background','red')
+                    }
+                })
+            }
+
+            if(value == 'stop'){
+                $.post("{:U('Installment/editisusess')}", {dat:dat, id:id}, function(msg){
+                    if(msg){
+                        that.text('start');
+                        that.attr('data','0');
+                        that.css('background','#00BFFF');
+                    }
+                })
+            }
+        })
+
+    })
+</script>

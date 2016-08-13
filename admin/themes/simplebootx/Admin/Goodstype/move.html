@@ -1,0 +1,54 @@
+<admintpl file="header" />
+</head>
+<body>
+	<div class="wrap">
+		<form method="post" id="js-forms">
+			<table cellpadding="2" cellspacing="2" width="100%">
+				<tbody>
+					<tr>
+						<td width="140">上级:</td>
+						<td>
+							<select name="term_id" id="options">
+								<foreach name='posts' item='vo'>
+									<if condition="$vo['pid'] neq 3">
+									<option value="{$vo['id']}" data="{$vo['pid']}">{$vo['html']}{$vo['typename']}</option>
+									<else /> 
+									
+									</if>
+								</foreach>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<button class="btn btn-primary" type="submit">移动</button> &nbsp; &nbsp; <span id="spans"></span>
+						</td>
+					</tr>
+					<tr>
+						<td><input type="hidden" name="id" value="{$id}"></td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+	</div>
+	<script src="__PUBLIC__/js/common.js"></script>
+	<script src="__PUBLIC__/js/jquery-1.8.3.min.js"></script>
+	<script>
+
+	$('#js-forms').submit(function(){
+		var value = $('#options').val();
+		var id = $("input[name='id']").val();
+		$.get("{:U('Goodstype/typemove')}", {id:id, value:value}, function(msg){
+			if(msg == 1){
+				$('#spans').text('移动中');
+				setTimeout(function(){
+					$('#spans').text('完成');
+					
+				},2000);
+			}
+		})
+		return false;
+	})
+	</script>
+</body>
+</html>

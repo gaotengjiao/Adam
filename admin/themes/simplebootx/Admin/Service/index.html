@@ -1,0 +1,131 @@
+<admintpl file="header" />
+</head>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="__PUBLIC__/js/jquery-1.8.3.min.js"></script>
+        <style>
+            .texta{text-overflow: ellipsis; white-space: nowrap; overflow: hidden; cursor: pointer;}
+        </style>
+        <script src="__PUBLIC__/js/jquery-1.8.3.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/js/jquery.layerModel.js"></script>
+        <link type="text/css" rel="stylesheet" href="__PUBLIC__/css/layerModel.css"/>
+    </head>
+    <body>
+        <div class="wrap js-check-wrap"> 
+		<ul class="nav nav-tabs">
+            <li class="active"><a href="{:U('Service/service')}" target="_self">服务流程</a></li>
+            <li ><a href="{:U('Service/add')}" target="_self">添加服务流程</a></li>
+		</ul>
+        <form class="well form-search" method="post" action="{:U('Goods/goods')}">
+            状态查询： 
+            <select name="status" id="">
+                <option value="0">可用</option>
+                <option value="1">不可用</option>
+            </select>
+            <input type="submit" class="btn btn-primary" value="搜索" />
+        </form>
+            <div class="table-actions"> 
+                <button class="btn btn-primary btn-small" id="nos">删除</button>
+            </div>
+            <form method="post" class="js-ajax-form">
+                <table class="table table-hover table-bordered table-list" style="table-layout:fixed">
+				<thead>
+					<tr>
+						<th width="20"><input type="checkbox" id="jschecks"></th>
+						<th width="80">服务流程ID</th>
+                        <th width="500">服务流程名称</th>
+						<th width="800">服务流程内容</th>
+						<th width="">状态</th>
+                        <th width="">操作</th>
+					</tr>
+				</thead>
+                <tbody>
+					<volist name="list" id="vo">
+                    <tr>
+                        <td><input type="checkbox" name="chk_list[]" class="checkas" value="{$vo['sid']}"></td>
+                        <td>{$vo['sid']}</td>
+                        <td>{$vo['sname']}</td>
+                        <td>{$vo['scontent']}</td>
+                        <td>{$vo['status'] == 0 ?'可用' : '不可用'}</td>
+                        <td><a href="{:U('Service/edit', array('id' => $vo['sid']))}">修改</a> | <span class="sumits" date="{$vo['status']}" data="{$vo['sid']}">{$vo['status'] == 1 ?'启用' : '禁用'}</span></td>
+                    </tr>
+                    </volist>
+                    <tr>
+                        <td id="h2" colspan="14" style="text-align:center; display:none">暂无产品信息</td>
+                    </tr>
+				</tbody>
+                </table>
+                <div class="table-actions">
+				    <center>{$show}</center>
+                </div>
+                <div id="demo0" style="width:400px;height: 200px;background: #e5e5e5;display: none;text-align: left;border:1px solid;text-indent:2em;overflow:scroll"></div>
+            </form>
+    
+        </div>
+        <script src="__PUBLIC__/js/jquery-1.8.3.min.js"></script>
+        <script src="__PUBLIC__/js/common.js"></script>
+        <script>
+        $('.sumits').click(function(){
+            var that = $(this);
+            var text = $(this).text();
+            var id = $(this).attr('data');
+            var status = $(this).attr('date');
+            var value = $(this).parent().prev().text();
+            $.get("{:U('Service/down')}",{id:id,status:status}, function(msg){
+                if(msg == 1 && status == 0){
+                    that.text('启用');
+                    that.parent().prev().text('不可用');
+                    that.attr('date', '1')
+                }
+                if(msg == 1 && status == 1){
+                   that.text('禁用');
+                   that.parent().prev().text('可用');
+                   that.attr('date', '0')
+                }
+            })
+        })
+
+        $("#jschecks").click(function() { 
+                var s = $(this).attr('checked');
+                if(s == 'checked'){
+                    $('.checkas').attr('checked', true);
+                }else{
+                    $('.checkas').attr('checked', false);
+                }
+            });
+
+        $('#nos').click(function(e){
+                var checkedList = new Array();
+                $("input[name='chk_list[]']:checked").each(function() {
+                    checkedList.push($(this).val());
+                });
+
+                if(checkedList == ''){
+                    e.preventDefault();
+                    var $_this = this;
+                    art.dialog({
+                        title: false,
+                        icon: 'question',
+                        content: '至少选择一个',
+                        follow: $_this,
+                        close: function () {
+                            $_this.focus();; //关闭时让触发弹窗的元素获取焦点
+                            return true;
+                        },
+                        cancelVal: '关闭',
+                        cancel: true
+                    });
+                }else{
+                    $.get("{:U('Service/delete')}", {id:checkedList}, function(msg){
+                        if(msg == 1){
+                            $("input[name='chk_list[]']:checked").parent().parent().remove();
+                        }
+                    })
+                }
+            })   
+        </script>
+    </body>
+</html> 

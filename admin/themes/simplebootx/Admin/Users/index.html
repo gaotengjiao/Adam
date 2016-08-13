@@ -1,0 +1,82 @@
+<admintpl file="header" />
+</head>
+<body>
+	<div class="wrap js-check-wrap">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="{:U('users/index')}">医师管理</a></li>
+			<!-- <li><a href="{:U('users/add')}">医师添加</a></li> -->
+		</ul>
+		<table class="table table-hover table-bordered">
+			<thead>
+				<tr>
+					<th width="50">ID</th>
+					<th>账号</th> 
+					<th>医师职位</th>
+					<th>邮箱</th>
+					<th>预约时间</th>
+					<th>头像</th>
+					<th>性别</th>
+					<th>最后登录id</th>
+					<th>最后登录时间</th>
+					<th>状态</th>
+					<th width="120">操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<volist name="post" id="vo">
+					<tr>
+						<td>{$vo['id']}</td>
+						<td>{$vo['user_login']}</td>
+						<td>{$vo['user_nicename']}</td>
+						<td>{$vo['user_email']}</td>
+						<td class="stat" data="{$vo['id']}"><font color="blue">点击查看或修改</font></td>
+						<td>{$vo['user_url']}</td>
+						<td>{$vo['sex'] == '0' ? '女' : ''}</td>
+						<td>{$vo['last_login_ip']}</td>
+						<td>{$vo['last_login_time']}</td>
+						<td>{$vo['status'] == 1 ? '禁用' : '启用'}</td>
+						<td class="tstatus" data="{$vo['id']}" date="{$vo['status']}">{$vo['status'] == 1 ? '启用' : '禁用'}</td>
+					</tr>
+				</volist>
+			</tbody>
+		</table>
+		<div class="pagination">{$show}</div>
+	</div>
+	<script src="__PUBLIC__/js/common.js"></script>
+	<script src="__PUBLIC__/js/jquery-1.8.3.min.js"></script>
+</body>
+</html>
+<script>
+Wind.use('ajaxForm', 'artDialog', 'iframeTools', function() {
+	//批量移动
+	$('.stat').click(function(e) {
+		var id = $(this).attr('data');
+		
+		art.dialog.open("__ROOT__/index.php?g=Admin&m=Users&a=move&id="+ id, {
+			title : "批量移动",
+			width : "1380px"
+		});
+	});
+})
+
+$('.tstatus').click(function(){
+	var that = $(this);
+	var i = that.attr('data');
+	var v = that.text();
+	var s = that.prev().text();
+	var e = that.attr('date'); 
+	$.post("{:U('Users/editstatus')}", {i:i, e:e}, function(msg){
+		if(msg == 1 && e == 1){
+			that.text(s);
+			that.attr('date','0');
+			that.prev().text(v);
+		}
+		if(msg == 1 && e == 0){
+			that.text(s);
+			that.attr('date','1');
+			that.prev().text(v);
+		}
+		
+	})
+})
+</script>

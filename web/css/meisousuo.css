@@ -1,0 +1,136 @@
+.beauty_header{
+    width:100%;
+    height:1.5rem;
+    background: white;
+    position: relative;
+    overflow: hidden;
+    border-bottom:1px #D6D7DC solid;
+}
+.beauty_line{
+    width:5.26rem;
+    height:0.6rem;
+    background: #F1F1F1;
+    border-radius: 0.3rem;
+    position: relative;
+    float: left;
+    margin-top:0.8rem;
+    margin-left:0.2rem;
+}
+.beauty_line span{
+    width:0.28rem;
+    height:0.28rem;
+    background:url("../img/seachIcon.png") no-repeat;
+    background-size: 100% 100%;
+    position: absolute;
+    left:0.2rem;
+    top:0.16rem;
+}
+.beauty_line input{
+    width:4.4rem;
+    height:0.3rem;
+    background: #F1F1F1;
+    border:none;
+    font:0.24rem/0.3rem '微软雅黑';
+    color: #c1c1c1;
+    position: absolute;
+    left:0.6rem;
+    top:0.16rem;
+}
+.beauty_close{
+    width:0.9rem;
+    height:0.6rem;
+    font:0.28rem/0.6rem '微软雅黑';
+    color: #F97FA4;
+    float: right;
+    margin-top: 0.8rem;
+    text-align: center;
+}
+.beauty_content{
+    width:100%;
+    height:7.4rem;
+    background: white;
+}
+.beauty_title{
+    width:100%;
+    height:0.8rem;
+    border-bottom: 1px #D6D7DC solid;
+}
+.beauty_title li{
+    width:2rem;
+    height:0.77rem;
+    float: left;
+    text-align: center;
+    font:0.28rem/0.77rem '微软雅黑';
+    color: #7c7e80;
+    margin-left: 0.5rem;
+}
+.beauty_title li:nth-of-type(1){
+    margin-left:1.1rem;
+}
+.beauty_title li.beauty_change{
+    color: #F97FA4;
+    border-bottom:0.035rem #F97FA4 solid;
+}
+.beauty_bai,.beauty_you{
+    width:100%;
+    display: none;
+}
+.beauty_bai{
+    display: block;
+}
+.bai_title,.you_title{
+    width:6.2rem;
+    height:0.8rem;
+    margin-left:0.2rem;
+    font:0.28rem/0.8rem '微软雅黑';
+    color: #989898;
+    text-align: left;
+    border-bottom:1px #D6D7DC solid;
+}
+.bai_list,.you_list{
+    width:6rem;
+    margin:0 auto;
+}
+.bai_list li{
+    width:50%;
+    height:0.8rem;
+    font:0.3rem/0.8rem '微软雅黑';
+    color: #282828;
+    float: left;
+}
+.bai_list li span{
+    width:0.26rem;
+    height:0.26rem;
+    display: inline-block;
+    background: url("../img/hot-wenzi.png") no-repeat;
+    background-size: 100% 100%;
+    margin-left:0.1rem;
+}
+.you_list li{
+    width:100%;
+    height:0.8rem;
+    font:0.3rem/0.8rem '微软雅黑';
+    color: #282828;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.you_list li span{
+    width:0.26rem;
+    height:0.26rem;
+    display: inline-block;
+    background: url("../img/jinghua.png") no-repeat;
+    background-size: 100% 100%;
+    margin-right:0.14rem;
+}
+
+
+
+
+
+
+
+
+
+
+

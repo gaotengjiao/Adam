@@ -1,0 +1,160 @@
+<admintpl file="header" />
+<style type="text/css">
+.pic-list li {
+	margin-bottom: 5px;
+}
+</style>
+<link href="__PUBLIC__/js/umeditor/themes/default/css/umeditor.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+	<div class="wrap js-check-wrap">
+		<ul class="nav nav-tabs">
+			<li><a href="{:U('Installment/index')}">分期管理</a> </li>
+			<li><a style="color:#000" href="javascript:void">--> 新增期数</a></li>
+		</ul>
+		<form action="{:U('Installment/add_post')}" method="post" id="myForms" class="form-horizontal js-ajax-forms" enctype="multipart/form-data">
+			<div class="row-fluid">
+				<div class="span9">
+					<table class="table" border="0" style="width:700px">
+                        <tr>
+							<th width="200">请输入名称 ：</th>
+							<td>
+	                            <input type="text" placeholder="请输入名称" name="periodstype" id="namesi"><span style="margin-left:10px;font-size:15px">*</span>
+	                        </td> 
+						</tr>
+						<tr>
+							<th>选择周期类型：</th>
+							<td>
+	                            <select name="period" id="cats" style="width:90px">
+									<option value="1">月</option>
+									<option value="3">年</option>
+									<option value="2">日</option>
+	                            </select>
+	                        </td>
+						</tr>
+						<tr>
+							<th>选择总期数（1-24）：</th>
+							<td>
+	                            <select id="seltable" name="table" id="" style="width:90px;">
+	                            	<option value="">下拉选择</option>
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+									<option value="6">6</option>
+									<option value="7">7</option>
+									<option value="8">8</option>
+									<option value="9">9</option>
+									<option value="10">10</option>
+									<option value="11">11</option>
+									<option value="12">12</option>
+									<option value="13">13</option>
+									<option value="14">14</option>
+									<option value="15">15</option>
+									<option value="16">16</option>
+									<option value="17">17</option>
+									<option value="18">18</option>
+									<option value="19">19</option>
+									<option value="20">20</option>
+									<option value="21">21</option>
+									<option value="22">22</option>
+									<option value="23">23</option>
+									<option value="24">24</option>
+	                            </select> <font size="4">期</font>
+	                        </td>
+						</tr>
+					</table>
+					<table border="1" cellspacing="0" style="width:700px" id="tabletr" class="table table-bordered">
+		
+					</table>
+				</div>
+			</div>
+			<div class="form-actions" style="width:500px">
+				<button class="btn btn-primary js-ajax-submit" type="submit">提交</button>
+				<a class="btn" href="javascript:void(0)">重置</a>
+			</div>
+		</form>
+	</div>
+	<script src="__PUBLIC__/js/jquery-1.8.3.js"></script>
+	<script>
+		var value = '月';
+		$('#cats').change(function(){
+			var v = $(this).val();
+			if(v == '1'){
+				value = '月';
+			}else if(v == '2'){
+				value = '日';
+			}else if(v == '3'){
+				value = '年';
+			}
+
+		})
+
+		var selftab = false;
+		$('#seltable').change(function(){
+			$('#tabletr').children().remove();
+			var v = $(this).val();
+			$('#tabletr').append("<tr><th width='50'>期数</th><th width='250'>费率</th><th>周期</th><th>操作</th></tr>");
+			for(var i=0; i<v; i++){
+				var s = i+1;
+				$('#tabletr').append("<tr><td>"+s+"<input type='hidden' name='periods[]' value="+s+"></td><td><a>0.5%</a><input type='text' name='reta[]' value='0.5%' style='display:none;width:50px;height:15px;margin:0px;padding:0px;'></input></td><td>"+value+"</td><td class='editreta'>修改</td></tr>");
+			}
+
+			if(v >= 1){
+				selftab = true;
+			}else{
+				selftab = false;
+			}
+
+		})
+		$('.editreta').live("click",function(){
+			var play = $(this).text();
+			if(play == '修改'){
+				$(this).text('设置');
+				$(this).prev().prev().children('a').remove();
+				$(this).prev().prev().children('input').css('display','');
+			}
+
+			if(play == '设置'){
+				$(this).text('修改');
+				var s = $(this).prev().prev().children('input').val();
+				$(this).prev().prev().html("<a>"+s+"</a><input type='text' name='reta[]' value="+s+" style='display:none;width:50px;height:15px;margin:0px;padding:0px;'></input>");
+				$(this).prev().prev().children('input').css('display','none');
+			}
+			
+		})
+
+		var seft = false;
+		$('#namesi').blur(function(){
+			var that = $(this);
+			var name = $(this).val();
+			seft = false;
+			if(name == ''){
+				that.next().text('不可以为空').css('color','red');
+				seft = false;
+				return false;
+			}
+
+			$.post("{:U('Installment/ajaxName')}", {name:name}, function(msg){
+				if(msg == '1'){
+					that.next().text('已存在').css('color','red');
+					seft = false;
+					return false;
+				}else if(msg == '2'){
+					that.next().text('✔').css('color','blue');
+					seft = true;
+				}
+			})
+		})
+
+		$('#myForms').submit(function(){
+			if(seft && selftab){
+				return true;
+			}else{
+				return false;
+			}
+		})
+	</script>
+</body>
+</html>

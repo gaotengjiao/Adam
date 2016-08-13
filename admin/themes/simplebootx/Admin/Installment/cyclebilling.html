@@ -1,0 +1,147 @@
+<admintpl file="header" />
+</head>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <script src="__PUBLIC__/js/jquery-1.8.3.min.js"></script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            .texta{text-overflow: ellipsis; white-space: nowrap; overflow: hidden; cursor: pointer;}
+        </style>
+    </head>
+    <body>
+        <div class="wrap js-check-wrap"> 
+		<ul class="nav nav-tabs">
+            <li><a href="{:U('Installment/index')}">期数设置</a></li>
+            <li class="active"><a href="{:U('Installment/cyclebilling')}">分期项目</a></li>
+            <li><a href="{:U('Installment/userInstall')}">用户组分期</a></li>
+            <li><a href="{:U('Installment/add')}">新增期数</a></li>
+		</ul>
+            <form method="post" class="js-ajax-form">
+                <table class="table table-hover table-bordered table-list" style="table-layout:fixed">
+				<thead>
+					<tr>
+						<th width="20">项目ID</th>
+						<th width="45">项目类别</th>
+                        <th width="45">分期选择</th>
+						<th width="45">分期使用人数</th>
+                        <th width="45">操作</th>
+					</tr>
+				</thead>
+                <tbody>
+					<volist name="list" id="vo">
+                        <tr style="height:10px" class="{$vo['level']} descode" data="{$vo['pid']}">
+                            <td>{$vo['html']}<a style="cursor:pointer" class="bagade" datt="{$vo['pid']}" data="{$vo['id']}">▶</a>{$vo['id']}</td>
+                            <td>{$vo['typename']}</td>
+                            <td>
+                                {$vo['types'] == '0' ? '暂无分期' : $vo['types']}
+                            </td>
+                            <td>123</td>
+                            <td class="editskt" type="1" datt="{$vo['level']}" data="{$vo['id']}" style="color:blue">修改</td>
+                        </tr>
+                    </volist>
+				</tbody>
+                </table>  
+                <div class="table-actions">
+				    <center>{$show}</center>
+			</div>
+            </form>
+        </div>
+    
+        <script src="__PUBLIC__/js/common.js"></script>
+        <script src="__PUBLIC__/js/jquery-1.8.3.min.js"></script>
+        <script src="__PUBLIC__/js/datetime.js"></script>
+        <script>
+        window.onload = function(){
+            $('.descode').each(function(){
+                var v = $(this).attr('data');
+                if(v == '2' || v == '3'){
+                    $(this).css('display','none');
+                }
+            })
+        }
+
+
+        $('.bagade').live('click',function(){
+            var that = $(this);
+            var data = that.attr('datt');
+            var id = that.attr('data'); // 获取当前的id
+            var text = that.text();     // 获取当前的箭头
+            var gg = 'hsd'+id;         
+            if(text == '▶' && data != '3'){
+                $('.'+id).css('display','');
+                that.text('▼');
+            }
+
+            if(text == '▼' && data != 3){
+                that.text('▶');
+                $('.'+id).each(function(){
+                    var thay = $(this);
+                    thay.css('display','none');
+                })
+            }
+
+            if(text == '▼' && data == 1){
+                that.text('▶');
+                $('.'+id).each(function(){
+                    var thay = $(this);
+                    thay.css('display','none');
+                    var clas = thay.next().attr('class').replace(/[^0-9]/ig, "");
+                    if(clas != 0){
+                        $('.'+clas).css('display','none');
+                    }
+                })
+            }
+            if(text == '▶' && data == '3'){
+                $.get("{:U('Installment/selgoodstype')}", {id:id}, function(msg){
+                    if(msg != ''){
+                        that.text('▼');
+                        that.parent().parent().after(msg);
+                    }
+                })
+            }
+
+            if(text == '▼' && data == '3'){
+                $("."+gg).remove();
+                that.text('▶');
+            }
+            
+        })
+
+        $('.editskt').live('click',function(){
+            var that = $(this);
+            var v = $(this).text();
+            var level = that.attr('datt');
+            if(v == '修改'){
+                $.get("{:U('Installment/editstall')}",{},function(msg){
+
+                    var s = that.prev().prev().html(msg);
+                    that.text('设置').css('color','red');
+                })
+            }
+            var s = that.prev().prev().children('.selectedsar').val(); // 获取值
+
+            if(v == '设置'){
+                var type = that.attr('type');
+                var id = that.attr('data');
+                $.post("{:U('Installment/setting')}",{type:type, id:id, s:s}, function(msg){
+                    that.prev().prev().text(s);
+                     window.location.reload();
+                })
+                
+            }
+        })
+        $('.selectead').live('change',function(){
+            var that = $(this);
+            var s = that.val();
+            var id = that.attr('data');
+            $.post("{:U('Installment/isinstall')}", {s:s, id:id}, function(msg){
+                
+            })
+        })
+
+        </script>
+    </body>
+</html>
+

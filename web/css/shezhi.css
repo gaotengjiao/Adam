@@ -1,0 +1,248 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    position: relative;
+    overflow: hidden;
+}
+.list{
+    background: #ffffff;
+    margin-bottom: 0.94rem;
+}
+
+.list li{
+    width: 100%;
+    height: 0.8rem;
+    border-top: 1px solid #D6D7DC;
+    line-height: 0.8rem;
+    color: #282828;
+    font-size: 0.28rem;
+}
+
+#ok{
+    background: #f3a9c9;
+}
+
+.list a{
+    display: block;
+    float: right;
+    color: #5cc87d;
+}
+
+.list li span{
+    display: block;
+    float: left;
+}
+
+.list li i{
+    display: block;
+    float: right;
+    width: 0.2rem;
+    background-size: contain;
+    height: 100%;
+    background: url("../img/fanhuijianda-icon.png") no-repeat center;
+    background-size: 60%;
+}
+
+#tui ul li{
+    background: #ffffff;
+    height: 0.8rem;
+    width: 100%;
+    margin-bottom: 0.2rem;
+    position: relative;
+}
+
+#tui ul li span{
+    display: block;
+    float: left;
+    width: auto;
+    line-height: 0.8rem;
+    color: #282828;
+    font-size: 0.26rem;
+}
+
+#a{
+    position: absolute;
+    display: block;
+    right:0.2rem;
+    top:0;
+    bottom: 0;
+    margin: auto 0;
+}
+
+#b{
+    position: absolute;
+    display: block;
+    right:0.2rem;
+    top:0;
+    bottom: 0;
+    margin: auto 0;
+}
+
+#c{
+    position: absolute;
+    display: block;
+    right:0.2rem;
+    top:0;
+    bottom: 0;
+    margin: auto 0;
+}
+
+#guanyu,#tui,#phone{
+    position: absolute;
+    background: #f1f1f1;
+    top:0;
+    left: 6.4rem;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+#guanyu img{
+    display: block;
+    width: 1.44rem;
+    height: 1.28rem;
+    margin: 0.86rem auto;
+}
+
+#guanyu p{
+    background: #ffffff;
+    font-size: 0.24rem;
+    color: #6f6f6f;
+    text-indent: 0.48rem;
+    line-height: 0.45rem;
+}
+
+#guanyu span{
+    position: absolute;
+    left: 0;
+    bottom: 0.44rem;
+    display: block;
+    text-align: center;
+    width: 100%;
+    font-size: 0.2rem;
+    color: #989898;
+}
+
+#p_left{
+    background: #f1f1f1;
+    position: relative;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+}
+
+#p_left div{
+    position: relative;
+    width: 100%;
+    height: 0.8rem;
+    background: #ffffff;
+    border-bottom: 1px solid #D6D7DC;
+}
+#p_left div input{
+    display: block;
+    width: 100%;
+    height: 100%;
+    line-height: 0.79rem;
+    padding: 0.25rem 1rem 0.25rem 0.2rem;
+    color: #AEAEAE;
+    font-size: 0.26rem;
+    border: 0;
+}
+
+#p_left>input{
+    width: 100%;
+    display: block;
+    height: 0.8rem;
+    padding: 0.25rem 0.2rem;
+    color: #282828;
+    font-size: 0.26rem;
+    line-height: 0.8rem;
+    border:0;
+}
+
+.qu{
+    position: absolute;
+    right:0.2rem;
+    top:0;
+    bottom:0;
+    margin: auto;
+    display: block;
+    height: 0.5rem;
+    width: auto;
+    border:1px solid #e169a3;
+    border-radius: 5px;
+    padding: 0 0.2rem;
+    line-height: 0.5rem;
+    color: #e169a3;
+    font-size: 0.24rem;
+}
+
+#xia{
+    display: block;
+    margin-top: 0.94rem;
+}
+
+#p_right{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 6.4rem;
+    top:0;
+    z-index: 300;
+    background: #f1f1f1;
+}
+
+#p_right>span{
+    color: #282828;
+    display: block;
+    width: 100%;
+    height: 0.8rem;
+    line-height: 0.8rem;
+    font-size: 0.28rem;
+}
+
+#p_right div{
+    position: relative;
+    width:100%;
+    height: 0.8rem;
+    background: #ffffff;
+}
+
+#p_right div input{
+    display: block;
+    width: 100%;
+    height: 100%;
+    line-height: 0.79rem;
+    padding: 0.25rem 1rem 0.25rem 0.2rem;
+    color: #AEAEAE;
+    font-size: 0.26rem;
+    border: 0;
+}
+
+#p_right>input{
+    width: 100%;
+    display: block;
+    height: 0.8rem;
+    padding: 0.25rem 0.2rem;
+    color: #282828;
+    font-size: 0.26rem;
+    line-height: 0.8rem;
+    border:0;
+}
+
+#p_right i{
+    display: block;
+    width: 100%;
+    height: 0.8rem;
+    line-height: 0.8rem;
+    font-size: 0.2rem;
+    padding-left: 0.2rem;
+    color: #800037;
+    margin-bottom: 0.94rem;
+}
+
+#bang{
+    display: block;
+}

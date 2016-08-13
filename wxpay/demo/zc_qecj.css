@@ -1,0 +1,29 @@
+html{width:100%; height:100%; background:url(./fasdfqwefsd.jpg) no-repeat top center;  background-size:100% 100%;}
+body{font-family:'微软雅黑';margin:0; padding:0; }
+p{ margin:0; padding:0;}
+a{ text-decoration:none;}
+/*=====================================*/
+.botton{ width:100%; height:50px;  position:fixed; bottom:0%; z-index:10000; border-top:1px solid #ff7d7e;}
+.botton .botton-yu{ width:100px; margin:0 auto; bottom:150px;}
+.botton .botton-yu img{ width:100%; cursor:pointer;}
+.botton .botton-san{ width:100%; height:50px; background:#ed5565; position:absolute; bottom:0%;}
+.botton .botton-san .bu{ width:32%; float:left; height:100%; line-height:50px; text-align:center; color:#fff; font-size:14px; font-weight:bold; cursor:pointer;}
+.botton .botton-san .bubor{ border-left:2px solid #ff7d7e; border-right:2px solid #ff7d7e;}
+.fhu{ width:80%; height:30px; margin:20px auto; margin-bottom:70px;}
+.fhu .fhj{ float:right; width:80px; text-align:center; line-height:30px; color:#fff; font-size:14px; font-weight:bold; height:30px;  background:#ff6600; border-radius:5px; background-size:100% 100%; cursor:pointer;}
+
+
+/*===============我的课程参与页====================*/
+.zc-course{ width:100%; height:100%; background:url(./fasdfqwefsd.jpg) no-repeat top center;  background-size:100% 100%; position:absolute;}
+
+.zc-course .list{ width:80%; margin:0 auto; background-size:100% 100%; margin-top:20px;}
+.zc-course .list .text_1{width:90%; margin:0 auto; margin-top:2px; margin-bottom:0px;}
+.zc-course .list .text_1 .usename_1{  margin:0; padding:0; width:100%; line-height:40px; text-align:left; font-size:18px; color:#000; font-weight:bold;}
+.zc-course .list .text_1 .usename_2{ margin:0; padding:0; width:100%; line-height:40px; text-align:left; text-indent:0.2em; font-size:16px; color:#c41828; font-weight:bold;}
+
+.zc-course .text_3{height:40px; width:90%; margin:0 auto; margin-top:20px;}
+.zc-course .text_3 .usename_1{width:100%; margin:0 auto; background:#c41828; border-radius:5px; line-height:40px; text-align:center; letter-spacing:0.1em; font-size:18px; color:#fff; font-weight:bold; cursor:pointer; border:0;}
+
+.zc-course .cjiese{ width:80%; height:100%; overflow:hidden; margin:0 auto; margin-top:20px;}
+.zc-course .cjiese .bfuht{ float:right; width:105px; height:50px; background:url(./course-fanhui.png) no-repeat; margin:0; text-align:center; line-height:50px; color:#fff; margin-bottom:10px; border-radius:5px; font-size:20px; font-weight:bold; cursor:pointer; border:0;}
+

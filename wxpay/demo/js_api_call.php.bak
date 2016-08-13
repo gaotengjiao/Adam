@@ -1,0 +1,200 @@
+<?php
+
+/**
+ * JS_API支付demo
+ * ====================================================
+ * 在微信浏览器里面打开H5网页中执行JS调起支付。接口输入输出数据格式为JSON。
+ * 成功调起支付需要三个步骤：
+ * 步骤1：网页授权获取用户openid
+ * 步骤2：使用统一支付接口，获取prepay_id
+ * 步骤3：使用jsapi调起支付
+*/
+
+	include_once("../WxPayPubHelper/WxPayPubHelper.php");
+	
+	//使用jsapi接口
+	$jsApi = new JsApi_pub();
+
+	//=========步骤1：网页授权获取用户openid============
+	//通过code获得openid
+	if (!isset($_GET['code']))
+	{
+		//触发微信返回code码
+		$url = $jsApi->createOauthUrlForCode(WxPayConf_pub::JS_API_CALL_URL);
+		Header("Location: $url"); 
+	}else
+	{
+		//获取code码，以获取openid
+	    $code = $_GET['code'];
+		$jsApi->setCode($code);
+		$openid = $jsApi->getOpenId();
+		
+		
+		$nickname = $jsApi->getNickname();
+		$headimgurl = $jsApi->getHeadimgurl();
+	}
+	
+	
+	$linkID=@mysql_connect("gao101312.mysql.rds.aliyuncs.com","gaotengjiao","gao101312");
+		if(!$linkID){
+			echo "没连接上";
+			}
+	
+		$ss=@mysql_select_db("hjd");
+		mysql_query("SET NAMES 'GB2312'"); 
+		if(!$ss){
+			echo "没找到数据库";
+			}
+		/* $appid="wxaf6078a557ceeeec";
+		$secret="4290895a40612599370221ab71995c91";
+		
+		$json = file_get_contents("https://api.weixin.qq.com/sns/oauth2/access_token?appid=wxaf6078a557ceeeec&secret=4290895a40612599370221ab71995c91&code=".$_GET['code']."&grant_type=authorization_code");
+		$arr = json_decode($json,true); 
+		$refresh_token=$arr['refresh_token'];	
+		$json = file_get_contents("https://api.weixin.qq.com/sns/oauth2/refresh_token?appid=wxaf6078a557ceeeec&grant_type=refresh_token&refresh_token=".$refresh_token);
+		$arr = json_decode($json,true);
+		$token = $arr['access_token'];
+		$openid = $arr['openid'];
+		//拿到token后就可以获取用户基本信息了   
+		$json = file_get_contents("https://api.weixin.qq.com/sns/userinfo?access_token=".$token."&openid=".$openid."&lang=zh_CN");//获取微信用户基本信息 ，'字符串' 
+		$arr = json_decode($json,true);  //把json解析成数组
+		 */
+		$member = mysql_fetch_array(mysql_query("select * from phome_enewsmember where username='".$openid."'")); 
+		//判断是否是会员
+		if($member['groupid'] == 2){
+			echo '<script>window.location.href="http://www.juzhidao.net.cn:8055/wx_payment/cg.html";</script>';	
+		}else{
+			$crov = mysql_fetch_array(mysql_query("select * from phome_ecms_wxuser where openid='".$openid."'"));
+		
+	 
+	
+
+
+	//=========步骤2：使用统一支付接口，获取prepay_id============
+	//使用统一支付接口
+	$unifiedOrder = new UnifiedOrder_pub();
+	
+	//设置统一支付接口参数
+	//设置必填参数
+	//appid已填,商户无需重复填写
+	//mch_id已填,商户无需重复填写
+	//noncestr已填,商户无需重复填写
+	//spbill_create_ip已填,商户无需重复填写
+	//sign已填,商户无需重复填写
+	$unifiedOrder->setParameter("openid","$openid");//商品描述
+	$unifiedOrder->setParameter("body","加入聚智道");//商品描述
+	//自定义订单号，此处仅作举例
+	$timeStamp = time();
+	$out_trade_no = WxPayConf_pub::APPID."$timeStamp";
+	$unifiedOrder->setParameter("out_trade_no","$out_trade_no");//商户订单号 
+	$unifiedOrder->setParameter("total_fee","199900");//总金额
+	$unifiedOrder->setParameter("notify_url",WxPayConf_pub::NOTIFY_URL);//通知地址 
+	$unifiedOrder->setParameter("trade_type","JSAPI");//交易类型
+	//非必填参数，商户可根据实际情况选填
+	//$unifiedOrder->setParameter("sub_mch_id","XXXX");//子商户号  
+	//$unifiedOrder->setParameter("device_info","XXXX");//设备号 
+	//$unifiedOrder->setParameter("attach","XXXX");//附加数据 
+	//$unifiedOrder->setParameter("time_start","XXXX");//交易起始时间
+	//$unifiedOrder->setParameter("time_expire","XXXX");//交易结束时间 
+	//$unifiedOrder->setParameter("goods_tag","XXXX");//商品标记 
+	//$unifiedOrder->setParameter("openid","XXXX");//用户标识
+	//$unifiedOrder->setParameter("product_id","XXXX");//商品ID
+
+	$prepay_id = $unifiedOrder->getPrepayId();
+	//=========步骤3：使用jsapi调起支付============
+	$jsApi->setPrepayId($prepay_id);
+
+	$jsApiParameters = $jsApi->getParameters();
+	$jsA = json_decode($jsApiParameters,true); 
+?>
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>聚智道</title>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'/>
+<link rel="stylesheet"  type="text/css" href="../css/public.css" />
+
+<link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" />
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+
+
+<script src="../js/jquery.js"></script>
+<link rel="stylesheet"  type="text/css" href="../css/Payment.css" />
+<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script type="text/javascript">
+
+		//调用微信JS api 支付
+		function jsApiCall(){
+			WeixinJSBridge.invoke(
+				'getBrandWCPayRequest',
+				<?php echo $jsApiParameters; ?>,
+				function(res){
+					WeixinJSBridge.log(res.err_msg);
+					//alert(res.err_code+res.err_desc+res.err_msg);
+					//var ordersmark = "<?=$out_trade_no?>";
+					
+					var openid		= "<?=$openid?>";
+					var nickname	= "<?=$nickname?>";
+					var headimgurl	= "<?=$headimgurl?>";
+								
+					var Cts = res.err_msg;
+					if(Cts.indexOf("ok")>0 || Cts.indexOf("OK")>0){
+							$.ajax({
+								type: 'POST',
+								url: "http://www.juzhidao.net.cn:8055/wx_payment/demo/crowdorders.php",
+								data:{"openid":openid,"nickname":nickname,"headimgurl":headimgurl},
+								dataType: "text",
+								success: function (count) {
+									if(count == "1"){
+										alert('支付成功');
+										window.location.href="http://www.juzhidao.net.cn:8055/wx_payment/cg.html";
+									}else{
+										alert('订单生成失败！');
+									}
+								}
+						   });
+					}
+				}
+			);
+		}
+
+		function callpay(){
+			if (typeof WeixinJSBridge == "undefined"){
+			    if( document.addEventListener ){
+			        document.addEventListener('WeixinJSBridgeReady', jsApiCall, false);
+			    }else if (document.attachEvent){
+			        document.attachEvent('WeixinJSBridgeReady', jsApiCall); 
+			        document.attachEvent('onWeixinJSBridgeReady', jsApiCall);
+			    }
+			}else{
+			    jsApiCall();
+			}
+		 }
+	
+	</script>
+
+</head>
+
+<body>
+
+
+<div class="juhfasdyh">
+	<div class="vjiuh">VIP</div>
+    <div class="juifdha">￥1999.00</div>
+</div>
+
+<div class="pou">
+	<p class="lkom">收&nbsp;&nbsp;款&nbsp;&nbsp;方：聚智道</p>
+	<p class="lkom">商<span style="color:#fff;">商品</span>品：一年会员</p>
+	<p class="lkom">所需支付：1999.00元</p>
+</div>
+<?php echo $jsApiParameters."asdfasdfasdfasdf"; ?>
+<div class="bfmjgh"><button type="button" class="btn btn-primary btn-lg btn-block" style="background:#fe7701; border-color:#fe7701; font-weight:bold;" onClick="callpay()">立即支付</button></div>
+
+</body>
+
+<?php
+		}
+?>

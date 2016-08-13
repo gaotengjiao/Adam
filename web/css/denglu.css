@@ -1,0 +1,95 @@
+/*通配*/
+img{vertical-align: top; border: none;}
+html *{-webkit-tap-highlight-color: rgba(0,0,0,0);}
+button{-webkit-appearance: none; border: none;}
+a,input,textarea{outline: none;}
+html{height: 100%;}
+form,p,ul,h3,h2,body{margin:0; padding:0; font-family: "微软雅黑";}
+li{list-style: none;}
+a{text-decoration: none;}
+table{border-collapse: collapse;}
+td,th{padding:0; border: 1px solid #d6d7dc;}
+td{text-align: center;}
+input{ -webkit-appearance: none;}
+i,em{ font-style: normal;}
+.clear{ zoom: 1;}
+.clear:after{ content: ""; display: block; clear: both;}
+body{height:100% ;position: relative;  background: #f1f1f1;}
+/*通配*/
+
+.dl_main{ width:14.2rem; margin: 0 auto; overflow: hidden;}
+/*两种方式*/
+.dl_fangshi{ width: 14rem; height: 1.4rem; background: white; border: 0.05rem #f97fa4 solid; border-radius: 0.25rem; color: #f97fa4; font-size: 0.75rem; margin:0.5rem auto;}
+.dl_fangshi div{ width: 7rem; height: 100%; border-radius: 0.125rem; float: left; line-height: 1.4rem; text-align: center;}
+.nowPage{ background: #f97fa4; color: white;}
+
+/*账号密码方式*/
+.dl_one{ width: 14.2rem; margin: 0 auto; overflow: hidden; }
+.dl_two{ width: 14.2rem; margin: 0 auto; overflow: hidden; display: none;}
+/*输入电话号*/
+.dl_number,.dl_numberT{ width: 14rem; height: 2.2rem; background: white; border: 1px #d6d7dc solid; overflow: hidden; margin-top: 1rem;}
+.dl_number span,.dl_numberT span{ width: 1.825rem; height: 1.375rem; display: block; float: left; border-right: 1px #d6d7dc solid; margin-top: 0.425rem; display: flex;}
+.dl_number span img,.dl_numberT span img{ width: 0.9rem; height: 1.05rem; margin: auto auto; }
+.dl_number input,.dl_numberT input{ width: 11rem; height: 2.2rem; line-height: 1.8rem; border: none; text-indent: 0.5rem; color: #acacac; font-size: 0.75rem;}
+.dl_number i,.dl_numberT i{ width: 1rem; height: 100%; display: block; float: right; overflow: hidden;}
+.dl_number i img,.dl_numberT i img{ width: 0.8rem; height: 1.05rem; margin-top: 0.5rem; }
+
+/*输入密码*/
+.dl_mima{ width: 14rem; height: 2.2rem; background: white; border: 1px #d6d7dc solid; overflow: hidden; margin-top: 0.5rem;}
+.dl_mima span{ width: 1.825rem; height: 1.375rem; display: block; float: left; border-right: 1px #d6d7dc solid; margin-top: 0.425rem; display: flex;}
+.dl_mima span img{ width: 0.9rem; height: 1.05rem; margin: auto auto; }
+.dl_mima input{ width: 11rem; height: 2.2rem; border: none; text-indent: 0.5rem; color: #acacac; font-size: 0.75rem; line-height: 2rem;}
+.dl_mima i{ width: 1rem; height: 100%; display: block; float: right; overflow: hidden;}
+.dl_mima i img{ width: 0.8rem; height: 1.05rem; margin-top: 0.5rem; }
+
+/*忘记密码*/
+.dl_forget{ width: 6rem; height: 1.9rem; margin-left: 8rem;}
+.dl_forget li{ width: 50%; height: 100%; line-height: 1.9rem; text-align: center; float: left;}
+.dl_forget li a{ font-size: 0.65rem; color: #f97fa4;}
+
+/*输入验证码*/
+.dl_yanzhengma{ width: 14.2rem; height: 2.25rem; margin-top: 0.5rem; margin-bottom: 1.9rem;}
+.dl_left{ width: 8.2rem; height: 2.2rem; background: white; border: 1px #d6d7dc solid; float: left;}
+.dl_left span{ width: 1.825rem; height: 1.375rem; display: block; float: left; border-right: 1px #d6d7dc solid; margin-top: 0.425rem; display: flex;}
+.dl_left span img{ width: 0.9rem; height: 1.05rem; margin: auto auto;}
+.dl_left input{ width: 5.4rem; height: 1.8rem; border: none; color: #acacac; font-size: 0.75rem; float: left; text-indent: 0.5rem;}
+.dl_right{ width: 5rem; height: 2.2rem; text-align: center; border:none ; border: 1px #f97fa4 solid; float: right; color: #f97fa4; font-size: 0.75rem; background: white; line-height: 2.2rem; border-radius: 0.125rem;}
+
+/*提示*/
+.dl_tips1,.dl_tips2,.dl_tips3,.dl_tips4{ width: 100%; height: 1rem; line-height: 1rem; font-size: 0.75rem; color: red; display: none; margin-top: 0.5rem;}
+
+/*登陆按钮*/
+.dl_btn{ width: 14.2rem; height: 2.2rem; border-radius: 0.25rem; background: #f97fa4; color: white; text-align: center; font-size: 0.85rem;  border: none; margin: 0.65rem auto;}
+
+/*第三方登陆*/
+.dl_third{ width: 100%; margin-top: 2.5rem; overflow: hidden;}
+.dl_title{ width: 15rem; height:1.05rem; margin: 0 auto; position: relative;}
+.dl_title span{ width: 100%; display: block; border-top: 1px #d6d7dc solid; position: absolute; left: 0; top: 50%;} 
+.dl_title p{ width: 5rem; height: 100%; line-height: 1.05rem; text-align: center; font-size: 0.65rem; color: #898989; position: absolute; left: 50%; margin-left: -2.5rem; top: 0; background: #f1f1f1;}
+
+.dl_icon{ width: 100%; margin-top: 0.875rem;}
+.dl_icon a{width: 3.35rem; height: 3.35rem; display: inline-block; margin-left: 1.3rem;}
+.dl_icon a span{ width: 100%; height: 100%; display: block; }
+.dl_icon a span img{ width: 100%; height: 100%;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

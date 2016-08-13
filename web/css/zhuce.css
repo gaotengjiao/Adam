@@ -1,0 +1,63 @@
+/*通配*/
+img{vertical-align: top; border: none;}
+html *{-webkit-tap-highlight-color: rgba(0,0,0,0);}
+button{-webkit-appearance: none; border: none;}
+a,input,textarea{outline: none;}
+html{height: 100%;}
+form,p,ul,h4,h3,h2,body{margin:0; padding:0; font-family: "微软雅黑";}
+li{list-style: none;}
+a{text-decoration: none;}
+table{border-collapse: collapse;}
+td,th{padding:0; border: 1px solid #d6d7dc;}
+td{text-align: center;}
+i,em{ font-style: normal;}
+input{ -webkit-appearance: none;}
+.clear{ zoom: 1;}
+.clear:after{ content: ""; display: block; clear: both;}
+body{height:100% ;position: relative;  background: #f1f1f1;}
+/*通配*/
+
+.zc_main{ width: 14.2rem; margin: 0 auto; overflow: hidden; }
+/*输入电话号*/
+.zc_number{ width: 14rem; height: 2.2rem; background: white; border: 1px #d6d7dc solid; overflow: hidden; margin-top: 1.25rem;}
+.zc_number span{ width: 1.825rem; height: 1.375rem; display: block; float: left; border-right: 1px #d6d7dc solid; margin-top: 0.425rem; display: flex;}
+.zc_number span img{ width: 0.9rem; height: 1.05rem; margin: auto auto; }
+.zc_number input{ width: 11rem; height: 2.2rem; line-height: 2rem; border: none; text-indent: 0.5rem; color: #acacac; font-size: 0.75rem;}
+.zc_number i{ width: 1rem; height: 100%; display: block; float: right; overflow: hidden;}
+.zc_number i img{ width: 0.8rem; height: 1.05rem; margin-top: 0.5rem; }
+
+/*输入验证码*/
+.yanzhengma{ width: 14.2rem; height: 2.25rem; margin-top: 0.5rem;}
+.zc_left{ width: 8.2rem; height: 2.2rem; background: white; border: 1px #d6d7dc solid; float: left; overflow: hidden;}
+.zc_left span{ width: 1.825rem; height: 1.375rem; display: block; float: left; border-right: 1px #d6d7dc solid; margin-top: 0.425rem; display: flex;}
+.zc_left span img{ width: 0.9rem; height: 1.05rem; margin: auto auto;}
+.zc_left input{ width: 5.4rem; height: 1.8rem; border: none; color: #acacac; font-size: 0.75rem; float: left; text-indent: 0.5rem;}
+.zc_right{ width: 4.6rem; height: 1.8rem; border: none; border: 1px #f97fa4 solid; float: right; color: #f97fa4; font-size: 0.75rem; background: white; line-height: 1.8rem; text-align: center; border-radius: 0.125rem}
+
+/*设置密码*/
+.zc_mima{ width: 14rem; height: 2.2rem; background: white; border: 1px #d6d7dc solid; overflow: hidden; margin-top: 0.5rem;}
+.zc_mima span{ width: 1.825rem; height: 1.375rem; display: block; float: left; border-right: 1px #d6d7dc solid; margin-top: 0.425rem; display: flex;}
+.zc_mima span img{ width: 0.9rem; height: 1.05rem; margin: auto auto; }
+.zc_mima input{ width: 11rem; height: 2.2rem; line-height: 2rem; border: none; text-indent: 0.5rem; color: #acacac; font-size: 0.75rem;}
+.zc_mima i{ width: 1rem; height: 100%; display: block; float: right; overflow: hidden;}
+.zc_mima i img{ width: 0.8rem; height: 1.05rem; margin-top: 0.5rem; }
+
+/*提示*/
+.zc_tips1,.zc_tips2,.zc_tips3{ width: 100%; height: 1rem; line-height: 1rem; font-size: 0.75rem; color: red; display: none; margin-top: 0.5rem;}
+
+/*注册*/
+.zc_btn{ width: 14.2rem; height: 2.2rem; border-radius: 0.25rem; background: #f97fa4; color: white; text-align: center; font-size: 0.85rem; margin-top: 1.125rem; border: none;}
+
+/*同意协议*/
+.xieyi{ width: 14.2rem; height: 1.95rem; overflow: hidden;}
+.xieyi span{ width: 0.65rem; height: 0.65rem; background: url(../img/zcicon14.png); background-size: 100% 100%; margin-top: 0.675rem; display: block; float: left;}
+
+.xieyi p{ width: 13.25rem; height: 100%; line-height: 1.95rem; font-size: 0.65rem; color: #898989; text-indent: 0.25rem;}
+
+
+
+
+
+
+
+

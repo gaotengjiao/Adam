@@ -1,0 +1,116 @@
+<admintpl file="header" />
+<style type="text/css">
+.pic-list li {
+	margin-bottom: 5px;
+}
+</style>
+<link href="__PUBLIC__/js/umeditor/themes/default/css/umeditor.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+	<div class="wrap js-check-wrap">
+		<ul class="nav nav-tabs">
+			<li><a href="{:U('BillsTable/index')}">所有账单</a> </li>
+			<li><a style="color:#000" href="javascript:void">--> 设置</a></li>
+		</ul>
+		<form action="{:U('Goods/Goodsedit')}" method="post" class="form-horizontal js-ajax-forms" enctype="multipart/form-data">
+			<div class="row-fluid">
+				<div class="span9">
+					<table class="table table-bordered" >
+                        <tr>
+							<th width="200">账单编号 ：</th>
+							<td>
+	                            {$list.billnum}
+	                        </td>
+						</tr>
+						<tr>
+							<th>账单金额：</th>
+							<td>
+	                            {$list.billamount} 元
+	                        </td>
+						</tr>
+						<tr>
+							<th>手机号：</th>
+							<td>
+	                            {$list.iphone}
+	                        </td>
+						</tr>
+						<tr>
+							<th>信用评分：</th>
+							<td>
+	                            50 分
+	                        </td>
+	                    </tr>
+	                    <tr>    
+	                        <th>评分时间：</th>
+	                        <td>
+								2016-07-26 <font color="red">重新获取</font>
+	                        </td>
+						</tr>
+						<tr>
+							<th>账单内容：</th>
+							<td>
+	                            {$list.billcontent}
+	                        </td>
+						</tr>
+						<tr>
+							<th>交易时间：</th>
+							<td>
+	                            {$list.billdate}
+	                        </td>
+						</tr>
+						<tr>
+							<th>账单类型：</th>
+							<td>
+	                            <select name="billtype" id="">
+									<option value="1" {$list.billtype == 1 ? 'selected' : ''}>个人</option>
+									<option value="2" {$list.billtype == 2 ? 'selected' : ''}>团购</option>
+									<option value="3" {$list.billtype == 3 ? 'selected' : ''}>折扣</option>
+	                            </select>
+	                        </td>
+						</tr>
+						<tr>
+							<th>账单状态：</th>
+							<td>
+	                            {$list.status}
+	                        </td>
+						</tr>
+						<tr>
+							<th>还款状态：</th>
+							<td>
+	                            {$list['billstatus']}
+	                        </td>
+						</tr>
+						<tr>
+							<th>逾期状态：</th>
+							<td>
+	                            {$list['bill']}
+	                        </td>
+						</tr>
+						<!-- <tr>
+							<th>账单提醒时间：</th>
+							<td>	
+	                            <input type="checkbox" name="" >局还款日七日前 <input type="checkbox" name="">还款日当天 <input type="checkbox" name="">自定义 <input type="text"> 
+	                        </td>
+						</tr>
+						<tr>
+							<th>账单提醒方式：</th>
+							<td>	
+	                            <input type="checkbox" name="" >短息 <input type="checkbox" name="">微信 <input type="checkbox" name="">电子邮件
+	                        </td>
+						</tr> -->
+					</table>
+				</div>
+				<div class="span3">
+					<table class="table table-bordered">
+                                            
+					</table>
+				</div>
+			</div>
+			<div class="form-actions">
+				<button class="btn btn-primary js-ajax-submit" type="submit">提交</button>
+				<a class="btn" href="javascript:void(0)">重置</a>
+			</div>
+		</form>
+	</div>
+</body>
+</html>

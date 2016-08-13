@@ -1,0 +1,187 @@
+.manage_header{
+    width:100%;
+    height:0.88rem;
+    background: white;
+    margin-bottom: 0.1rem;
+    position: fixed;
+    top:0;
+    left:0;
+}
+.wait_list{
+    width:100%;
+    height:100%;
+    overflow: hidden;
+}
+.wait_list li{
+    width:50%;
+    height:0.86rem;
+    font:0.3rem/0.86rem '微软雅黑';
+    color: #282828;
+    text-align: center;
+    float: left;
+    -webkit-transition: all 0.3s;
+    -moz-transition:all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+.wait_list li.wait_now{
+    color: #F97FA4;
+    border-bottom: 2px #F97FA4 solid;
+}
+.manage_content{
+    width:100%;
+    height:90%;
+    position: fixed;
+    top:0.9rem;
+    left:0;
+    overflow-y: scroll;
+}
+.all_list{
+    width:100%;
+    margin:0 auto;
+    overflow: hidden;
+}
+.all_list li{
+    width:100%;
+    margin-bottom: 0.1rem;
+}
+.li_head{
+    width:100%;
+    height:0.8rem;
+    background: white;
+}
+.li_head p{
+    width:4.4rem;
+    height:100%;
+    font:0.24rem/0.8rem '微软雅黑';
+    color: #646464;
+    text-indent: 0.2rem;
+    float: left;
+}
+.li_head span{
+    float: right;
+    font:0.24rem/0.8rem '微软雅黑';
+    color: #F988AA;
+    text-align: right;
+    margin-right: 0.2rem;
+}
+.li_head i{
+    width:0.32rem;
+    height:0.32rem;
+    display: block;
+    float: right;
+    margin-right:0.2rem;
+    margin-top:0.24rem;
+    background: url("../img/Trash-shanchu-icon.png");
+    background-size: 100% 100%;
+    display: none;
+}
+.li_content{
+    width:100%;
+    height:1.58rem;
+    overflow: hidden;
+}
+.li_text{
+    width:6rem;
+    height:100%;
+    margin-left:0.2rem;
+    overflow: hidden;
+}
+.li_ttop{
+    width:100%;
+    height:0.88rem;
+    font:0.28rem/0.88rem '微软雅黑';
+    color: #282828;
+}
+.li_ttop span{
+    display: block;
+    min-width:0.6rem;
+    height:100%;
+    float: left;
+    text-align: center;
+}
+.li_ttop i{
+    display: block;
+    min-width:0.6rem;
+    height:100%;
+    float: left;
+    text-align: center;
+    margin-left: 0.2rem;
+}
+.li_ttop p{
+    width:2.6rem;
+    height:100%;
+    float: right;
+    font:0.22rem/0.88rem '微软雅黑';
+    color: #282828;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.li_bbottom{
+    width:100%;
+    font:0.24rem/0.65rem '微软雅黑';
+    color: #989898;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.li_pay{
+    width:100%;
+    height:0.8rem;
+    background: white;
+    font:0.28rem/0.8rem '微软雅黑';
+    color: #646464;
+    text-align: right;
+    border-bottom: 1px #d6d7dc solid;
+}
+.li_pay span{
+    font:0.28rem/0.8rem '微软雅黑';
+    color: #989898;
+    margin-right: 0.2rem;
+}
+.all_list li[data-anum='0'] .li_pay span{
+    font:0.28rem/0.8rem '微软雅黑';
+    color: #f97fa4;
+    margin-right: 0.2rem;
+}
+.li_foot{
+    width:100%;
+    height:0.8rem;
+    background: white;
+}
+.li_foot p{
+    width:1.56rem;
+    height:0.48rem;
+    border:1px #f988aa solid;
+    -webkit-border-radius:0.1rem;
+    -moz-border-radius:0.1rem;
+    border-radius:0.1rem;
+    text-align: center;
+    font:0.28rem/0.48rem '微软雅黑';
+    color: #f988aa;
+    margin-right: 0.2rem;
+    float: right;
+    margin-top: 0.15rem;
+}
+.liji_cancle{
+    color: #282828;
+    border:1px #646464 solid;
+}
+li[data-anum='1'] .li_head span{
+    color: #989898;
+}
+li[data-anum='2'] .li_head span{
+    color: #989898;
+}
+li[data-anum='1'] .li_head i{
+    display: block;
+}
+li[data-anum='1'] .li_foot p{
+    color: #ff6a59;
+    border:1px #ff6a59 solid;
+}
+li[data-anum='2'] .li_foot{
+    display: none;
+}

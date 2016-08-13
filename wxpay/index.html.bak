@@ -1,0 +1,221 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>聚智道</title>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'/>
+<link rel="stylesheet"  type="text/css" href="css/public.css" />
+<script type="text/javascript" src="js/jquery.min.js" ></script>
+
+<link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" />
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+
+
+<link rel="stylesheet"  type="text/css" href="css/Payment.css" />
+</head>
+
+<body>
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+
+
+        <title>聚智道档案</title>
+        
+<link rel="stylesheet" type="text/css" href="http://res.wx.qq.com/mmbizwap/zh_CN/htmledition/style/page/appmsg/page_mp_article_improve2d1390.css">
+<style>
+     
+    </style>
+<!--[if lt IE 9]>
+<link rel="stylesheet" type="text/css" href="http://res.wx.qq.com/mmbizwap/zh_CN/htmledition/style/page/appmsg/page_mp_article_improve_pc2c9cd6.css">
+<![endif]-->
+
+    </head>
+    <body id="activity-detail" class="zh_CN mm_appmsg" ontouchstart="">
+        
+    <div id="js_cmt_mine" class="discuss_container editing access" style="display:none;">
+        <div class="discuss_container_inner">
+            <h2 class="rich_media_title">聚智道档案</h2>
+            <span id="log"></span>
+            <div class="frm_textarea_box_wrp">
+                <span class="frm_textarea_box">
+                    <textarea id="js_cmt_input" class="frm_textarea" placeholder="留言将由公众号筛选后显示，对所有人可见。"></textarea>
+                    <div class="emotion_tool">
+                        <span class="emotion_switch" style="display:none;"></span>
+                        <span id="js_emotion_switch" class="pic_emotion_switch_wrp">
+                            <img class="pic_default" src="http://res.wx.qq.com/mmbizwap/zh_CN/htmledition/images/icon/appmsg/emotion/icon_emotion_switch.2x278965.png" alt="">
+                            <img class="pic_active" src="http://res.wx.qq.com/mmbizwap/zh_CN/htmledition/images/icon/appmsg/emotion/icon_emotion_switch_active.2x278965.png" alt="">
+                        </span>
+                        <div class="emotion_panel" id="js_emotion_panel">
+                            <span class="emotion_panel_arrow_wrp" id="js_emotion_panel_arrow_wrp">
+                                <i class="emotion_panel_arrow arrow_out"></i>
+                                <i class="emotion_panel_arrow arrow_in"></i>
+                            </span>
+                            <div class="emotion_list_wrp" id="js_slide_wrapper">
+                                
+                                
+                            </div>
+                            <ul class="emotion_navs" id="js_navbar">
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </span>
+            </div>
+            <div class="discuss_btn_wrp"><a id="js_cmt_submit" class="btn btn_primary btn_discuss btn_disabled" href="javascript:;">提交</a></div>
+            <div class="discuss_list_wrp" style="display:none">
+                <div class="rich_tips with_line title_tips discuss_title_line">
+                    <span class="tips">我的留言</span>
+                </div>
+                <ul class="discuss_list" id="js_cmt_mylist"></ul>
+            </div>
+            <div class="rich_tips tips_global loading_tips" id="js_mycmt_loading">
+                <img src="http://res.wx.qq.com/mmbizwap/zh_CN/htmledition/images/icon/common/icon_loading_white2805ea.gif" class="rich_icon icon_loading_white" alt="">
+                <span class="tips">加载中</span>
+            </div>
+            <div class="wx_poptips" id="js_cmt_toast" style="display:none;">
+                <img alt="" class="icon_toast" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGoAAABqCAYAAABUIcSXAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA3NpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDoyMTUxMzkxZS1jYWVhLTRmZTMtYTY2NS0xNTRkNDJiOGQyMWIiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MTA3QzM2RTg3N0UwMTFFNEIzQURGMTQzNzQzMDAxQTUiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MTA3QzM2RTc3N0UwMTFFNEIzQURGMTQzNzQzMDAxQTUiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChNYWNpbnRvc2gpIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6NWMyOGVjZTMtNzllZS00ODlhLWIxZTYtYzNmM2RjNzg2YjI2IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjIxNTEzOTFlLWNhZWEtNGZlMy1hNjY1LTE1NGQ0MmI4ZDIxYiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pmvxj1gAAAVrSURBVHja7J15rF1TFMbXk74q1ZKHGlMkJVIhIgg1FH+YEpEQJCKmGBpThRoSs5jVVNrSQUvEEENIhGiiNf9BiERICCFIRbUiDa2qvudbOetF3Tzv7XWGffa55/uS7593977n3vO7e5+199p7v56BgQGh0tcmvAUERREUQVEERREUQVEERREUQVEERREUQVEERREUQVEERREUQVEERVAUQVEERVAUQbVYk+HdvZVG8b5F0xj4RvhouB+eCy8KrdzDJc1RtAX8ILxvx98V1GyCSkN98Cx4z/95/Wn4fj6j6tUEeN4wkFSnw1MJqj5NhBfAuwaUHREUg4lqNMmePVsHll/HFhVfe1t3FwpJI8DXCCquDrCWNN4B6Tb4M3Z98aTPmTvh0YHl18PXw29yZiKejoPvcUD6E74yFBJbVDk6Bb7K8aP/Hb4c/tRzEYIqprPhSxzlf4Uvhb/0Xoig8qnHAJ3lqPMzfDH8XZ4LEpRf2sVdA5/sqPO9Qfop70UJyn+/boaPddT5yrq7VUUvTIVJI7q74MMddXR8NB1eXcYvhBpZm0s2w72/o86HFoKvLau/pYaXzjLMdUJ6y0LwtWV9CIIaXtvA8+G9HHV03u5q+K+yH47U0NoRngPv7KjzHDwTLj0bS1BDazfJJlcnOOostC6ysnCT+q80G/sIvFVgeW09D8FPVT0uoP7VfvAD8NjA8pqmuAN+OcYAjso0RbIZ8DGB5TVNcRO8JMaHY9SXSdfa3eeANJimWBLrA7JFiZwIXye+NMUV8CcxP2SRFjXefok7NRjSGZJlWUPvw2/wtNiQirSoXWyMsR28wR7AzzYM0oXw+Y7yK+CLJGeaoqjyrJSdZJD6Ov4+z5y6NJc0Az7NUecHydIUy+v60KNyQHoM3nKI1y7YCFiq0i7uBvgER52vDdKqWn9djhY1Dn4G3n6Ecqm2rF74dvgoR53S0hQxW9RJAZAGW5bSn58QJA27dQ7uIEedjywEX5NKVxCqsY6y+qA+LxFI4+yZ6oH0trWkNan80jygtIUsc5SflgAsDXgehfdx1KkkTRE76tN+Xue2jnTU0Ru1oIbvpt30bBtKhOp5yaaRkts0lic8V1i6dPcIRx2d/l8Y8XtNNEg7OOo8bl1kmmOKnDsO88CaYzejau0hWZqiL7C83oCH4SeTHvwV2BqqsHRVztSEYOmWF80NeXZT6Hd4KflResE9vCnBOlCyGfDNAstHTVPUDWoQ1t3iW+9WNizvlhfd4aerXd+ThqiMfNR6+9LvOOro5OY5JX2H4+F7HZD+kGzlamMgldWiirQsjcwWFbjmqZJteekJLK9pisvgL6RhKvuciZiwzrWWGapfrPy30kBVcSBIrw0aD3PU0XB6cehntq7rTMf7/2iQlktDVdXJLXlg6VjmiYBn6rWSTRCH6hvJ0hQrpcGq8oidsmHpTP8t8DGO9/vcWt9qabiqPgup1yKyQwvC2tSefZ73SSpNkUJ4PlLorlHZ+446nc8f3fIyywlJhwrTuwVSjBa1ccvSxN0hjjoK5xVrYZMd9V6XbFfgBukixTwGLg8sDam3dZR/wZ6L/dJlin1en8LS+bgpFbz3Ygvzu1J1HKxYNqxGpCmaCEo12rrBorD6LRp8UbpcdR5VWhTW35KlKd6QFqjuM2XzwlpnMxTvSkuUwuG/Xlg6NtPjbT6WFimF/VG6LEvXgn8QGDjMbBukVECFwhpoS+CQatfX2Q1q6H7wENHdrfCr0lKleEB9JyxNneus+VJpsVL9TwI6W65LovWIGl3KtVJaLv7LBwYTFEERFEVQFEERFEVQFEERFEVQFEERFEVQFEERFEVQFEERFFWq/hFgADUMN4RzT6/OAAAAAElFTkSuQmCC">
+                <p class="toast_content">已留言</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="js_article" class="rich_media">
+        
+        <div id="js_top_ad_area" class="top_banner">
+ 
+        </div>
+                
+
+        <div class="rich_media_inner">
+            <div id="page-content">
+                <div id="img-content" class="rich_media_area_primary">
+                    <h2 class="rich_media_title" id="activity-name">
+                        聚智道档案 
+                    </h2>
+                    <div class="rich_media_meta_list">
+                        						                        <em id="post-date" class="rich_media_meta rich_media_meta_text">2016-03-31</em>
+
+                                                <a class="rich_media_meta rich_media_meta_link rich_media_meta_nickname" href="javascript:void(0);" id="post-user">聚智道</a>
+                        <span class="rich_media_meta rich_media_meta_text rich_media_meta_nickname">聚智道</span>
+
+                        <div id="js_profile_qrcode" class="profile_container" style="display:none;">
+                            <div class="profile_inner">
+                                <strong class="profile_nickname">聚智道</strong>
+                                <img class="profile_avatar" id="js_profile_qrcode_img" src="" alt="">
+
+                                <p class="profile_meta">
+                                <label class="profile_meta_label">微信号</label>
+                                <span class="profile_meta_value">ju_zhidao</span>
+                                </p>
+
+                                <p class="profile_meta">
+                                <label class="profile_meta_label">功能介绍</label>
+                                <span class="profile_meta_value">企业家专属学堂</span>
+                                </p>
+                                
+                            </div>
+                            <span class="profile_arrow_wrp" id="js_profile_arrow_wrp">
+                                <i class="profile_arrow arrow_out"></i>
+                                <i class="profile_arrow arrow_in"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="rich_media_content " id="js_content">
+                        
+                        <section class="wx96Diy" data-source="bj.96weixin.com">
+										<p><img data-s="300,640" data-type="jpeg" src="R.png" data-ratio="0.5557553956834532" data-w="" style="line-height: 1.6;"  /><br  /></p></section><p><br  /></p><section class="wx96Diy" data-source="bj.96weixin.com">
+			<section weixin-id="22" class="96wxDiy" style="border-top-color: rgb(27, 0, 235);"><section style="-webkit-box-reflect:below 0px -webkit-gradient(linear, 0% 0%, 0% 100%, from(transparent), color-stop(0.2, transparent), to(rgba(250, 250, 250, 0.3))); margin-top:15px;line-height:20px;"><p style="text-align: center;"><span style="font-family:微软雅黑; font-size:30px"><strong class="1wxqq-borderTopColor" data-brushtype="text">学习·社交·资本</strong></span></p></section></section>
+		</section><p><br  /></p><section class="wx96Diy" data-source="bj.96weixin.com">
+			<section class="96wxDiy" style=" clear: both;  width: 100%; margin-right: auto; margin-left: auto; overflow: hidden; "><section style="margin: 2em 0em;"><section class="96wx-bgc" style="border: 1px dotted rgb(0, 176, 240); box-sizing: border-box; vertical-align: bottom; background-color: rgb(136, 136, 136);"><section style="border-top-width: 1px; border-top-style: dotted; border-top-color: rgb(255, 255, 255); height: 1px; padding-top: 4px; margin-top: 8px;"></section></section><section style="text-align: center;margin-top: -32px;"><section class="96wx-bgc" style="padding: 10px; box-sizing: border-box; display: inline-block; box-shadow: rgb(165, 165, 165) 0px 7px 2px; background-color: rgb(136, 136, 136);"><section style="padding-top: 5px; padding-bottom: 5px;"><p style="font-size:20px;color: rgb(255,255,255);line-height: 12px;"><span style="font-size: 18px;">聚智道为谁生？</span></p></section></section></section></section></section>
+		</section><p style="text-indent: 2em; line-height: 1.75em; margin-bottom: 20px;"><span style="font-size: 14px;">纵观中国中小企业多年发展历程，一个最显著的特征是：出生率高，死亡率也非常高，据统计中小企业的平均寿命是两年多。如何让企业活下来？活得久？是许多企业家不断思考的难题。</span></p><p style="text-indent: 2em; line-height: 1.75em; margin-bottom: 20px;"><span style="font-size: 14px;">当BAT成长为市值千亿的公司时，大部分中小企业还能摸着石头过河吗？</span></p><p style="text-indent: 2em; line-height: 1.75em; margin-bottom: 20px;"><span style="font-size: 14px;">德鲁克说过，中国的未来在于大量中小企业的发展，以及它们的创新精神。那么，中小企业如何持续发展？怎样将创新切实转化为生产力？</span></p><p style="text-indent: 2em; line-height: 1.75em; margin-bottom: 20px;"><span style="font-size: 14px;">聚智道为广大中小企业而生，通过建立线上互动平台，链接众多企业家、资深咨询师、成功管理者、知名投资机构，贯通企业咨询、投资、上市一体化成长通道，帮助推动更多中小企业提升经营管理，走进资本市场，站上时代发展的风口浪尖，活得好，活得久！</span></p><section class="wx96Diy cur" data-source="bj.96weixin.com">
+			<section class="96wxDiy" style=" clear: both;  width: 100%; margin-right: auto; margin-left: auto; overflow: hidden; "><section style="margin: 2em 0em;"><section class="96wx-bgc" style="border: 1px dotted rgb(0, 176, 240); box-sizing: border-box; vertical-align: bottom; background-color: rgb(136, 136, 136);"><section style="border-top-width: 1px; border-top-style: dotted; border-top-color: rgb(255, 255, 255); height: 1px; padding-top: 4px; margin-top: 8px;"></section></section><section style="text-align: center;margin-top: -32px;"><section class="96wx-bgc" style="padding: 10px; box-sizing: border-box; display: inline-block; box-shadow: rgb(165, 165, 165) 0px 7px 2px; background-color: rgb(136, 136, 136);"><section style="padding-top: 5px; padding-bottom: 5px;"><p style="font-size:20px;color: rgb(255,255,255);line-height: 12px;"><span style="font-size: 18px;">聚智道的价值</span></p></section></section></section></section></section>
+		</section><p style="text-align: center;"><span style="color: rgb(0, 82, 255); font-size: 20px; background-color: rgb(255, 255, 255);"><strong>一、在线学习</strong></span></p><p style="text-align: center;"><span style="color: rgb(0, 82, 255); background-color: rgb(255, 255, 255);"><strong><br  /></strong></span></p><p style="text-align: center;"><img data-s="300,640" data-type="jpeg" src="1.jpg" data-ratio="0.946969696969697" data-w="396"  /><br  /></p><p style="text-align: center;"><strong><span style="color: rgb(0, 82, 255);"><img data-s="300,640" data-type="jpeg" src="2.jpg" data-ratio="3" data-w=""  /><br  /></span></strong></p><p style="text-align: center;"><span style="font-size: 20px;"><strong><span style="color: rgb(0, 82, 255);">二、互助社交</span></strong></span><strong><span style="color: rgb(0, 82, 255);"><br  /></span></strong></p><p style="text-align: left; text-indent: 2em; line-height: 1.75em; margin-bottom: 20px;"><span style="font-size: 14px;">正如包政教授《营销的本质》所阐述的，互联网不再只是一种交流的手段和工具，它已经改变了我们的生活方式，从而改变我们的组织及管理方式。互联网时代，企业商务活动方式，正沿着大量销售方式、到深度分销方式，再到社区商务方式演进。社区商务方式是未来的出路。互联网思维就是社区思维，互联网时代正遵循着自然规律向着人与人之间构成的社区回归。</span></p><p style="text-align: left; text-indent: 2em; line-height: 1.75em; margin-bottom: 20px;"><span style="font-size: 14px;">聚智道的商聚联盟即是为企业家群体所建造的互联网社区，在社区中进行线上路演、资源共享、组织线下盟友活动等；社区也包括社群组织，可以进行群组讨论、社群分享等互助活动。最终探索践行社区商务方式，实现企业的真正转型。</span></p><p style="text-align: center;"><span style="font-size: 20px;"><strong><span style="color: rgb(0, 82, 255);">三、走进资本</span></strong></span></p><p style="text-indent: 2em; margin-bottom: 20px; line-height: 1.75em;"><span style="font-size: 14px;">在过去若干年中，中国的一般个人投资者大多只能参与股票二级市场的投资，股权投资原本只是属于机构投资者才能参与的领域。在监管层政策引导下，大力发展多层次资本市场，新三板市场明显降低了投资者参与的门槛，投资者几十万就有机会参与了企业原始股权投资。</span></p><p style="text-indent: 2em; margin-bottom: 20px; line-height: 1.75em;"><span style="font-size: 14px;">投资者直接参与到企业股权的投资中，解决了中国中小企业融资难融资贵的问题，企业走上资产证券化的道路，等于装上了企业快速发展的发动机，企业实实在在的发展了壮大了，迅速的实现中国经济的转型，同时投资者也实现了自我的投资价值。</span></p><p style="text-indent: 2em; margin-bottom: 20px; line-height: 1.75em;"><span style="font-size: 14px;">无论作为投资者，还是融资企业主，聚智道携手聚英资本，邀约大家共同进入资本时代，通过金指投平台参与在线投融资。</span></p><p style="text-indent: 0em; margin-bottom: 20px; line-height: 1.75em;"><span style="font-size: 14px;"><img data-s="300,640" data-type="jpeg" src="3.jpg" data-ratio="1" data-w=""  /><br  />点击扫描，可以下载金指投APP。</span></p><section class="wx96Diy cur" data-source="bj.96weixin.com">
+			<section class="96wxDiy" style=" clear: both;  width: 100%; margin-right: auto; margin-left: auto; overflow: hidden; "><section style="margin: 2em 0em;"><section class="96wx-bgc" style="border: 1px dotted rgb(0, 176, 240); box-sizing: border-box; vertical-align: bottom; background-color: rgb(136, 136, 136);"><section style="border-top-width: 1px; border-top-style: dotted; border-top-color: rgb(255, 255, 255); height: 1px; padding-top: 4px; margin-top: 8px;"></section></section><section style="text-align: center;margin-top: -32px;"><section class="96wx-bgc" style="padding: 10px; box-sizing: border-box; display: inline-block; box-shadow: rgb(165, 165, 165) 0px 7px 2px; background-color: rgb(136, 136, 136);"><section style="padding-top: 5px; padding-bottom: 5px;"><p style="font-size:20px;color: rgb(255,255,255);line-height: 12px;"><span style="font-size: 18px;">聚智道需要你</span></p></section></section></section></section></section></section><p><img data-s="300,640" data-type="jpeg" src="4.jpg" data-ratio="1.3489208633093526" data-w=""  /><br  /><img data-s="300,640" data-type="jpeg" src="5.jpg" data-ratio="0.4442446043165468" data-w=""  /><br  /></p>
+                    </div>
+                    <script type="text/javascript">
+                        var first_sceen__time = (+new Date());
+
+                        if ("" == 1 && document.getElementById('js_content'))
+                            document.getElementById('js_content').addEventListener("selectstart",function(e){ e.preventDefault(); });
+
+                                        (function(){
+                            if (navigator.userAgent.indexOf("WindowsWechat") != -1){
+                                var link = document.createElement('link');
+                                var head = document.getElementsByTagName('head')[0];
+                                link.rel = 'stylesheet';
+                                link.type = 'text/css';
+                                link.href = "http://res.wx.qq.com/mmbizwap/zh_CN/htmledition/style/page/appmsg/page_mp_article_improve_winwx2c9cd6.css";
+                                head.appendChild(link);
+                            }
+                        })();
+                    </script>
+                    <link rel="stylesheet" type="text/css" href="http://res.wx.qq.com/mmbizwap/zh_CN/htmledition/style/page/appmsg/page_mp_article_improve_combo2d1390.css">
+                    
+                    
+                                        
+                                        
+                                        <div class="rich_media_tool" id="js_toobar3">
+                                                                    <div id="js_read_area3" class="media_tool_meta tips_global meta_primary" style="display:none;">阅读 <span id="readNum3"></span></div>
+
+                        <span style="display:none;" class="media_tool_meta meta_primary tips_global meta_praise" id="like3">
+                            <i class="icon_praise_gray"></i><span class="praise_num" id="likeNum3"></span>
+                        </span>
+
+                        <a id="js_report_article3" style="display:none;" class="media_tool_meta tips_global meta_extra" href="javascript:void(0);">投诉</a>
+
+                    </div>
+
+
+
+                                    </div>
+
+                <div class="rich_media_area_primary sougou" id="sg_tj" style="display:none">
+
+                </div>
+
+                <div class="rich_media_area_extra">
+
+                    
+                                        <div class="mpda_bottom_container" id="js_bottom_ad_area">
+                        
+                    </div>
+                                        
+                    <div id="js_iframetest" style="display:none;"></div>
+                                        
+                                    </div>
+               
+            </div>
+            <div id="js_pc_qr_code" class="qr_code_pc_outer" style="display:none;">
+                <div class="qr_code_pc_inner">
+                    <div class="qr_code_pc">
+                        <img id="js_pc_qr_code_img" class="qr_code_pc_img">
+                        <p>微信扫一扫<br>关注该公众号</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    </body>
+</html>
+
+ 
+
+
+<div style="width:100%; height:60px;"></div>
+<a href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxaf6078a557ceeeec&redirect_uri=http://www.buruwo.com/wxpay/tx.php&response_type=code&scope=snsapi_base&state=state#wechat_redirect"><div class="iuj">
+立即报名
+</div></a>
+</body>
+</html>

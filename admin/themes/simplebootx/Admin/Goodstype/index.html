@@ -1,0 +1,260 @@
+<admintpl file="header" />
+</head>
+<body>
+	<div class="wrap js-check-wrap">
+		<ul class="nav nav-tabs">
+				<li  class="active"><a href="{:U('Goodstype/index')}">{:L('TYPE_LIST')}</a></li>
+			<li><a href="{:U('Goodstype/addtype')}">{:L('ADD_TYPE')}</a></li>
+		</ul>
+		<form class="js-ajax-form" action="" method="post">
+			<div class="table-actions"> 
+				<button class="btn btn-primary btn-small" id="deletes" type="submit">删除</button>
+				<button class="btn btn-primary btn-small js-articles-move" type="button">批量移动</button>
+			</div>
+			<table class="table table-hover table-bordered table-list">
+				<thead>
+					<tr>
+						<th width="15"><label><input type="checkbox" class="js-check-all" data-direction="x" data-checklist="js-check-x"></label></th>
+						<th style="width:150px">{:L('TYPE_ID')}</th>
+						<th style="width:500px">{:L('TYPE_NAME')}</th>
+						<th width="50">{:L('TYPE_PARENT_ID')}</th>
+						<th width="70">{:L('AT_PRESENT_STATUS')}</th>
+						<th width="70">{:L('ACTIONS')}</th>
+					</tr>
+				</thead> 
+				<foreach name="posts" item="vo">
+				<tr class="{$vo['level']}" style="height:10px">
+					<td><input type="checkbox" class="{$vo['level']} descode" name="idsas[]" data="{$vo['pid']}" value="{$vo.id}" title="ID:{$vo.id}"></td>
+					<td>{$vo['id']}</td>
+					<td pid="{$vo['pid']}">{$vo['html']}<a style="cursor:pointer" class="bagade" datt="{$vo['pid']}" data="{$vo['id']}">▶</a><span style="cursor:pointer" class="typename" data="{$vo['id']}">{$vo['typename']}</span>
+						<input style="display:none;margin:0px; padding:0px;margin-top:2px" type="text" value="{$vo['typename']}"></td>
+					<td>{$vo['pid']}</td>
+					<td class="status1"> 
+						{$vo['state'] == 1 ? '启用' : '禁用'}
+                    </td>
+					<td> 
+						<span class="status2" data="{$vo['id']}" date="{$vo['state']}">{$vo['state'] == 1 ? '禁用' : '启用'}</span>
+						<span><a href="{:U('goodstype/edittype', array('id' => $vo['id'], 'typename' => $vo['typename'], 'state' => $vo['state']))}">修改</a></span>
+                    </td>
+
+				</tr>
+				</foreach>
+				
+			</table>
+			
+			<div class="table-actions">
+				<button class="btn btn-primary btn-small js-ajax-submit" type="submit" data-action="{:U('Goodstype/delete')}" data-subcheck="true" data-msg="你确定删除吗？">{:L('DELETE')}</button>
+				<button class="btn btn-primary btn-small js-articles-move" type="button">批量移动</button>
+			</div>
+			<div class="pagination">{$Page}</div>
+		</form>
+	</div>
+	<script src="__PUBLIC__/js/common.js"></script>
+	<script>
+		window.onload = function(){
+            $('.descode').each(function(){
+                var v = $(this).attr('data');
+                if(v == '2' || v == '3'){
+                    $(this).parent().parent().css('display','none');
+                }
+            })
+        }
+        $('.bagade').live('click',function(){
+            var that = $(this);
+            var data = that.attr('datt');
+            var id = that.attr('data'); // 获取当前的id
+            var text = that.text();     // 获取当前的箭头
+            if(text == '▶' && data != '3'){
+                $('.'+id).css('display','');
+                that.text('▼');
+            }
+            if(text == '▼' && data != 3){
+                that.text('▶');
+                $('.'+id).each(function(){
+                    var thay = $(this);
+                    thay.css('display','none');
+                })
+            }
+            if(text == '▼' && data == 1){
+                that.text('▶');
+                $('.'+id).each(function(){
+                    var thay = $(this);
+                    thay.css('display','none');
+                   	var clas = thay.next().attr('class').replace(/[^0-9]/ig, "");
+                   	if(clas != 0){	
+                        $('.'+clas).css('display','none');
+                   	}
+                })
+            }
+
+        })
+
+
+		function refersh_window() {
+			var refersh_time = getCookie('refersh_time');
+			if (refersh_time == 1) {
+				window.location = "{:U('AdminPost/index',$formget)}";
+			}
+		}
+		setInterval(function() {
+			refersh_window();
+		}, 2000);
+		$(function() {
+			setCookie("refersh_time", 0);
+			Wind.use('ajaxForm', 'artDialog', 'iframeTools', function() {
+				//批量移动
+				$('.js-articles-move').click(function(e) {
+					var that = $(this);
+					var str = 0;
+					var id = tag = '';
+					var value = '';
+					$("input[name='idsas[]']").each(function() {
+						if ($(this).attr('checked')) {
+							str = 1;
+							id += tag + $(this).val();
+							
+							value += tag+$(this).attr('data'); 
+							tag = ',';
+						}
+					});
+					if (str == 0) {
+						art.dialog.through({
+							id : 'error',
+							icon : 'error',
+							content : '您没有勾选信息，无法进行操作！',
+							cancelVal : '关闭',
+							cancel : true
+						});
+						return false;
+					}
+					if(value.indexOf('1')>-1){
+						art.dialog.through({
+							id : 'error',
+							icon : 'error',
+							content : '一级目录不可移动',
+							cancelVal : '关闭',
+							cancel : true
+						});
+						return false;
+					}else{
+						e.preventDefault();
+			            var $_this = this;
+			            art.dialog({
+			                title: false,
+			                icon: 'question',
+			                content: '确定要移动吗？',
+			                follow: $_this,
+			                close: function () {
+			                    $_this.focus();; //关闭时让触发弹窗的元素获取焦点
+			                    return true;
+			                },
+			                okVal:"确定",
+			                ok: function () {
+			                    art.dialog.open("__ROOT__/index.php?g=Admin&m=Goodstype&a=move&ids="+ id, {
+									title : "批量移动",
+									width : "300"
+								});
+			                },
+			                cancelVal: '关闭',
+			                cancel: true
+			            });
+					}
+					
+					
+				});
+			});
+		});
+	</script>
+
+	<script src="__PUBLIC__/js/common.js"></script>
+	<script src="__PUBLIC__/Jquery-1.8.3.min.js"></script>
+	<script>
+	$('.status2').click(function(){
+		var that = $(this);
+		var id = that.attr('data');
+		var state = that.attr('date');
+
+		var value = that.text(); // 	当前的
+		var valus = that.parent().prev().text(); // 点击后的
+		
+		$.get("{:U('Goodstype/state')}", {state:state, id:id}, function(msg){
+			
+        	if(msg == 1 && state == 1){
+        		that.text(valus);
+        		that.parent().prev().text(value);
+        		that.attr('date', 0);
+        	}
+        	if(msg == 1 && state == 0){
+        		that.text(valus);
+        		that.parent().prev().text(value);
+        		that.attr('date', 1);
+        	}
+        	
+        })
+	})
+	$('.typename').click(function(){
+		$(this).css('display','none');
+		$(this).next().css('display', '');
+	})
+
+	$('.typename').next().blur(function(){
+		var that = $(this);
+		$(this).css('display','none');
+		$(this).prev().css('display', '');
+		var id = $(this).prev().attr('data');
+		var v = $(this).val();
+		$.post("{:U('Goodstype/edittypename')}", {id:id, v:v}, function(msg){
+			if(msg == 1){
+				that.prev().text(v);
+				that.text(v);
+			}
+		})
+	})
+
+	$('#deletes').click(function(e){
+		var checkedList = new Array();
+        $("input[name='idsas[]']:checked").each(function() {
+            checkedList.push($(this).val());
+        });
+       	if(checkedList == ''){
+       		e.preventDefault();
+			var $_this = this;
+			art.dialog({
+		    title: false,
+		    icon: 'question',
+		    content: '至少选择一个',
+		    follow: $_this,
+		    close: function () {
+		        $_this.focus(); //关闭时让触发弹窗的元素获取焦点
+		        return true;
+		    },
+		    cancelVal: '关闭',
+		    cancel: true
+       		})
+		}else{
+			e.preventDefault();
+            var $_this = this;
+            art.dialog({
+                title: false,
+                icon: 'question',
+                content: '确定要删除吗？',
+                follow: $_this,
+                close: function () {
+                    $_this.focus();; //关闭时让触发弹窗的元素获取焦点
+                    return true;
+                },
+                okVal:"确定",
+                ok: function () {
+                    $.get("{:U('Goodstype/DelDates')}", {id:checkedList}, function(msg){
+                        alert(msg);
+                    })
+                },
+                cancelVal: '关闭',
+                cancel: true
+            });
+		}
+	})
+
+	</script>
+</body>
+</html>

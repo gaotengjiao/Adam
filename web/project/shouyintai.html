@@ -1,0 +1,128 @@
+<!--Created by Gavin on 2016/7/7.-->
+<!DOCTYPE html>
+<html lang="cn" use-rem="640">
+<head>
+    <meta charset="UTF-8">
+    <title>收银台</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scale=no"/>
+    <meta content="telephone=no" name="format-detection" />
+    <link href="../css/styleCss.css" rel="stylesheet"/>
+    <link href="../css/style.css" rel="stylesheet"/>
+    <script src="../js/rem.js"></script>
+    <script src="../js/jquery-2.2.1.js"></script>
+    <script src="../js/cookie.js"></script>
+    <script src="../js/allJs.js"></script>
+    <script src="../js/jsTB.js"></script>
+    <script src="../js/move.js"></script>
+    <script src="../js/yuming.js"></script>
+    <script src="../js/bdtouch.js"></script>
+    <link rel="stylesheet" href="../css/weui.css">
+    <link rel="stylesheet" href="../css/shouyin.css">
+    <link rel="stylesheet" href="../css/animate.css">
+    <script src="../js/shou.js"></script>
+</head>
+<body>
+    <div id="left" class="clear animated">
+        <header>
+            <div class="top clear">
+                <img src="../img/ren.png" alt="">
+                <div class="clear">
+                    <h1>【微整项目】面部提升</h1>
+                    <span>已选择：***提升</span>
+                    <span>订单编号：0995655465</span>
+                </div>
+            </div>
+            <div class="boottom clear">
+                <span>订单金额</span>
+                <span class="price">5800.00元</span>
+            </div>
+        </header>
+        <div class="huabian"></div>
+        <ul id="fangs">
+            <h2>请选择支付方式:</h2>
+            <li class="yanzhi clear">
+                <img src="../img/qianbao-icon.png" alt="">
+                <div class="one clear">
+                    <span class="bt" style="width: 100%">颜值支付<i class="youhui"></i></span>
+                    <span>30天无息分期付</span>
+                </div>
+                <div class="two clear">
+                    <span>可用余额</span>
+                    <span>13200.00元</span>
+                </div>
+            </li>
+            <li class="weixin clear">
+                <img src="../img/weixinicon.png" alt="">
+                <div id="one" class="clear one">
+                    <span class="bt" style="width: 100%">微信支付</span>
+                    <span>由于微信限制，仅支付3000元/笔/日</span>
+                </div>
+                <div class="two">
+
+                </div>
+            </li>
+        </ul>
+        <div class="juan">
+            <span>思妍劵抵扣</span>
+            <span>可使用0张</span>
+            <span>使用思妍劵</span>
+        </div>
+        <div class="yue clear">
+            <div class="clear">
+                <span class="yued">当前可用余额：5800元</span>
+                <div class="no">使用<input class="num" type="number">元&nbsp;&nbsp;&nbsp;进行付款</div>
+            </div>
+            <input id="kaishi" class="weui_switch" type="checkbox">
+            <script>
+                $('.weui_switch').click(function () {
+                    $('.no').slideToggle(600).find('input').val('');
+                    $('#zhifu').slideToggle(600);
+                })
+            </script>
+        </div>
+        <div id="zhifu">立即支付</div>
+    </div>
+    <ul id="right" class="clear animated">
+        <h1>优惠券使用说明</h1>
+        <li>
+            <img src="../img/juan-icon.png" alt="">
+            <div class="clear">
+                <span class="name">注册奖励劵</span>
+                <span class="xianzhi">满1000元使用</span>
+                <span class="time">有效期至2017-06-23</span>
+            </div>
+            <span class="zt">未使用</span>
+        </li>
+        <li>
+            <img src="../img/juan-icon.png" alt="">
+            <div class="clear">
+                <span class="name">注册奖励劵</span>
+                <span class="xianzhi">满1000元使用</span>
+                <span class="time">有效期至2017-06-23</span>
+            </div>
+            <span class="zt">未使用</span>
+        </li>
+        <li>
+            <img src="../img/juan-icon.png" alt="">
+            <div class="clear">
+                <span class="name">注册奖励劵</span>
+                <span class="xianzhi">满1000元使用</span>
+                <span class="time">有效期至2017-06-23</span>
+            </div>
+            <span class="zt">未使用</span>
+        </li>
+    </ul>
+
+    <div id="mima">
+        <div class="mima">
+            <h1>输入支付密码</h1>
+            <input type="password" placeholder="请输入支付密码">
+            <a class="wangji" href="">忘记支付密码?</a>
+            <div>
+                <span class="quxiao">取消</span>
+                <span class="queren">确认</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

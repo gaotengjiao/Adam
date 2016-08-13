@@ -1,0 +1,131 @@
+*{
+    box-sizing: border-box;
+}
+h1{
+    width: 100%;
+    height: 1.2rem;
+    margin-bottom: 0.1rem;
+    background: #ffffff;
+    font-size: 0.3rem;
+    color: #282828;
+    line-height: 1.2rem;
+}
+
+.xinxi{
+    background: #ffffff;
+    height: auto;
+    width: 100%;
+    margin-bottom: 0.1rem;
+    padding-bottom: 0.2rem;
+}
+
+h2{
+    width: 100%;
+    height: 0.8rem;
+    font-size: 0.28rem;
+    color: #282828;
+    border-bottom: 1px solid #D6D7DC;
+    line-height: 0.8rem;
+}
+
+.xinxi li{
+    width: 100%;
+    height: auto;
+    color: #646464;
+    font-size: 0.24rem;
+    padding-top: 0.2rem;
+}
+
+em[data-zt="0"]{
+    color: #e169a3;
+}
+
+em[data-zt="1"]{
+    color: #989898;
+}
+
+.num{
+    width: 100%;
+    height: 0.8rem;
+    line-height: 0.8rem;
+    background: #ffffff;
+}
+
+.num span{
+    color: #282828;
+    font-size: 0.28rem;
+    display: block;
+    float: left;
+    width: auto;
+}
+
+.num em{
+    display: block;
+    float: right;
+    font-size: 0.28rem;
+}
+
+.left{
+    display: block;
+    width: auto;
+    float: left;
+}
+
+.right{
+    display: block;
+    width: auto;
+    float: right;
+}
+
+.tijiao{
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0.44rem;
+    z-index: 1000;
+    width: 5.8rem;
+    height: 0.8rem;
+    border-radius: 5px;
+    color: #ffffff;
+    line-height: 0.8rem;
+    text-align: center;
+    font-size: 0.3rem;
+    margin: auto;
+}
+
+.tijiao[data-zt="0"]{
+    background: #e169a3;
+}
+
+.tijiao[data-zt="1"]{
+    background: #cfcfcf;
+}
+
+.ping{
+    width: 100%;
+    height: 0.98rem;
+    background: #ffffff;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 10000;
+    border-top: 1px solid #D6D7DC;
+}
+
+.ping span{
+    width: 1.56rem;
+    height: 0.5rem;
+    border-radius: 5px;
+    border:1px solid #ff6a59;
+    font-size: 0.28rem;
+    color: #ff6a59;
+    line-height: 0.48rem;
+    display: block;
+    float: right;
+    text-align: center;
+    margin: 0.24rem 0 0.24rem 0.3rem;
+}
+
+#neir{
+    max-width:  calc(100% - 1.6rem);
+}

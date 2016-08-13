@@ -1,0 +1,31 @@
+body{ background:#FFF; }
+.imgh{ width:90%; height:100%; overflow:hidden; margin:0 auto;}
+.imgh img{ width:100%;}
+
+.iuj{ width:100%; height:50px; background:#fe7701; position:fixed; bottom:0; text-align:center; line-height:50px; font-size:20px; font-weight:bold; color:#fff; cursor:pointer;}
+
+.jiouhhg{ width:90%; height:100%; overflow:hidden; margin:0 auto; margin-top:20px;}
+.jiouhhg .bhgt{ width:100%; height:30px; font-size:24px; font-weight:bold; line-height:30px;}
+.jiouhhg .text{ width:100%; overflow:hidden; font-size:14px; line-height:25px; text-indent:2em;}
+
+
+.injuhnhb{ width:90%; height:100%; overflow:hidden; margin:0 auto; margin-top:20px;}
+.bfmjgh{  width:90%; height:50px; text-align:center; line-height:50px; font-size:20px; font-weight:bold; color:#fff; cursor:pointer; margin:0 auto;}
+.ljx{ width:100px; height:30px; background:#139FED; line-height:30px; text-indent:5px; color:#fff; font-weight:bold; margin-top:10px; border-top-right-radius:40px; margin-bottom:10px;}
+.juopiuh{ margin:0; padding:0; line-height:25px; font-size:14px; text-indent:1em;}
+
+.jhih{ width:90%; height:50px; margin:0 auto;}
+.jhih .ifsdmg{ width:50px; height:50px; float:left;}
+.jhih .ifsdmg img{ width:50px; height:50px;}
+.jhih .truel{ line-height:25px; font-size:14px; margin-left:10px; float:left;}
+
+
+.juhfasdyh{ width:90%; hanging-punctuation:100%; overflow:hidden; margin:0 auto; margin-top:20px;}
+.juhfasdyh .vjiuh{ width:80px; height:80px; background:#fe7701; text-align:center; line-height:80px; font-size:40px; font-weight:bold; float:left; border-radius:5px;}
+.juhfasdyh .juifdha{ float:left; line-height:80px; font-size:28px; margin-left:10px; font-weight:bold;}
+
+.pou{ width:90%; height:100%; overflow:hidden; margin:20px auto;}
+.pou .lkom{ width:100%; border-bottom:1px solid #CFCFCF; margin:0; padding:0; line-height:30px; font-size:20px; font-weight:600;}
+
+
+.jihsahyeg{ width:90%; height:300px; margin:0 auto; line-height:300px; font-size:50px; text-align:center; color:#fe7701; font-weight:bold;}

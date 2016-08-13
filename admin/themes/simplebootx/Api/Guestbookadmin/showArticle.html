@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="renderer" content="ie-stand">
+    <title>{$list['post_title']}</title>
+    <link href="__PUBLIC__/css/layoutArticleNew2015.css" rel="stylesheet" type="text/css">
+    <link href="__PUBLIC__/css/pubFooter.css" rel="stylesheet" type="text/css">
+    <!-- 在此添加自定义定向，必须放在BAIDU_CLB_preloadSlots函数之前 -->
+</head>
+<body data-pid="" data-id="" style="background:#F0F0F0"><div style="position: absolute; left: -1px; bottom: -1px; z-index: 0; width: 0px; height: 0px; overflow: hidden; visibility: hidden; display: none;" id="BAIDU_DUP_fp_wrapper">
+    <!-- 频道公共页头 begin -->
+    <div class="topCHead">
+        <div class="topHead" id="topPublic">
+            <!-- 频道导航内部 begin -->
+            <div class="top" id="topC">
+                <a class="logoChannel" id="logoChannel_1399" href="http://1ent.huanqiu.com/" target="_top"></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- 内容区域 begin -->
+<div class="main">
+    <div class="mainCon"  class="conText" style="background:#FFF; padding:20px; width:1000px; margin-left: auto; margin-right: auto;">
+        <!--startprint-->
+        <div>
+            <h1>有问必答</h1>
+            <!-- 信息区 begin -->
+            <div class="summaryNew">
+                <strong class="timeSummary" id="pubtime_baidu">{$article['createtime']}</strong>
+                <strong class="fromSummary" id="source_baidu">点击数 {$article['views']}</strong>
+                <!--<strong class="fromSummary" id="source_baidu">点赞 {$list['post_like']}</strong>-->
+                <em></em>
+            </div>
+            <!-- 内容区域 -->
+            <div style="font-size: 16px; width:1000px" class="text16"  id="text">
+                <p style="font-size: 16px;">{$article['msg']}</p>
+            </div>
+            <h2>医生评论：</h2><hr>
+            <!--<if condition="!empty($doctor)">-->
+            <!--<foreach name="doctor" item="vo" >-->
+                <volist name="doctor" id="vo">
+                    <div style="border:3px solid #FFF;  min-height:50px; padding:10px">
+                        <div style="width:60px">
+                            <img src="{$vo['avatar']}" style="width:50px" alt="医生头像" />
+                        </div>
+                        <div style="width:900px; float:right; margin-top:-32px">
+                            <span style="margin-top:-10px; font-size:15px">{$vo['nickname']} ：</span>
+                            <span>{$vo['replycontent']}</span><br>
+                            <span style="margin-top:5px; font-size:10px">{$vo['replytime']}</span>
+                        </div>
+                    </div>
+                </volist>
+            <!--</foreach>-->
+                <!--<else />-->
+                <!--<div>-->
+                    <!--暂无评论-->
+                <!--</div>-->
+
+            <!--</if>-->
+            <h2>用户评论：</h2><hr>
+            <!--<if condition="!empty($doctor)">-->
+            <!--<foreach name="doctor" item="vo" >-->
+            <volist name="users" id="va">
+                <div style="border:3px solid #FFF;  min-height:50px; padding:10px">
+                    <div style="width:60px">
+                        <img src="{$va['user_img']}" style="width:50px" alt="用户头像" />
+                    </div>
+                    <div style="width:900px; float:right; margin-top:-32px">
+                        <span style="margin-top:-10px; font-size:15px">{$va['nickname']} ：</span>
+                        <span>{$va['replycontent']}</span><br>
+                        <span style="margin-top:5px; font-size:10px">{$va['replytime']}</span>
+                    </div>
+                </div>
+            </volist>
+        </div>
+    </div>
+</div>
+</body>
+</html>

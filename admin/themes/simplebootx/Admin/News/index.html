@@ -1,0 +1,74 @@
+<admintpl file="header" />
+</head>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div class="wrap js-check-wrap">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="{:U('face/index')}">消息列表</a></li>
+			<li class=""><a href="{:U('face/index')}">发送系统消息</a></li>
+		</ul>
+            <form method="post" class="js-ajax-form">
+                <table class="table table-hover table-bordered table-list">
+				<thead>
+					<tr>
+						<th width="16"><label><input type="checkbox" class="js-check-all" data-direction="x" data-checklist="js-check-x"></label></th>
+						<th width="50">消息ID</th>
+						<th width="45">消息名称</th>
+						<th width="45">消息内容</th>
+						<th width="45">消息类型</th>
+						<th width="45">发送时间</th>
+						<th width="45">发送类型</th>
+						<th width="45">当前状态</th>
+                        <th width="45"> 操作</th>
+					</tr>
+				</thead>
+                                <tbody>
+					<foreach name="lists" item="vo">
+					<tr>
+						<td><input type="checkbox" class="js-check" data-yid="js-check-y" data-xid="js-check-x" name="ids[]" value="{$vo.id}"></td>
+						<td>{$vo.id}</td>
+						<td>{$vo.name}</td>
+						<td>{$vo.introduce}</td>
+						<td>{$vo.level}</td>
+                        <td>{$vo.starttime|date='Y-m-d H:i:s',###}</td>
+                        <td>{$vo.stoptime|date='Y-m-d H:i:s',###}</td>
+                        <td><?php 
+                        if($vo['state']==1){
+                        	echo "<font color='green'>活动进行中</font>";
+                        }else{
+                        	echo "<font color='red'>活动已过期</font>";
+                        }
+                        ?>
+						<a href="{:U('face/Datedac',array('id'=>$vo['id'],'sid'=>$vo['state']))}">
+							<?php 
+                        if($vo['state']==1){
+                        	echo "<font color='red'>结束</font>";
+                        }else{
+                        	echo "<font color='green'>开启</font>";
+                        }
+                        ?>
+						</a>
+                        </td>
+						<td>
+						<a href="{:U('face/selinfo',array('id'=>$vo['id']))}">查看预约人数</a>|
+							<a href="{:U('face/facewedit',array('id'=>$vo['id']))}">修改</a> |
+							<a href="{:U('face/facedelete',array('id'=>$vo['id']))}" class="js-ajax-delete">删除</a>
+						</td>
+					</tr>
+					</foreach>
+				</tbody>
+                </table>  
+                <div class="table-actions">
+				    <center>{$page}</center>
+			</div>
+            </form>
+        </div>
+    
+        <script src="__PUBLIC__/js/common.js"></script>
+    </body>
+</html>

@@ -1,0 +1,132 @@
+.price{
+    width: 100%;
+    height: 0.9rem;
+    background: #F87EA3;
+    border-top: 1px solid #F87EA3;
+}
+
+.price input{
+    display: block;
+    width: 3.4rem;
+    margin-left: 0.2rem;
+    height: 0.6rem;
+    border-radius: 0.1rem;
+    box-sizing: border-box;
+    margin-top: 0.15rem;
+    float: left;
+    font-size:0.24rem;
+    color: #c2c1c1;
+    padding-left: 0.1rem;
+    border:0.01rem solid #D5D6DB;
+}
+
+.price span{
+    display: block;
+    float: left;
+    height: 0.9rem;
+    line-height: 0.9rem;
+    text-align: center;
+    font-size:0.3rem;
+    color: #fefefe;
+    margin-left: 0.2rem;
+}
+
+p{
+    width: 100%;
+    height: 0.8rem;
+    font-size: 0.18rem;
+    color: #656565;
+    box-sizing: border-box;
+    padding-left: 0.2rem;
+    line-height: 0.8rem;
+    border-bottom: 0.01rem solid #D5D6DB;
+}
+
+ul{
+    position: relative;
+    width: 100%;
+    height: auto;
+    background: #FFFFFF;
+}
+
+.fen{
+    position: absolute;
+    z-index: 1000;
+    left: 0;
+    right: 0;
+    top:0;
+    bottom: 0;
+    margin: auto;
+    background: url("../img/zhongjianxian-icon.png") no-repeat center;
+    background-size: contain;
+    width: 0.2rem;
+    height: auto;
+}
+
+li{
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #D5D6DB;
+    padding-bottom: 0.3rem;
+}
+li>div{
+    border-top:1px solid rgba(0,0,0,0);
+    position: relative;
+    width: 50%;
+    height: auto;
+    float: left;
+}
+
+img{
+    margin: 0.2rem auto;
+    width: 1.20rem;
+    height: 1.20rem;
+    display: block;
+    border-radius: 50%;
+}
+
+.addimg{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top:0.6rem;
+    width: 0.38rem;
+    height: 0.38rem;
+    margin: 0 auto;
+    background: url("../img/jia-icon.png") no-repeat center;
+}
+
+li span{
+    display: block;
+    width: 100%;
+    height: 0.2rem;
+    font-size: 0.2rem;
+    color: #989898;
+    text-align: center;
+}
+
+li i{
+    display: block;
+    width: 100%;
+    font-size: 0.16rem;
+    height: 0.2rem;
+    color: #989898;
+    text-align: center;
+    margin-top: 0.1rem;
+}
+
+.tj{
+    margin: 0.5rem auto;
+    width: 90%;
+    color: #FFFFFF;
+    font-size: 0.3rem;
+    height: 0.9rem;
+    line-height: 0.9rem;
+    text-align: center;
+    border-radius: 0.1rem;
+    background: #CECECE;
+}
+
+.sub{
+    background: #F87EA3;
+}

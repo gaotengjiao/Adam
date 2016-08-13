@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scale=no" />
+		<title>名师预约</title>
+		<link href="../css/styleCss.css" rel="stylesheet" />
+		<script>
+	    	var oHtml=document.getElementsByTagName("html")[0];
+            var iWidth=document.documentElement.clientWidth;
+              	oHtml.style.fontSize=iWidth/16+"px";
+	    </script>
+	</head>
+	<body>
+		<header class="mingYi">
+			<div class="searchYi">
+				<form>
+					<input type="text" placeholder="搜索名医" class="mingYi2"/>
+					<a href="#" class="searchYi2"></a>
+				</form>
+			</div>
+			<a href="#" class="yueMenu"><img src="../img/teacher.png"/>预约单</a>
+		</header>
+		<div class="bigBg">
+			<div class="benZhou"><img src="../img/yishi1.png"/></div>
+			<h2 class="benPeople">本周推荐：<span>xxx医师</span></h2>
+		</div>
+		<div class="choose">
+			<span>所有医师</span>
+			<span>按项目预约</span>
+		</div>
+		<div class="mingShi">
+			<ul class="shiList clear">
+				<li><a href="#"><img src="../img/yishi1.png"/><span>xxx医师</span></a></li>
+				<li><a href="#"><img src="../img/yishi1.png"/><span>xxx医师</span></a></li>
+				<li><a href="#"><img src="../img/yishi1.png"/><span>xxx医师</span></a></li>
+				<li><a href="#"><img src="../img/yishi1.png"/><span>xxx医师</span></a></li>
+				<li><a href="#"><img src="../img/yishi1.png"/><span>xxx医师</span></a></li>
+				<li><a href="#"><img src="../img/yishi1.png"/><span>xxx医师</span></a></li>
+				<li><a href="#"><img src="../img/yishi1.png"/><span>xxx医师</span></a></li>
+				<li><a href="#"><img src="../img/yishi1.png"/><span>xxx医师</span></a></li>
+				<li><a href="#"><img src="../img/yishi1.png"/><span>xxx医师</span></a></li>
+			</ul>
+		</div>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

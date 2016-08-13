@@ -1,0 +1,318 @@
+<admintpl file="header" />
+</head>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="__PUBLIC__/js/jquery-1.8.3.min.js"></script>
+        <style>
+            .texta{text-overflow: ellipsis; white-space: nowrap; overflow: hidden; cursor: pointer;}
+        </style>
+        <script src="__PUBLIC__/js/jquery-1.8.3.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/js/jquery.layerModel.js"></script>
+        <link type="text/css" rel="stylesheet" href="__PUBLIC__/css/layerModel.css"/>
+    </head>
+    <body>
+        <div class="wrap js-check-wrap"> 
+		<ul class="nav nav-tabs">
+            <li class="active"><a href="{:U('Goods/Goods')}">产品管理</a></li>
+            <li><a href="{:U('Goods/recycle')}" target="_self">产品回收站</a></li>
+		</ul>
+        <form class="well form-search" method="post" action="{:U('Goods/goods')}">
+            分类： 
+            <select class="select_2" name="gtype">
+                <option value='0'>全部</option>{$taxonomys}
+                <volist name="arr" id="voss">
+                    <option class="voss" data="{$voss.typename}" value="{$voss.id}" {$voss['id'] == $test ? 'selected' : ''}>{$voss.html}{$voss.typename}</option>
+                </volist>
+            </select> &nbsp;&nbsp;
+            时间：
+            <input type="text" name="start_time" class="sang_Calender" value="{$time1}" style="width: 80px;" autocomplete="off">-
+            <input type="text" class="sang_Calender" name="end_time" value="{$time2}" style="width: 80px;" autocomplete="off"> &nbsp; &nbsp;
+            商品名称： 
+            <input type="text" name="keyword" style="width: 200px;" value="{$wordkey}" placeholder="请输入商品名...">
+            <input type="submit" class="btn btn-primary" value="搜索" />
+        </form>
+            <div class="table-actions"> 
+                <button class="btn btn-primary btn-small" id="nos">下架</button>
+                <button class="btn btn-primary btn-small" id="gsorder" style="">排序</button>
+            </div>
+            <form method="post" class="js-ajax-form">
+                <table class="table table-hover table-bordered table-list" style="table-layout:fixed">
+				<thead>
+					<tr>
+						<th width="15"><input type="checkbox" id="jschecks"></th>
+                        <th width="30">排序</th>
+						<th width="50">产品ID</th>
+                        <th width="">产品名称</th>
+                        <th width="60">产品类型</th>
+                        <th width="">最后修改时间</th>
+						<th width="110">产品上下架</th>
+						<th width="90">产品缩略图</th>
+                        <!-- <th width="">产品介绍</th> -->
+                        <!-- <th width="">产品简介</th> -->
+						<th width="">产品价格</th>
+                        <th>产品详情</th>
+						<th width="">产品关键字</th>
+                        <!-- <th>服务流程</th> -->
+                        <!-- <th width="">颜值活动</th> -->
+                        <!-- <th width="">推荐医师</th> -->
+                        <th width="50"> 操作</th>
+					</tr>
+				</thead>
+                                <tbody>
+					<foreach name="lists" item="vo">
+					<tr>
+						<td><input type="checkbox" name="chk_list[]" value="{$vo.id}" class="checkas"></td>
+                        
+                        <td class="typename"><span style="text-align:center" data="{$vo['id']}">{$vo['gorder']}</span>
+                            <input style="display:none;margin:0px;width:30px; padding:0px;margin-top:2px" type="text" value="{$vo['gorder']}">
+                        </td>
+
+						<td  class="h1">{$vo.id}</td>
+                        <td>{$vo.gname}</td>
+                        <td>{$vo.type}</td>
+                        <td>{$vo.time|date="Y-m-d H:i",###}</td>
+                        <td>
+                            <span class="demo1">{$vo['state'] == 1 ? '上架' : '下架'}</span>
+                            <a class="status" style="cursor:pointer" data="{$vo['state']}" date="{$vo['id']}">
+                            <span class="demo2">{$vo['state'] == 1 ? '下架' : '上架'}</span>
+                        </a>
+                            <span class="stick" style="cursor:pointer" date="{$vo['id']}" data="{$vo['stick']}">{$vo['stick'] == 0 ? "置顶" : "取消置顶" }</span>
+                        </td>
+                        <td><img src="__ROOT__{$vo.humbimg}"/></td>
+                        <!-- <td class="texta contents" data='{$vo.content}'>{$vo.content}</td> -->
+                        <!-- <td class="texta abouts" >{$vo.about}</td> -->
+						<td>￥{$vo.price}</td>
+                        <td class="Looks" data="{$vo['id']}" style="">点我查看</td>
+                        <td class="texta keywords">{$vo.keyword}</td>
+                        <!-- <td>
+                            <select name="" class="selecteds" data="{$vo['id']}" style="width:90px">
+                                    <option value="0">无服务流程</option>
+                                <volist name="service" id="hg">
+                                    <option value="{$hg['sid']}" {$vo['service'] == $hg['sid'] ? 'selected' : ''}>{$hg['sname']}</option>
+                                </volist>
+                            </select>
+                        </td> -->
+                        
+                        <!-- <td>{$vo['aid'] == ' ' ? "无产品活动" : $vo['aid']}</td> -->
+                     
+                        <!-- <td>{$vo['usersid'] == ' ' ? "无产品活动" : $vo['usersid']}</td> -->
+                        <td>
+                            <a href="{:U('goods/goodswedit',array('id'=>$vo['id']))}">修改</a>
+						</td>
+					</tr>
+					</foreach>
+                    <tr>
+                        <td id="h2" colspan="14" style="text-align:center; display:none">暂无产品信息</td>
+                    </tr>
+				</tbody>
+                </table>
+                <div class="table-actions">
+				    <center>{$page}</center>
+                </div>
+                <div id="demo0" style="width:400px;height: 200px;background: #e5e5e5;display: none;text-align: left;border:1px solid;text-indent:2em;overflow:scroll"></div>
+            </form>
+
+        </div>
+        <div id="demo3" style="width:400px;height: 350px;background: #e5e5e5;display: none;text-align: left;border:1px solid;text-indent:2em;overflow:scroll">
+            暂时没有数据
+        </div>
+        <script src="__PUBLIC__/js/common.js"></script>
+        <script src="__PUBLIC__/js/datetime.js"></script>
+        <script>
+            window.onload = function(){
+                $('.parameter').each(function(){
+                    if($(this).attr('data') == ''){
+                        $(this).text('暂无数据');
+                    }
+                })
+            }
+            Wind.use('ajaxForm', 'artDialog', 'iframeTools', function() {
+            $('.Looks').click(function(){
+                $(this).css('color','red');
+                var id = $(this).attr('data');
+                    art.dialog.open("__ROOT__/index.php?g=Admin&m=Goods&a=move&id="+ id, {
+                        title : "产品详细信息",
+                        width : "80%",
+                        height:"400px"
+                    });
+                })
+            });
+            $('.status').click(function(){
+                var that = $(this);
+                var state = $(this).attr('data');
+                var id = $(this).attr('date');
+                var test1 = that.prev().text();
+                var test2 = that.children().text();
+
+                $.get("{:U('Goods/state')}", {state:state, id:id}, function(msg){
+                    if(msg == 1 && state == 0){
+                        that.prev().text(test2);
+                        that.children().text(test1);
+                        that.attr('data', 1);
+                        that.parent().parent().remove();
+                    }
+                    if(msg == 1 && state == 1){
+                        that.prev().text(test2);
+                        that.children().text(test1);
+                        that.attr('data', 0);
+                        that.parent().parent().remove();
+                    }
+                })
+            })
+            $('.contents').dblclick(function(){
+                $('#demo0').text($(this).attr('data'));
+                $("#demo0").layerModel({
+                    blurClose : true,
+                    title:'商品介绍',
+                });
+
+            })
+            
+            $('.abouts').dblclick(function(){
+                $('#demo0').text($(this).text());
+                $("#demo0").layerModel({
+                    blurClose : true,
+                    title:'商品简介',
+                });
+
+            })
+
+            $('.typename').click(function(){
+                $(this).children().eq(0).css('display','none');
+                $(this).children().eq(1).css('display', '').focus();
+            })
+
+            $('.typename').children('input').blur(function(){
+                var that = $(this);
+                $(this).css('display','none');
+                $(this).prev().css('display', '');
+                var id = $(this).prev().attr('data');
+                var value = $(this).val();
+                $.post("{:U('Goods/Price')}", {id:id, value:value}, function(msg){
+                    if(msg == 1){
+                        that.prev().html(value);
+                        that.html(value);
+                    }
+                })
+            })
+            $('#gsorder').click(function(){
+                self.location.reload();
+            })
+
+            $('.keywords').dblclick(function(){
+                $('#demo0').text($(this).text());
+                $("#demo0").layerModel({
+                    blurClose : true,
+                    title:'商品关键字',
+                });
+
+            })
+            if($('.h1').text() == ''){
+                $('#h2').css('display', '');
+            }
+            
+            $("#jschecks").click(function() { 
+                var s = $(this).attr('checked');
+                if(s == 'checked'){
+                    $('.checkas').attr('checked', true);
+                }else{
+                    $('.checkas').attr('checked', false);
+                }
+            });
+
+            $('#nos').click(function(e){
+                var checkedList = new Array();
+                $("input[name='chk_list[]']:checked").each(function() {
+                    checkedList.push($(this).val());
+                });
+
+                if(checkedList == ''){
+                    e.preventDefault();
+                    var $_this = this;
+                    art.dialog({
+                        title: false,
+                        icon: 'question',
+                        content: '至少选择一个',
+                        follow: $_this,
+                        close: function () {
+                            $_this.focus();; //关闭时让触发弹窗的元素获取焦点
+                            return true;
+                        },
+                        cancelVal: '关闭',
+                        cancel: true
+                    });
+                }else{
+                    $.get("{:U('goods/outs')}", {id:checkedList}, function(msg){
+                        if(msg == 1){
+                            $("input[name='chk_list[]']:checked").parent().parent().remove();
+                        }
+                    })
+                }
+            })   
+
+            $('.selecteds').change(function(){
+                var v = $(this).attr('data');
+                var s = $(this).val();
+                $.get("{:U('Goods/serviceedit')}", {id:v, service:s}, function(msg){
+
+                })
+            }) 
+
+            function currentTime(){
+                var d = new Date(),str = '';
+                str  += d.getFullYear()+'-';
+                var miuse = d.getMonth() + 1
+                if(miuse < 10){
+                    str  += '0'+miuse+'-';
+                }else{
+                    str  += miuse+'-';
+                }
+                var Dat = d.getDate();
+
+                if(Dat < 10){
+                    str  += '0'+Dat+' ';
+                }else{
+                    str  += Dat+' ';
+                }
+
+                var hours = d.getHours();
+                if(hours < 10){
+                    str  += '0'+hours+':'; 
+                }else{
+                    str  += hours+':'; 
+                }
+                
+                var mouj = d.getMinutes();
+                if(mouj < 10){
+                    str  += '0'+mouj; 
+                }else{
+                    str  += mouj;
+                }
+                
+                return str;
+            }
+
+            $('.stick').click(function(){
+                var that = $(this);
+                var value = that.text();
+                var id = that.attr('date');
+                var stic = that.attr('data');
+                $.post("{:U('Goods/editstick')}", {id:id, stic:stic}, function(msg){
+                    if(msg == 1 && stic == 0){
+                        that.text('取消置顶');
+                        that.attr('data','1');
+                        that.parent().prev().html(currentTime());
+                    }
+                    if(msg == 1 && stic == 1){
+                        that.text('置顶');
+                        that.attr('data','0');
+                        that.parent().prev().html(currentTime());
+                    }
+                })
+            })
+        </script>
+    </body>
+</html>

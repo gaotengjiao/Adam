@@ -1,0 +1,380 @@
+*{
+    box-sizing: border-box;
+}
+
+.yindao{
+    position: fixed;
+    left: 0;
+    top:0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    overflow: hidden;
+    background: url("../img/yanz/neirongqu-img.png") no-repeat center;
+    background-size: cover;
+}
+
+.yindao>div{
+    position: relative;
+}
+
+.tit{
+    background: url("../img/yanz/simeiliyan-img.png") no-repeat center;
+    width: 100%;
+    background-size: contain;
+    height: 0.62rem;
+    margin: 0.55rem auto 0.2rem;
+}
+
+.fbt{
+    background: url("../img/yanz/youyanqianlixianghui-img.png") no-repeat center;
+    background-size: contain;
+    width: 100%;
+    height: 0.22rem;
+}
+
+.rw{
+    background: url("../img/yanz/nvzhujiao-img.png") no-repeat center;
+    background-size: contain;
+    width: 100%;
+    height: 3.92rem;
+}
+
+.liu1{
+    background: url("../img/yanz/tedian01-icon.png") no-repeat center;
+    background-size: contain;
+    width: 1.16rem;
+    height: 1.16rem;
+}
+
+.liu2{
+    background: url("../img/yanz/tedian02-icon.png") no-repeat center;
+    background-size: contain;
+    width: 1.3rem;
+    height: 1.3rem;
+}
+
+.liu3{
+    background: url("../img/yanz/tedian03-icon.png") no-repeat center;
+    background-size: contain;
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+#ceshi{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.ceshi{
+    width: 90%;
+    border-top: 1px solid #d9db65;
+    background: #d9db65;
+    border-radius:5px;
+    height: 0.8rem;
+    margin: auto;
+}
+
+.ceshi span:first-child{
+    color: #933938;
+    font-size: 0.3rem;
+    height: 0.3rem;
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin: 0.1rem auto 0.06rem;
+}
+
+.ceshi span:last-child{
+    display: block;
+    width: 100%;
+    text-align: center;
+    color: #a47421;
+    font-size: 0.18rem;
+}
+
+.huanhao{
+    display: block;
+    width: 100%;
+    color: #FFFFFF;
+    font-size: 0.2rem;
+    text-align: center;
+    margin: 0.2rem auto 0.5rem;
+}
+
+#chuan{
+    width: 100%;
+    height: auto;
+    display: none;
+}
+
+.phone{
+    background: #FFFFFF;
+    width: 100%;
+    height:0.88rem;
+}
+
+.phone span:first-child{
+    color: #989898;
+    font-size: 0.24rem;
+    text-align: left;
+    margin-right: 0.2rem;
+    line-height: 0.88rem;
+    display: block;
+    float: left;
+    height: 0.88rem;
+}
+
+.phone span:last-child{
+    display: block;
+    float: left;
+    height: 0.88rem;
+    line-height: 0.88rem;
+    text-align: left;
+    color: #282828;
+    font-size: 0.24rem;
+}
+
+.tishi{
+    color: #989898;
+    display: block;
+    width: 100%;
+    height: 0.6rem;
+    font-size: 0.2rem;
+    line-height: 0.6rem;
+    text-align: left;
+}
+
+.name{
+    background: #FFFFFF;
+    height: 0.78rem;
+    width: 100%;
+    color: #302f2f;
+    font-size: 0.28rem;
+    margin-bottom: 0.1rem;
+}
+
+.name span{
+    display: block;
+    float: left;
+    height: 0.78rem;
+    line-height: 0.78rem;
+    text-align: left;
+    margin-right: 0.4rem;
+}
+
+input{
+    display: block;
+    float: left;
+    border:0;
+    height: 100%;
+    line-height: 0.78rem;
+    color: #282828;
+    font-size: 0.26rem;
+    text-align: left;
+    padding: 0;
+}
+
+.shenfen{
+    background: #FFFFFF;
+    height: 0.78rem;
+    width: 100%;
+    color: #302f2f;
+    font-size: 0.28rem;
+    margin-bottom: 0.1rem;
+    box-sizing: border-box;
+}
+
+.shenfen span{
+    display: block;
+    float: left;
+    height: 0.78rem;
+    line-height: 0.78rem;
+    text-align: left;
+    margin-right: 0.4rem;
+}
+
+.qingchu{
+    display: block;
+    float: right;
+    width: 0.3rem;
+    height: 0.3rem;
+    border-radius: 50%;
+    background: url("../img/yanz/guandiao-icon.png") no-repeat center;
+    background-size: cover;
+    margin-top: 0.24rem;
+}
+
+.shang{
+    width: 100%;
+    background: #FFFFFF;
+    font-size: 0.28rem;
+    box-sizing: border-box;
+    color: #302f2f;
+}
+
+.shang>span:first-child{
+    color: #302f2f;
+    font-size: 0.28rem;
+    line-height: 0.7rem;
+}
+
+.shang>div>span{
+    display: block;
+    color: #989898;
+    font-size: 0.2rem;
+}
+
+ul{
+    position: relative;
+}
+
+.shili{
+    width: 100%;
+    height: 3.2rem;
+}
+
+.left{
+    position: relative;
+    float: left;
+    width: 1rem;
+    padding: 1.2rem 0;
+}
+
+.left i{
+    display: block;
+    width: 0.4rem;
+    height: 0.4rem;
+    border-radius: 50%;
+    background: #f76868;
+    color: #FFFFFF;
+    text-align: center;
+    margin: auto;
+    line-height: 0.4rem;
+}
+
+.left span{
+    display: block;
+    color: #f76868;
+    font-size: 0.2rem;
+    text-align: center;
+    margin-top: 0.1rem;
+    width: 100%;
+}
+
+.right{
+    width: calc(100% - 1rem);
+    float: left;
+    border-bottom: 1px solid #e7e7e7;
+    height: 100%;
+    box-sizing: border-box;
+    padding-top: 0.3rem;
+}
+
+.jia{
+    width: 2.6rem;
+    height: 2.6rem;
+    border:1px solid #d7d8dd;
+    border-radius: 4px;
+    background:#e2f1fd;
+    float: left;
+    margin: 0 0.7rem 0 0;
+}
+
+.jia img{
+    display: block;
+    height: 1.18rem;
+    width: 1.18rem;
+    margin: 0.5rem auto 0.3rem;
+}
+
+.ali{
+    position: absolute;
+    left: 0;
+    top:0;
+    width: 0.46rem;
+    z-index: 100;
+    height: 0.5rem;
+    display: block;
+    background: url("../img/yanz/juli-img.png") no-repeat;
+    background-size: contain;
+}
+
+.jia span{
+    display: block;
+    width: 100%;
+    text-align: center;
+    color: #3694dc;
+    font-size: 0.24rem;
+}
+
+.li{
+    float: left;
+    width: 2rem;
+    position: relative;
+    height: 100%;
+}
+
+.li span:first-child{
+    color: #282828;
+    font-size: 0.24rem;
+    display: block;
+}
+
+.tu{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 1.8rem;
+    width: 1.8rem;
+    background: url("../img/yanz/juli-img.png") no-repeat left top;
+    margin-bottom: 0.24rem;
+}
+
+.tu img{
+    height: 1.8rem;
+    width: 1.8rem;
+}
+
+.fenge{
+    position: absolute;
+    left: 0;
+    right:0;
+    background: url("../img/yanz/shuxian-line.png") no-repeat center;
+    width: 0.04rem;
+    height: 2.3rem;
+    margin: auto;
+}
+
+.xieyi{
+    display: block;
+    width: 100%;
+    height: 0.54rem;
+    line-height: 0.54rem;
+    color: #646464;
+    font-size: 0.18rem;
+}
+
+.xieyi i{
+    color: #0864d6;
+}
+
+.tijiao{
+    width: 90%;
+    border-radius: 6px;
+    background: #e169a3;
+    font-size: 0.3rem;
+    line-height: 0.8rem;
+    color: #FFFFFF;text-align: center;
+    height: 0.8rem;
+    margin: 0 auto;
+}
+
+.tijiao:after{
+    display: block;
+    width: 100%;
+    height: 0.44rem;
+    content: '';
+}

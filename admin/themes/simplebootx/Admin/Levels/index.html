@@ -1,0 +1,146 @@
+<admintpl file="header" />
+</head>
+<body>
+<div class="wrap js-check-wrap">
+	<ul class="nav nav-tabs">
+		<li class="active"><a href="{:U('levels/index')}">颜值展示</a></li>
+		<li><a href="{:U('levels/add')}">添加内容</a></li>
+	</ul>
+	<!--<form class="well form-search" method="post" id="cid-form">-->
+		<!--<select class="select_2" name="cid" style="width: 100px;" id="selected-cid">-->
+			<!--<option value=''>{:L('ALL')}</option>-->
+			<!--<foreach name="categorys" item="vo">-->
+				<!--<php>$cid_select=$vo['term_id']===$slide_cid?"selected":"";</php>-->
+				<!--<option value="{$vo.term_id}"{$cid_select}>{$vo.name}</option>-->
+			<!--</foreach>-->
+		<!--</select>-->
+	<!--</form>-->
+	<form class="js-ajax-form" method="post">
+		<div class="table-actions">
+			<button class="btn btn-primary btn-small js-ajax-submit" type="submit" data-action="{:U('levels/check',array('check'=>1))}" data-subcheck="true">审核</button>
+			<button class="btn btn-primary btn-small js-ajax-submit" type="submit" data-action="{:U('levels/check',array('uncheck'=>1))}" data-subcheck="true">取消审核</button>
+			<button class="btn btn-primary btn-small js-ajax-submit" type="submit" data-action="{:U('levels/recommend',array('recommend'=>1))}" data-subcheck="true">推荐</button>
+			<button class="btn btn-primary btn-small js-ajax-submit" type="submit" data-action="{:U('levels/recommend',array('unrecommend'=>1))}" data-subcheck="true">取消推荐</button>
+		</div>
+		<php> $status=array("1"=>L('DISPLAY'),"0"=>L('HIDDEN')); </php>
+		<table class="table table-hover table-bordered table-list">
+			<thead>
+			<tr>
+				<th width="15"><label><input type="checkbox" class="js-check-all" data-direction="x" data-checklist="js-check-x"></label></th>
+				<!--<th width="50">{:L('SORT')}</th>-->
+				<th width="200">关键词</th>
+				<th width="200">内容</th>
+				<th width="100">是否审核</th>
+				<th width="50">是否推荐</th>
+				<th width="50">点赞数</th>
+				<th width="50">评论数</th>
+				<th width="50">访问量</th>
+				<th width="50">创建时间</th>
+				<!--<th width="100">{:L('ACTIONS')}</th>-->
+			</tr>
+			</thead>
+			<foreach name="show" item="vo">
+				<tr>
+					<td><input type="checkbox" class="js-check" data-yid="js-check-y" data-xid="js-check-x" name="ids[]" value="{$vo.id}"></td>
+					<!--<td><input name='listorders[{$vo.slide_id}]' class="input input-order mr5" type='text' size='3' value='{$vo.listorder}'></td>-->
+					<td>{$vo.level_keywords}</td>
+					<td>{$vo.level_content}</td>
+					<td><if condition=" $vo['level_status'] eq 1 ">已审核</if>
+						<if condition=" $vo['level_status'] eq 0 ">未审核</if>
+						<if condition=" $vo['level_status'] eq 2 ">未通过审核</if></td>
+					<td><if condition=" $vo['recommended'] eq 1 ">推荐</if>
+						<if condition=" $vo['recommended'] eq 0 ">不推荐</if></td>
+					<td>{$vo.level_like}</td>
+					<td>
+						<if condition=" $vo['count'] eq 0 " >
+							0
+							<else />
+							<a href="javascript:open_iframe_dialog('{:U('comment/commentadmin/index',array('post_table'=>'levels','post_id'=>$vo['id']))}','评论列表')">{$vo.count}</a>
+						</if>
+
+					</td>
+					<td>{$vo.level_hits}</td>
+					<td>
+						{$vo.level_date}
+					</td>
+
+					<!--<td>-->
+						<!--<a href="{:U('slide/edit',array('id'=>$vo['slide_id']))}">{:L('EDIT')}</a>-->
+						<!--<a href="{:U('slide/delete',array('id'=>$vo['slide_id']))}" class="js-ajax-delete">{:L('DELETE')}</a>-->
+						<!--<if condition="empty($vo['slide_status']) eq 1">-->
+							<!--<a href="{:U('slide/cancelban',array('id'=>$vo['slide_id']))}" class="js-ajax-dialog-btn" data-msg="确定显示此幻灯片吗？">{:L('DISPLAY')}</a>-->
+							<!--<else />-->
+							<!--<a href="{:U('slide/ban',array('id'=>$vo['slide_id']))}" class="js-ajax-dialog-btn" data-msg="确定隐藏此幻灯片吗？">{:L('HIDE')}</a>-->
+						<!--</if>-->
+					<!--</td>-->
+				</tr>
+			</foreach>
+			<tfoot>
+
+			<tr>
+				<th width="15"><label><input type="checkbox" class="js-check-all" data-direction="x" data-checklist="js-check-x"></label></th>
+				<th width="200">关键词</th>
+				<th width="200">内容</th>
+				<th width="100">是否审核</th>
+				<th width="50">是否推荐</th>
+				<th width="50">点赞数</th>
+				<th width="50">评论数</th>
+				<th width="50">访问量</th>
+				<th width="50">创建时间</th>
+			</tr>
+			</tfoot>
+		</table>
+		<div class="table-actions">
+			<button class="btn btn-primary btn-small js-ajax-submit" type="submit" data-action="{:U('levels/check',array('check'=>1))}" data-subcheck="true">审核</button>
+			<button class="btn btn-primary btn-small js-ajax-submit" type="submit" data-action="{:U('levels/check',array('uncheck'=>1))}" data-subcheck="true">取消审核</button>
+			<button class="btn btn-primary btn-small js-ajax-submit" type="submit" data-action="{:U('levels/recommend',array('recommend'=>1))}" data-subcheck="true">推荐</button>
+			<button class="btn btn-primary btn-small js-ajax-submit" type="submit" data-action="{:U('levels/recommend',array('unrecommend'=>1))}" data-subcheck="true">取消推荐</button>
+		</div>
+	</form>
+</div>
+<script src="__PUBLIC__/js/common.js"></script>
+<script>
+	function refersh_window() {
+		var refersh_time = getCookie('refersh_time');
+		if (refersh_time == 1) {
+			window.location = "{:U('levels/index',$formget)}";
+		}
+	}
+	setInterval(function() {
+		refersh_window();
+	}, 2000);
+	$(function() {
+		setCookie("refersh_time", 0);
+		Wind.use('ajaxForm', 'artDialog', 'iframeTools', function() {
+			//批量移动
+			$('.js-articles-move').click(function(e) {
+				var str = 0;
+				var id = tag = '';
+				$("input[name='ids[]']").each(function() {
+					if ($(this).attr('checked')) {
+						str = 1;
+						id += tag + $(this).val();
+						tag = ',';
+					}
+				});
+				if (str == 0) {
+					art.dialog.through({
+						id : 'error',
+						icon : 'error',
+						content : '您没有勾选信息，无法进行操作！',
+						cancelVal : '关闭',
+						cancel : true
+					});
+					return false;
+				}
+				var $this = $(this);
+				art.dialog.open("__ROOT__/index.php?g=portal&m=AdminPost&a=move&ids="+ id, {
+					title : "批量移动",
+					width : "80%"
+				});
+			});
+		});
+	});
+</script>
+</body>
+</html>

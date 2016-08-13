@@ -1,0 +1,92 @@
+<admintpl file="header" />
+</head>
+<body>
+	<script src="__PUBLIC__/js/jquery-1.8.3.min.js"></script>
+	<div class="wrap">
+		<ul class="nav nav-tabs">
+			<li><a href="{:U('Goodstype/index')}">{:L('TYPE_LIST')}</a></li>
+			<li class="active"><a href="{:U('menu/add')}">{:L('ADD_TYPE')}</a></li>
+		</ul>
+		<form method="post" id="formsubmit" class="form-horizontal js-ajax-form" action="">
+			<fieldset>
+				<div class="control-group">
+					<label class="control-label">上级:</label>
+					<div class="controls">
+						<select name="parentid" id="parentid">
+							<option value="0">{:L('AS_A_LEVEL_1_MENU')}</option>
+							<foreach name="posts" item="vo">
+								<option value="{$vo['id']}" id="options" data="{$vo['html']}">
+								{$vo['html']}{$vo['typename']}</option>
+							</foreach>
+						</select>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">名称:</label>
+					<div class="controls">
+						<input type="text" name="typename" id="typename">
+						<span class="form-required">*</span>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">状态:</label>
+					<div class="controls">
+						<select name="status" id="status">
+							<option value="1">显示</option>
+							<option value="0">隐藏</option>
+						</select>
+					</div>
+				</div>
+			</fieldset>
+			<div class="form-actions">
+				<!-- <button type="submit" id="submit" style="display:" class="btn btn-primary js-ajax-submit">{:L('ADD')}</button> -->
+				<!-- <a class="btn" href="{:U('menu/index')}">{:L('BACK')}</a> -->
+				<button id="submit" style="display:none; width:80px;height:40px">添加</button>
+				<button id="nosubs" style="display:; width:80px;height:40px" src="javascript:void(0)">返回</button>
+				<span style="font-size:20px" id="sizes"></span>
+			</div>
+		</form>
+	</div>
+	<script src="__PUBLIC__/js/common.js"></script>
+</body>
+</html>
+<script>
+	$("#typename").blur(function (){
+		var typename = $(this).val();
+		var that = $(this);
+		if(typename==""){
+			$("#submit").css('display', 'none');
+			that.next().text(" ");
+			that.next().text("名称不能为空");
+		}else{
+			$.post("{:U('Goodstype/editname')}", {typename:typename}, function(msg){
+				if(msg == 1){
+					$("#submit").css('display', '');
+					that.next().text(" ");
+				}else{
+					$("#submit").css('display', 'none');
+					that.next().text("已存在，请换名");
+				}
+			})
+		}
+			
+	})
+
+	$('#formsubmit').submit(function(){
+		var value = $(this).serializeArray();
+		$.post("{:U('Goodstype/addpost')}", {value:value}, function(msg){
+				if(msg == 1){
+					$('#sizes').text('添加中……');
+					setTimeout(function(){
+						window.location.href="{:U('Goodstype/index')}";
+					},3000);
+				}
+			})
+		return false;
+	})
+
+	$('#nosubs').click(function(){
+		window.history.back(-1);
+		return false;
+	})
+</script>

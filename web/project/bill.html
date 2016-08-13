@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"  />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scale=no" />
+		<title>账单详情</title>
+		<link href="../css/bill.css" rel="stylesheet" />
+		<link href="../css/style.css" rel="stylesheet" />
+		<script>
+	    	var oHtml=document.getElementsByTagName("html")[0];
+            var iWidth=document.documentElement.clientWidth;
+              	oHtml.style.fontSize=iWidth/16+"px";
+	 	</script>
+	 <script src="../js/yuming.js"></script>
+	</head>
+	<body>
+		<section class="bill_main">
+			<div class="bill_header"><!--应还金额-->
+				<span>本月剩余应还（元）</span>
+				<h2>1520.00</h2>
+				<p>还款日 06-10</p>
+			</div>
+			<ul class="bill_quota"><!--账单总额-->
+				<li class="clear">
+					<span></span>
+					<h3>账单总额</h3>
+					<i>3562.00</i>
+				</li>
+				<li class="clear">
+					<span></span>
+					<h3>已还款</h3>
+					<em></em>
+					<i>-3562.00</i>
+				</li>
+			</ul>
+			<div class="bill_detail clear"><!--账单明细-->
+				<h3>账单明细</h3>
+				<span>（4月1日到6月1日颜值消费）</span>
+			</div>
+			<div class="bill_record"><!--个人账单记录-->
+				
+			</div>
+			<div class="bill_footer">
+				<input class="bill_stage" type="button" value="分期还款">
+				<input class="bill_immediate" type="button" value="立即还款">
+			</div>
+		</section>
+		<script src="../js/zepto.js"></script>
+		<script src="../js/touch.js"></script>
+		<script src="../js/cookie.js"></script>
+		<script src="../js/allJs.js"></script>
+		<script src="../js/jsTB.js"></script>
+		<script src="../js/move.js" ></script>
+		<script src="../js/bill.js"></script>
+	</body>
+</html>

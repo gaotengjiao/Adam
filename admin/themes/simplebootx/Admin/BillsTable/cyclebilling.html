@@ -1,0 +1,79 @@
+<admintpl file="header" />
+</head>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <script src="__PUBLIC__/js/jquery-1.8.3.min.js"></script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            .texta{text-overflow: ellipsis; white-space: nowrap; overflow: hidden; cursor: pointer;}
+        </style>
+    </head>
+    <body>
+        <div class="wrap js-check-wrap"> 
+        <ul class="nav nav-tabs">
+            <li><a href="{:U('BillsTable/index')}">所有账单</a></li>
+            <li class="active"><a href="{:U('BillsTable/cyclebilling')}">分期账单</a></li>
+            <li><a href="{:U('BillsTable/overduebill')}">逾期账单</a></li>
+            <li style="float:right"><a href="javascript:void(0)" id="Excels">导出到Excel</a></li>
+        </ul>
+        <form class="well form-search" method="post" action="{:U('BillsTable/cyclebilling')}">
+            请输入： <input type="text" name="search" value="{$num}" placeholder="请输入订单号/手机号……"> &nbsp;&nbsp;
+            时间：
+            <input type="text" name="start_time" class="sang_Calender" value="{$time1}" style="width: 80px;" autocomplete="off">-
+            <input type="text" class="sang_Calender" name="end_time" value="{$time2}" style="width: 80px;" autocomplete="off"> &nbsp;
+            <input type="submit" class="btn btn-primary" value="搜索" />
+        </form>
+                <table class="table table-hover table-bordered table-list" style="table-layout:fixed">
+                <thead>
+                    <tr>
+                        <th width="80">账单编号</th>
+                        <th width="45">手机号</th>
+                        <th width="45">账单内容</th>
+                        <th width="45">交易时间</th>
+                        <th width="45">账单类型</th>
+                        <th width="45">账单状态</th>
+                        <th width="45">当前期数</th>
+                        <th width="45">本期应还</th>
+                        <th width="45">还款状态</th> 
+                        <th width="45">账单金额</th> 
+                        <th width="45">操作</th> 
+                    </tr>
+                </thead>
+                <tbody>
+                    <volist name="list" id="vo">
+                        <tr>
+                            <td>{$vo['billnum']}</td>
+                            <td>{$vo['iphone']}</td>
+                            <td>{$vo['billcontent']}</td>
+                            <td>{$vo['billdate']}</td>
+                            <td>
+                                {$vo['billtype'] == 1 ? '个人' :''} 
+                                {$vo['billtype'] == 2 ? '团购' :''}
+                                {$vo['billtype'] == 3 ? '折扣' :''}
+                            </td>
+                            <td>{$vo['isstallments']}</td>
+                            <td>第{$vo['periods']}期</td>
+                            <td>{$vo['maney']}</td>
+                            <td>{$vo.status}</td>
+                            <td>{$vo['billamount']} 元</td>
+                            <td><a href="{:U('BillsTable/setbill', array('id' => $vo['id']))}">设置</a></td>
+                        </tr>
+                    </volist>
+                </tbody>
+                </table>  
+                <div class="table-actions">
+                    <center>{$show}</center>
+            </div>
+        </div>
+        <!-- <script src="__PUBLIC__/js/common.js"></script> -->
+        <script src="__PUBLIC__/js/jquery-1.8.3.min.js"></script>
+        <script src="__PUBLIC__/js/datetime.js"></script>
+        <script>
+        $('#Excels').click(function(){
+            window.location.href = "{:U('BillsTable/excel')}";
+        })
+        </script>
+    </body>
+</html>

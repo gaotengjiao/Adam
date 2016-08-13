@@ -1,0 +1,95 @@
+<admintpl file="header" />
+</head>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div class="wrap js-check-wrap">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="{:U('Subscribe/Pub')}">预约酒店</a></li>
+		</ul>
+            	<form class="well form-search" method="post" action="{:U('Subscribe/subscribeselect')}">
+			类型： 
+			<select class="select_2" name="gtype">
+				<option value='0'>全部</option>
+                                <foreach name="arr" item="vo">
+                                    <option value='{$vo.id}'>{$vo.html}{$vo.typename}</option>
+                                </foreach>
+			</select> &nbsp;&nbsp;
+                        时间：
+			<input type="text" name="start_time" class="js-date" value="{$formget.start_time|default=''}" style="width: 80px;" autocomplete="off">-
+			<input type="text" class="js-date" name="end_time" value="{$formget.end_time}" style="width: 80px;" autocomplete="off"> &nbsp; &nbsp;
+			关键字： 
+			<input type="text" name="keyword" style="width: 200px;" value="{$vo.keyword}" placeholder="请输入关键字...">
+			<input type="submit" class="btn btn-primary" value="搜索" />
+		</form>
+            <form method="post" class="js-ajax-form">
+                <table class="table table-hover table-bordered table-list">
+				<thead>
+					<tr>
+						<th width="16"><label><input type="checkbox" class="js-check-all" data-direction="x" data-checklist="js-check-x"></label></th>
+						<th>酒店名称</th>
+						<th>用户名称</th>
+						<th>预约时间</th>
+						<th>生成时间</th>
+						<th>预约活动</th>
+						<th>预约类型</th>
+                        <th>预约单号</th>
+						<th>预约状态</th>
+					</tr>
+				</thead>
+                                <tbody>
+					<foreach name="lists" item="vo">
+					<tr>
+						<td><input type="checkbox" class="js-check" data-yid="js-check-y" data-xid="js-check-x" name="ids[]" value="{$vo.id}"></td>
+						<td>{$vo['name']}</td>
+						<td>{$vo['uname']}</td>
+                        <td>{$vo.z_num|date='Y-m-d H:i:s',###}</td>
+                        <td>{$vo.subtime|date='Y-m-d H:i:s',###}</td>
+                        <td><font color="red">{$vo['gname']}</font></td>
+                        <td><font color="red">{$vo['typename']}</font></td>
+						<td>{$vo['p_num']}</td>
+						<td>
+                        	<?php 
+	                            if($vo['audit']==1){
+	                                    echo "<font color='green'>审核失败</font>";
+	                            }elseif($vo['audit']==2){
+	                                    echo "<font color='green'>审核中</font>";
+	                            }elseif($vo['audit']==3){
+	                                    echo "<font color='green'>审核成功</font>";
+	                            }else{
+	                                    echo "<font color='red'>未审核</font>";
+	                            }
+                            ?>
+                            <if condition="$vo['audit'] eq 1" >
+                                       <font color='green'>已审核</font>
+                                <elseif condition="$vo['audit'] eq 2 " /> 
+                                    <a href="{:U('Subscribe/Editssss',array('id'=>$vo['id'],'audit'=>3))}">
+                                       <font color='green'>二次审核</font>
+                                    </a>
+                                    <a href="{:U('Subscribe/Editssss',array('id'=>$vo['id'],'audit'=>1))}">
+                                   		<font color='red'>否定审核</font>
+                                	</a>
+                                	<elseif condition="$vo['audit'] eq 3 " />
+                                       <font color='green'>已审核</font>
+                                <else />
+                                <a href="{:U('Subscribe/Editssss',array('id'=>$vo['id'],'audit'=>2))}">
+                                   <font color='red'>审核</font>
+                                </a>
+                            </if>
+                        </td>
+					</tr>
+					</foreach>
+				</tbody>
+                </table>
+                <div class="table-actions">
+				    <center>{$page}</center>
+			</div>
+            </form>
+        </div>
+        <script src="__PUBLIC__/js/common.js"></script>
+    </body>
+</html>

@@ -1,0 +1,191 @@
+*{
+    box-sizing: border-box;
+}
+
+.edu{
+    background: #FFFFFF;
+    width: 100%;
+    height: 1.1rem;
+    border-bottom:2px solid #e3e3e6;
+    padding: 0.15rem;
+}
+
+li{
+    background: #FFFFFF;
+}
+
+.edu li{
+    width: 50%;
+    display: block;
+    float: left;
+    height: 100%;
+}
+
+.edu li:first-child{
+    border-right: 2px solid #e3e3e6;
+}
+
+.edu li span:last-child{
+    display: block;
+    width: 100%;
+    text-align: center;
+    color: #282828;
+    font-size: 0.28rem;
+}
+
+.edu li span:first-child{
+    margin-bottom: 0.15rem;
+    display: block;
+    width: 100%;
+    text-align: center;
+    color: #989898;
+    font-size: 0.18rem;
+}
+
+.ka{
+    width: 100%;
+    height: 0.9rem;
+    background: #FFFFFF;
+    margin-bottom: 0.1rem;
+}
+
+.xuan{
+    float: left;
+    width: 33.333333333%;
+    height: 100%;
+    line-height: 0.9rem;
+    font-size: 0.28rem;
+    color: #282828;
+    text-align: center;
+}
+
+.hot{
+    color: #f97fa4;
+    border-bottom: 1px solid #f97fa4;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+.time{
+    height: 0.55rem;
+    width: 100%;
+    display: block;
+    color: #989898;
+    font-size: 0.18rem;
+    border-bottom: 1px solid #e3e3e6;
+    line-height: 0.55rem;
+}
+
+.tit>li{
+    margin-bottom: 0.1rem;
+}
+
+.yuefen{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    border-bottom: 1px solid #e3e3e6;
+}
+
+.tittle{
+    width: 100%;
+    height: 0.64rem;
+}
+
+.tittle span{
+    display: block;
+    height: 100%;
+    line-height: 0.64rem;
+}
+
+.bt{
+    display: block;
+    width: 3.7rem;
+    height: 100%;
+    color: #282828;
+    font-size: 0.24rem;
+    float: left;
+}
+
+.tittle span:nth-child(2){
+
+    float: left;
+    margin-left: 0.65rem;
+    color: #323232;
+    font-size: 0.22rem;
+}
+
+.price_zong{
+    width: 1rem;
+    text-align: center;
+    height: 100%;
+    color: #323232;
+    font-size: 0.22rem;
+    float: right;
+    overflow: hidden;
+}
+
+.zhuantai{
+    width: 100%;
+    padding: 0.12rem 0.18rem 0.08rem;
+}
+
+.zt_price{
+    width: 4rem;
+    float: left;
+}
+
+.zt_zt{
+    width: 2rem;
+    float: right;
+}
+
+.pri{
+    display: block;
+  width: 100%;
+    color: #6a6a6a;
+    font-size: 0.2rem;
+    margin-bottom: 0.1rem;
+}
+
+.i_hot{
+    color: #ff0000;
+    font-size: 0.24rem;
+}
+
+.pri_time{
+    display: block;
+    width: 100%;
+    color: #c3c3c3;
+    font-size: 0.18rem;
+    margin: 0.12rem 0 0.1rem;
+}
+
+.no_pri{
+    display: block;
+    width: 100%;
+    font-size: 0.18rem;
+    text-align: center;
+}
+
+.yes_pri{
+    display: block;
+    width: 100%;
+    color: #acacac;
+    font-size: 0.18rem;
+    text-align: center;
+}
+
+.qishu{
+    display: block;
+    width: 100%;
+    height: 0.3rem;
+    color: #474646;
+    font-size: 0.24rem;
+    text-align: center;
+    margin-top: 0.2rem;
+    margin-bottom: 0.1rem;
+}

@@ -1,0 +1,58 @@
+<admintpl file="header" />
+</head>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="__PUBLIC__/js/jquery-1.8.3.min.js"></script>
+        <style>
+            .texta{text-overflow: ellipsis; white-space: nowrap; overflow: hidden; cursor: pointer;}
+        </style>
+        <script src="__PUBLIC__/js/jquery-1.8.3.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/js/jquery.layerModel.js"></script>
+        <link type="text/css" rel="stylesheet" href="__PUBLIC__/css/layerModel.css"/>
+    </head>
+    <body>
+        <div class="wrap js-check-wrap"> 
+          
+                <table class="table table-hover table-bordered table-list" style="table-layout:fixed">
+				<thead>
+					<tr>
+                        <th>手术类型</th>
+						<th>治疗时间</th>
+						<th>体检项目</th>
+                        <th>疼痛指数</th>
+						<th>风险指数</th>
+						<th>手术材料</th>
+						<th>麻醉方式</th>
+						<th>拆线天数</th>
+						<th>恢复过程</th>
+                        <th>手术优势</th>
+                        <th>达到最终效果时间</th>
+						<th>效果维持时间</th>
+                        <th>治疗次数</th>
+						<th>住院治疗</th>
+					</tr>
+				</thead>
+                <tbody>
+				    <tr>
+                        <td>{$list.opstype}</td>
+                        <td>{$list.curetime}</td>
+                        <td>{$list.healthproject}</td>
+                        <td>{$list.painindex}</td>
+                        <td>{$list.riskindex}</td>
+                        <td>{$list.opsmaterial}</td>
+                        <td>{$list.hocustype}</td>
+                        <td>{$list.stitchestype}</td>
+                        <td>{$list.rejuvenationname}</td>
+                        <td>{$list.surgeryadvantage}</td>
+                        <td>{$list.thefinaleffectoftime}</td>
+                        <td>{$list.theeffecttomaintaintime}</td>
+                        <td>{$list.treatmenttimes}</td>
+                        <td>{$list.hospitalization}</td>
+                    </tr>	
+				</tbody>
+                </table></div>
+    </body>
+</html>

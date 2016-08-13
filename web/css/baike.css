@@ -1,0 +1,101 @@
+body{
+    background: white;
+}
+.bk_main{
+    width:6rem;
+    min-height:100%;
+    overflow: hidden;
+    margin:0 auto;
+}
+.bk_main h1{
+    width:100%;
+    font:0.4rem/0.64rem '微软雅黑';
+    color: #282828;
+    padding-top:0.3rem;
+}
+.bk_time{
+    width:100%;
+    height:0.48rem;
+}
+.bk_time span{
+    display: block;
+    float: left;
+    font:0.24rem/0.48rem '微软雅黑';
+    color: #989898;
+    margin-right: 0.3rem;
+}
+.bk_time i{
+    display: block;
+    float: left;
+    font:0.24rem/0.48rem '微软雅黑';
+    color: #e169a3;
+}
+.bk_content{
+    width:100%;
+    padding-top:0.2rem;
+    overflow: hidden;
+}
+.bk_footer{
+    width:100%;
+    padding: 0.3rem 0;
+    overflow: hidden;
+}
+.bk_read{
+    min-width:1rem;
+    height:0.3rem;
+    float: left;
+    margin-right: 0.35rem;
+    overflow: hidden;
+}
+.bk_read span{
+    width:0.36rem;
+    height:0.24rem;
+    display: block;
+    float: left;
+    background: url("../img/liulanqingkuang-icon.png") no-repeat;
+    background-size: 100% 100%;
+    margin-top:0.02rem;
+    margin-right:0.1rem;
+}
+.bk_read i{
+    min-width:0.6rem;
+    height:100%;
+    display: block;
+    float: left;
+    font:0.3rem/0.3rem '微软雅黑';
+    color: #989898;
+}
+.bk_zan{
+    min-width:0.5rem;
+    height:0.3rem;
+    float: left;
+    overflow: hidden;
+}
+.bk_zan span[data-bnum='0']{
+    width:0.26rem;
+    height:0.28rem;
+    display: block;
+    float: left;
+    background: url("../img/dainzan-icon.png") no-repeat;
+    background-size: 100% 100%;
+    margin-right:0.1rem;
+}
+.bk_zan span[data-bnum='1']{
+    width:0.26rem;
+    height:0.28rem;
+    display: block;
+    float: left;
+    background: url("../img/yijingdianzan-icon.png") no-repeat;
+    background-size: 100% 100%;
+    margin-right:0.1rem;
+}
+.bk_zan i{
+    min-width:0.2rem;
+    height:100%;
+    display: block;
+    float: left;
+    font:0.3rem/0.3rem '微软雅黑';
+    color: #989898;
+}
+
+

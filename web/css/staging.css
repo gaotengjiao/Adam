@@ -1,0 +1,220 @@
+/*通配*/
+img {
+    vertical-align: top;
+    border: none;
+}
+
+html * {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+button {
+    -webkit-appearance: none;
+    border: none;
+}
+
+a, input, textarea {
+    outline: none;
+}
+
+html {
+    height: 100%;
+}
+
+form, p, ul, h3, h2, body {
+    margin: 0;
+    padding: 0;
+    font-family: "微软雅黑";
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+td, th {
+    padding: 0;
+    border: 1px solid #d6d7dc;
+}
+
+td {
+    text-align: center;
+}
+
+input {
+    -webkit-appearance: none;
+}
+
+i, em {
+    font-style: normal;
+}
+
+.clear {
+    zoom: 1;
+}
+
+.clear:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+body {
+    height: 100%;
+    position: relative;
+    background: #f1f1f1;
+}
+
+/*通配*/
+
+/*整体*/
+.staging_main {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    background: white;
+    overflow: hidden;
+}
+
+.staging_close {
+    width: 1rem;
+    height: 1rem;
+    background: #cccccc;
+    border-radius: 50%;
+    overflow: hidden;
+    position: fixed;
+    right: 0.5rem;
+    top: 0.5rem;
+    display: flex;
+}
+
+.staging_close img {
+    width: 50%;
+    height: 50%;
+    margin: auto auto;
+}
+
+.staging_success {
+    width: 12.2rem;
+    height: 4.875rem;
+    overflow: hidden;
+    margin: 0 auto;
+    margin-top: 4.55rem;
+}
+
+.staging_success span {
+    width: 2.85rem;
+    height: 2.625rem;
+    display: block;
+    float: left;
+    margin: 1.125rem 0;
+}
+
+.staging_success span img {
+    width: 100%;
+    height: 100%;
+}
+
+.staging_success p {
+    width: 9rem;
+    height: 100%;
+    line-height: 4.875rem;
+    float: right;
+    font-size: 0.9rem;
+    color: #646464;
+}
+
+.staging_next {
+    width: 11.8rem;
+    height: 1.9rem;
+    line-height: 1.9rem;
+    font-size: 0.6rem;
+    color: #646464;
+    margin: 0 auto;
+}
+
+.staging_btn {
+    width: 100%;
+    height: 1.6rem;
+}
+
+.staging_btn a {
+    display: block;
+    box-sizing: border-box;
+    float: left;
+    width: 5rem;
+    height: 2rem;
+    border: 1px #d8d7dd solid;
+    line-height: 2rem;
+    text-align: center;
+    font-size: 0.5rem;
+    border-radius: 5px;
+    margin-right: 1rem;
+    color: #ffffff;
+}
+
+.staging_btn a:first-child{
+    margin-left: 2rem;
+    background: #e169a3;
+}
+
+.staging_btn a:last-child{
+    background: #d7d7d7;
+}
+
+.staging_btn input:nth-of-type(1) {
+    margin-left: 2rem;
+    background: #F97FA4;
+    color: white;
+}
+
+.staging_btn input:nth-of-type(2) {
+    margin-left: 1.3rem;
+    background: #f1f1f1;
+    color: #5C5C5C;
+}
+
+.staging_bottom {
+    width: 100%;
+    height: 6.7rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.staging_bottom img {
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

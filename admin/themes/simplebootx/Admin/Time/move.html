@@ -1,0 +1,33 @@
+<admintpl file="header" />
+</head>
+<body>
+    <div class="wrap">
+        <form method="post" class="js-ajax-form"  id="myForm">
+            <table class="table table-hover table-bordered table-list">
+                <thead>
+                    <tr>
+                        <th width="16"><label><input type="checkbox" name="interest[]" class="js-check-all" data-direction="x" data-checklist="js-check-x" ></label></th>
+                        <th width="20">时间段</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <foreach name="posts" item="vo">
+                        <tr>
+                            <td><input type="checkbox" value="{$vo.id}" id="checkbox" <?php if($("input[name='interest[]']:checkbox:checked")) { ?>checked<?php } ?> name="interest[]" class="js-check-all" data-direction="x" data-checklist="js-check-x"></td>
+                            <td>
+                                {$vo['t_time']}
+                            </td>
+                        </tr>
+                    </foreach>
+                    <tr>
+                        <td colspan="2">
+                            <button class="btn btn-primary js-ajax-submit" type="submit">确定</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+	<script src="__PUBLIC__/js/common.js"></script>
+</body>
+</html>

@@ -1,0 +1,168 @@
+/*通配*/
+img{vertical-align: top; border: none;}
+html *{-webkit-tap-highlight-color: rgba(0,0,0,0);}
+button{-webkit-appearance: none; border: none;}
+a,input,textarea{outline: none;}
+html{height: 100%;}
+form,p,ul,h3,h2,body{margin:0; padding:0; font-family: "微软雅黑";}
+li{list-style: none;}
+a{text-decoration: none;}
+table{border-collapse: collapse;}
+td,th{padding:0; border: 1px solid #d6d7dc;}
+td{text-align: center;}
+input{ -webkit-appearance: none;}
+i,em{ font-style: normal;}
+.clear{ zoom: 1;}
+.clear:after{ content: ""; display: block; clear: both;}
+body{height:100% ;position: relative;  background: #f1f1f1;}
+/*通配*/
+
+/*整体内容  start*/
+.bill_main{
+	width: 100%;
+	position: relative;
+}
+.bill_header{
+	width: 100%;
+	height: 6.85rem;
+	background: #f97fa4;
+	color: white;
+	text-indent: 0.5rem;
+	overflow: hidden;
+}
+.bill_header span,.bill_header p{
+	width: 100%;
+	height: 1.75rem;
+	line-height: 1.75rem;
+	font-size: 0.65rem;
+	display: block;
+}
+.bill_header h2{
+	width: 100%;
+	height: 3.325rem;
+	line-height: 3.75rem;
+	font-size: 2.25rem;
+}
+.bill_quota{
+	width: 100%;
+	height: 5.3rem;
+	background: white;
+	border-bottom: 0.025rem #d6d7dc solid;
+	overflow: hidden;
+}
+.bill_quota li{
+	width: 15.5rem;
+	height: 2.65rem;
+	border-bottom: 0.025rem #d6d7dc solid;
+	margin-left: 0.5rem;
+}
+.bill_quota li:nth-of-type(2){
+	border: none;
+}
+.bill_quota li span{
+	width: 1rem;
+	height: 0.9rem;
+	background: url(../img/zhangdan-icon.png) no-repeat;
+	background-size: 100% 100%;
+	display: block;
+	float: left;
+	margin-top: 0.9rem;
+}
+.bill_quota li:nth-of-type(2) span{
+	background: url(../img/Calendar-icon.png) no-repeat;
+	background-size: 100% 100%;
+}
+.bill_quota li h3{
+	width: 3.25rem;
+	height: 100%;
+	line-height: 2.65rem;
+	font-weight: normal;
+	font-size: 0.8rem;
+	margin-left: 0.6rem;
+	float: left;
+	color: #4D4D4D;
+}
+.bill_quota li em{
+	width: 0.275rem;
+	height: 0.5rem ;
+	display: block;
+	background: url(../img/xianz-icon.png) no-repeat;
+	background-size: 100% 100%;
+	float: right;
+	margin-top: 1.15rem;
+	margin-right: 0.5rem;
+}
+.bill_quota li i{
+	width: 3.25rem;
+	height: 100%;
+	line-height: 2.65rem;
+	text-align: center;
+	display: block;
+	float: right;
+	font-size: 0.6rem;
+	color: #989898;
+}
+.bill_detail{
+	width: 100%;
+	height: 2.55rem;
+}
+.bill_detail h3{
+	width: 2.9rem;
+	height: 100%;
+	line-height: 3.1rem;
+	text-indent: 0.5rem;
+	font-size: 0.6rem;
+	font-weight: normal;
+	color: #616161;
+	float: left;
+}
+.bill_detail span{
+	width: 10rem;
+	height: 100%;
+	line-height: 3.1rem;
+	font-size: 0.45rem;
+	color: #989898;
+	float: left;
+}
+.bill_record{
+	width: 100%;
+	height: 20rem;
+	background: white;
+}
+.bill_footer{
+	width: 100%;
+	height: 4.25rem;
+	background: #F1F1F1;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+}
+.bill_stage{
+	width: 6.5rem;
+	height: 2rem;
+	border: none;
+	border: 0.025rem #d6d7dc solid;
+	border-radius: 0.25rem;
+	background: white;
+	color: #5c5c5c;
+	font-size: 0.75rem;
+	position: absolute;
+	left: 1rem;
+	top: 1.1rem;
+}
+.bill_immediate{
+	width: 6.5rem;
+	height: 2rem;
+	border: none;
+	border: 0.025rem #d6d7dc solid;
+	border-radius: 0.25rem;
+	background: #f97fa4;
+	color: white;
+	font-size: 0.75rem;
+	position: absolute;
+	right: 1rem;
+	top: 1.1rem;
+}
+
+/*整体内容  end*/
+

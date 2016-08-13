@@ -1,0 +1,94 @@
+<admintpl file="header" />
+</head>
+<body>
+    <div class="wrap">
+            <table style="width:530px;float:left" class="table table-hover table-bordered table-list">
+                <thead>
+                    <tr>
+                        <th width="16">年月日
+
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <volist name="list" id="vo">
+                    <tr>
+                        <td width="2" class="boxs" data="{$vo['date']}" date="{$vo['id']}">
+                            {$vo['date']}
+                        </td>
+                    </tr>
+                    </volist>
+                </tbody>
+            </table>
+            <table style="width:800px;float:right" class="table table-hover table-bordered table-list">
+                <thead>
+                    <tr>
+                        <th width="16">时间选择 <span id="idtime"></span> &nbsp &nbsp&nbsp&nbsp&nbsp在要休息的时间段打勾
+                            <input style="margin-left:300px;margin-top:-1px" id="checkList" type="checkbox">全选
+                        </th>
+                    </tr>
+                <form action="" id="myForm" method="post">
+                    <tr class="timetr">
+
+                    </tr>
+                </thead>
+            </table>
+
+            <button style="margin-left:12px" class="btn btn-primary js-ajax-submit" type="submit">确定</button> <font id="fonts" style="display:none" size="3"> 更改中…… </font>
+                </form>
+    </div>
+    <input type="hidden" value"{$uid}" id="uid">
+    <script src="__PUBLIC__/js/common.js"></script>
+    <script src="__PUBLIC__/js/jquery-1.8.3.min.js"></script>
+</body>
+</html>
+<script>
+
+var id = $(".boxs").eq(0).attr('date');
+var value = $(".boxs").eq(0).attr('data');
+$('#idtime').text(value);
+$.post("{:U('Users/falses')}", {value:value, id:id}, function(msg){
+        $(".timetr").html(msg);
+    })
+
+$('.boxs').click(function(){
+    $("#checkList").attr('checked',false);
+    $('#fonts').text('');
+    id = $(this).attr('date');
+    var value = $(this).attr('data');
+    $('#idtime').text(value);
+    $.post("{:U('Users/falses')}", {value:value, id:id}, function(msg){
+        // alert(msg);
+        $(".timetr").html(msg);
+    })
+})
+
+$('#checkList').click(function(){
+    var boxs = $("#checkList").attr('checked');
+    if(boxs == 'checked'){
+        $("input[name='false']").attr('checked', true);
+    }else{
+        $("input[name='false']").attr('checked', false);
+    }
+})
+
+$('#myForm').submit(function(){
+        var checkedList = new Array();
+        $("input[name='false']:checked").each(function() {
+                checkedList.push($(this).val());
+            });
+        $.post("{:U('Users/editFalse')}", {false:checkedList, id:id}, function(msg){
+            if(msg == 1){
+                $('#fonts').css('display', '');
+                $('#fonts').text(' 更改中…… ');
+                setTimeout(function(){
+                    $('#fonts').text(' 更改完成 ');
+                },2000);
+            }
+        })
+    return false;
+})
+
+
+
+</script>

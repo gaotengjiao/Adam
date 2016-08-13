@@ -1,0 +1,422 @@
+*{
+    box-sizing: border-box;
+}
+
+#left{
+    width: 100%;
+    height: auto;
+    float: left;
+}
+
+header{
+    width: 100%;
+    height: 2.84rem;
+    background: url("../img/hearder-bg.png");
+    padding: 0.3rem 0.2rem;
+}
+
+.huabian{
+    height: 0.06rem;
+    background: url("../img/huabian-img.png") repeat-x;
+    background-size: 0.22rem;
+    margin-bottom: 0.1rem;
+}
+
+header img{
+    display: block;
+    font-size: 0;
+    vertical-align: middle;
+    width: 1.42rem;
+    height: 1.42rem;
+    float: left;
+    margin-right: 0.2rem;
+    margin-bottom: 0.3rem;
+}
+
+.top{
+    border-bottom: 1px solid #d8d7dd;
+}
+
+.top div{
+    width: 4.36rem;
+    height: 1.42rem;
+    float: left;
+}
+
+h1{
+    font-size: 0.3rem;
+    color: #323232;
+    font-weight: 400;
+    margin-bottom: 0.2rem;
+}
+
+.top div span{
+    display: block;
+    font-size: 0.24rem;
+    color: #646464;
+    padding-left: 0.12rem;
+}
+
+.boottom span:first-child{
+    color: #646464;
+    display: block;
+    float: left;
+    font-size: 0.24rem;
+    padding: 0.26rem 0;
+}
+
+.price{
+    color: #F97FA4;
+    font-size: 0.24rem;
+    display: block;
+    padding:0.26rem 0.2rem;
+    float: right;
+}
+
+h2{
+    height: 0.7rem;
+    line-height: 0.7rem;
+    font-size: 0.26rem;
+    color: #646464;
+    padding-left: 0.2rem;
+    font-weight: normal;
+}
+
+#fangs{
+    background: #ffffff;
+    margin-bottom: 0.1rem;
+}
+
+#fangs li{
+    height: 1.2rem;
+    width: 100%;
+    border-top: 1px solid #d8d7dd;
+    padding: 0.3rem 0.2rem;
+}
+
+.bt{
+    display: block;
+    width: auto;
+    float: left;
+    color: #3c3c3c;
+    font-size: 0.3rem;
+    line-height: 0.34rem;
+    text-align: left;
+}
+
+.one{
+    width: auto;
+    height: 60%;
+    float: left;
+}
+
+.one span:last-child{
+    display: block;
+    width: auto;
+    color: #989898;
+    font-size: 0.2rem;
+}
+
+.youhui{
+    display: inline-block;
+    width: 1.4rem;
+    height: 0.34rem;
+    background: url("../img/youhui.png") no-repeat;
+    background-size: cover;
+    margin-left: 0.1rem;
+    margin-bottom: -0.05rem;
+}
+
+#fangs li img{
+    display: block;
+    float: left;
+    width: 0.4rem;
+    height: 0.4rem;
+    font-size: 0;
+    vertical-align: middle;
+    margin: 0.09rem 0.36rem 0.09rem 0;
+}
+
+.two{
+    width: auto;
+    height: 100%;
+    float: right;
+    padding-right: 0.3rem;
+    background: url("../img/fanhuijian-icon.png") no-repeat right 0.28rem;
+    background-size: 10%;
+}
+
+.two span{
+    display: block;
+    float: right;
+    width: auto;
+    height: auto;
+    color: #989898;
+    font-size: 0.2rem;
+    text-align: right;
+}
+
+.two span:last-child{
+    clear: both;
+}
+
+.weixin .two{
+    background: url("../img/fanhuijian-icon.png") no-repeat right 0.14rem;
+    background-size: 55%;
+}
+
+.juan{
+    width: 100%;
+    background: #ffffff;
+    padding: 0.2rem;
+    height: 1.08rem;
+    border-bottom: 1px solid #d8d7dd;
+}
+
+.juan span{
+    display: block;
+    float: left;
+    line-height: 0.68rem;
+    text-align: left;
+    margin-right: 0.4rem;
+    color: #989898;
+    font-size: 0.2rem;
+}
+
+.juan span:first-child{
+    font-size: 0.26rem;
+    color: #646464;
+}
+
+.juan span:last-child{
+    margin: 0;
+    padding-right: 0.3rem;
+    float: right;
+    background: url("../img/fanhuijian-icon.png") no-repeat right;
+    background-size: 0.17rem;
+}
+
+.yue{
+    position: relative;
+    background: #ffffff;
+    height: auto;
+    padding: 0.2rem 0.2rem;
+}
+
+.yue div{
+    width: auto;
+    float: left;
+}
+
+#kaishi{
+    display: block;
+    position: absolute;
+    top: 0.2rem;
+    right:0.2rem;
+}
+
+.yued{
+    display: block;
+    float: left;
+    color: #646464;
+    width: 100%;
+    font-size: 0.26rem;
+    line-height: 0.68rem;
+    text-align: left;
+}
+
+.no{
+    display: none;
+    width: auto;
+    color: #989898;
+    font-size: 0.24rem;
+    line-height: 0.68rem;
+    text-align: left;
+}
+
+.no input{
+    display: inline-block;
+    border:1px #D6D7DC solid;
+    width: 1.4rem;
+    margin: 0 0.2rem;
+    height: 0.44rem;
+    color: #989898;
+}
+
+#right{
+    position: fixed;
+    top:0;
+    margin-left: 6.4rem;
+    z-index: 1000;
+    float: left;
+    height: auto;
+}
+
+#right h1{
+    width: 6rem;
+    background: #FFFFFF;
+    text-align: center;
+    line-height: 0.8rem;
+    height: 0.8rem;
+    border:1px solid #d8d7dd;
+    border-radius: 8px;
+    margin: 0.2rem;
+}
+
+#right li{
+    position: relative;
+    height: 2.18rem;
+    margin: 0 0.2rem 0.2rem;
+}
+
+#right li img{
+    display: block;
+    vertical-align: middle;
+    font-size: 0;
+    width: 2.18rem;
+    height: 2.18rem;
+    float: left;
+}
+
+#right div{
+    position: relative;
+    float: left;
+    width: 63%;
+    height: 2.18rem;
+    padding:0.2rem;
+    background: #FFFFFF;
+    border-bottom-right-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+#right div span{
+    display: block;
+    width: 100%;
+}
+
+.name{
+    color: #282828;
+    font-size: 0.28rem;
+    margin-bottom: 0.1rem;
+}
+
+.xianzhi{
+    font-size: 0.24rem;
+    color: #989898;
+}
+
+.time{
+    font-size: 0.24rem;
+    color: #ACACAC;
+    position: absolute;
+    left: 0.2rem;
+    bottom: 0.2rem;
+}
+.zt{
+    position: absolute;
+    display: block;
+    width: auto;
+    right: 0.4rem;
+    bottom: 0.2rem;
+    color: #989898;
+    font-size: 0.24rem;
+}
+
+#zhifu{
+    display: none;
+    width: 5.8rem;
+    height: 0.8rem;
+    color: #FFFFFF;
+    border-radius: 8px;
+    background: #f97fa4;
+    text-align: center;
+    line-height: 0.8rem;
+    margin: 0.4rem auto;
+    font-size: 0.3rem;
+}
+
+#mima{
+    position: fixed;
+    display: none;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.3);
+    z-index: 99999999;
+}
+
+.mima{
+    width: 6rem;
+    height: 4rem;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+    background: #FFFFFF;
+    border-radius: 8px;
+}
+
+.mima h1{
+    font-weight: normal;
+    width: 100%;
+    text-align: center;
+    color: #323232;
+    font-size: 0.34rem;
+    margin: 0.4rem 0;
+}
+
+input[type="password"]{
+    display: block;
+    margin: auto;
+    width: 5.6rem;
+    height: 0.88rem;
+    font-size: 0.28rem;
+    color: #c1c1c1;
+    padding: 0.2rem;
+    border-radius: 8px;
+    border:1px solid #d8d7dd;
+}
+
+.wangji{
+    display: block;
+    font-size: 0.26rem;
+    font-weight: 600;
+    color: #686868;
+    width: 100%;
+    padding: 0 0.2rem;
+    text-align: right;
+}
+
+.mima div{
+    position: absolute;
+    width: 100%;
+    height: 0.88rem;
+    padding: 0 0.2rem;
+    bottom: 0.2rem;
+    left: 0;
+}
+
+.mima div span{
+    display: block;
+    width: 2.7rem;
+    height: 0.88rem;
+    font-size: 0.28rem;
+    border-radius: 8px;
+    text-align: center;
+    line-height: 0.88rem;
+}
+
+.quxiao{
+    color: #323232;
+    border:1px solid #d8d7dd;
+    float: left;
+}
+
+.queren{
+    background: #f97fa4;
+    color: #FFFFFF;
+    float: right;
+}

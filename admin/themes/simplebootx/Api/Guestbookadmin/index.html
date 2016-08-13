@@ -1,0 +1,184 @@
+<admintpl file="header" />
+</head>
+<body>
+	<div class="wrap">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="{:U('guestbookadmin/index')}">{:L('API_GUESTBOOKADMIN_INDEX')}</a></li>
+		</ul>
+		<form class="well form-search" method="post" action="{:U('Api/guestbookadmin/index')}">
+            
+            手机号： 
+            <input type="text" name="iphone" style="width: 200px;" value="{$iphone}" placeholder="请输入手机号...">&nbsp&nbsp
+            时间：
+            <input type="text" name="start_time" class="sang_Calender" value="{$time1}" style="width: 80px;" autocomplete="off">-
+            <input type="text" class="sang_Calender" name="end_time" value="{$time2}" style="width: 80px;" autocomplete="off"> &nbsp; &nbsp;
+            留言标题：
+            <input type="text" name="name" style="width: 200px;" value="{$name}" placeholder="请输入问答内容...">&nbsp&nbsp 
+            <input type="submit" class="btn btn-primary" value="搜索" />
+        </form>
+		<form method="post" class="js-ajax-form">
+			<div class="table-actions">
+				<div class="btn btn-primary btn-small setsub" type="submit" date='2' data-action="{:U('Api/Guestbookadmin/check',array('check'=>1))}" data-subcheck="true">审核</div>
+				<div class="btn btn-primary btn-small setsub" type="submit" date='2' data-action="{:U('Api/Guestbookadmin/check',array('check'=>2))}" data-subcheck="true">取消审核</div>
+				<div class="btn btn-primary btn-small setsub" type="submit" date='2' data-action="{:U('Api/Guestbookadmin/check',array('check'=>4))}" data-subcheck="true">推荐</div>
+				<div class="btn btn-primary btn-small setsub" type="submit" date='2' data-action="{:U('Api/Guestbookadmin/check',array('check'=>5))}" data-subcheck="true">取消推荐</div>
+				<div class="btn btn-primary btn-small setsub" type="submit" date="3" data-action="{:U('Api/Guestbookadmin/check',array('check'=>3))}" data-subcheck="true" data-msg="你确定删除吗？">{:L('DELETE')}</div>
+			</div>
+			<table class="table table-hover table-bordered">
+				<thead>
+					<tr>
+						<th width="15"><label><input type="checkbox" class="js_check" data-direction="x"></label></th>
+						<th width="50">ID</th>
+						<th width="100">{:L('NAME')}</th>
+						<th width="150">{:L('IPHONE')}</th>
+						<th style="min-width: 60px;">{:L('TITLE')}</th>
+						<th>{:L('CONTENT')}</th>
+						<th width="120">{:L('TIME')}</th>
+						<th>{:L('PRAISE')}</th>
+						<th>{:L('COMMENT')}</th>
+						<th>{:L('REPLY_STATUS')}</th>
+						<th width="120">{:L('ACTIONS')}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<foreach name="guestmsgs" item="vo">
+					<tr>
+						<td><input type="checkbox" class="js_s_check" data-yid="js-check-y" data-xid="js-check-x" name="ids[]" value="{$vo.id}"></td>
+						<td>{$vo.id}</td>
+						<td>{$vo.nickname}</td>
+						<td>{$vo.iphone}</td>
+						<td>{$vo.title}</td>
+						<td>{$vo.msg}</td>
+						<td>{$vo.createtime}</td>
+						<td>{$vo.views}</td>
+						<td><if condition=" $vo['comment_count'] eq 0 ">0<else /><a href="javascript:open_iframe_dialog('{:U('api/guestbookadmin/showComment',array('post_id'=>$vo['id']))}','评论列表')">{$vo.comment_count}</a></if></td>
+						<td>{$vo.zhstatus}</td>
+						<td>
+							<a href="{:U('guestbookadmin/delete',array('id'=>$vo['id']))}" class="js-ajax-delete">{:L('DELETE')}</a>
+						</td>
+					</tr>
+					</foreach>
+				</tbody> 
+				<thead>
+					<tr>
+						<th width="15"><label><input type="checkbox" class="js_check" data-direction="x"></label></th>
+						<th width="50">ID</th>
+						<th width="100">{:L('NAME')}</th>
+						<th width="150">{:L('IPHONE')}</th>
+						<th style="min-width: 60px;">{:L('TITLE')}</th>
+						<th>{:L('CONTENT')}</th>
+						<th width="120">{:L('TIME')}</th>
+						<th class="aa">{:L('PRAISE')}</th>
+						<th>{:L('COMMENT')}</th>
+						<th>{:L('REPLY_STATUS')}</th>
+						<th width="120">{:L('ACTIONS')}</th>
+					</tr>
+				</thead>
+			</table>
+			<div class="table-actions">
+				<div class="btn btn-primary btn-small setsub" date='2'  data-action="{:U('Api/Guestbookadmin/check',array('check'=>1))}">审核</div>
+				<div class="btn btn-primary btn-small setsub" date='2'  type="submit" data-action="{:U('Api/Guestbookadmin/check',array('check'=>2))}" data-subcheck="true">取消审核</div>
+				<div class="btn btn-primary btn-small setsub" type="submit" date='2' data-action="{:U('Api/Guestbookadmin/check',array('check'=>4))}" data-subcheck="true">推荐</div>
+				<div class="btn btn-primary btn-small setsub" type="submit" date='2' data-action="{:U('Api/Guestbookadmin/check',array('check'=>5))}" data-subcheck="true">取消推荐</div>
+				<div class="btn btn-primary btn-small setsub" date='3'  type="submit" data-action="{:U('Api/Guestbookadmin/check',array('check'=>3))}" data-subcheck="true" data-msg="你确定删除吗？">{:L('DELETE')}</div>
+			</div>
+			<div class="pagination">{$Page}</div>
+		</form>
+	</div>
+	<script src="__PUBLIC__/js/common.js"></script>
+	<script src="__PUBLIC__/js/datetime.js"></script>
+	<script src="__PUBLIC__/js/jquery-1.8.3.min.js"></script>
+	<script>
+	$(function(){
+		$('.replied').each(function(){
+			var that = $(this);
+			that.click(function(e){
+				e.preventDefault();
+				 var $_this = this;
+				var id = that.attr('data');
+				var text = that.text();
+				if(text == '已回复'){
+					$.post("{:U('Guestbookadmin/Sell')}",{id:id},function(msg){
+						Wind.use("artDialog", function() {
+		                    art.dialog({
+		                        title: '标题',
+		                        content: msg,
+		                        follow: $_this,
+		                        cancelVal: '关闭',
+		                        cancel: true
+		                    });
+                		})
+					})
+				}else if(text == '未回复'){
+					Wind.use("artDialog", function() {
+	                    art.dialog({
+	                        title: '输入回复内容',
+	                        content: '<textarea class="nakes" name="reply"/></textarea>',
+	                        follow: $_this,
+	                        cancelVal: '关闭',
+	                        button:[{
+					　　　　	name:'回复',
+					            callback:function(){
+					            	var value = $('.nakes').val();
+					            	$.post("{:U('Guestbookadmin/Edits')}",{id:id, value:value},function(msg){
+					            		if(msg == 1){
+					            			that.text('已回复');
+					            			this.title ('输入回复内容 	正在回复中……');
+					            			setTimeout(function(){
+					            				return true;
+					            			},5000);
+					            		}
+					            	})
+					            }
+					        }],
+	                        cancel: true
+	                    });
+					})
+				}
+			})	
+		})
+		$('.js_check').click(function(){
+			var value = $(this).attr('checked');
+			if(value == 'checked'){
+				$('.js_s_check').attr('checked',true);
+				$('.js_check').attr('checked', true	)
+			}else{
+				$('.js_s_check').attr('checked',false);
+				$('.js_check').attr('checked', false);
+			}
+		})
+		$('.setsub').click(function(e){
+			var chk = new Array();
+			$('input[name="ids[]"]:checked').each(function(){
+				chk.push($(this).val());
+			});
+			var url = $(this).attr('data-action');
+			var date = $(this).attr('date');
+			url = url+'&id='+chk;
+			if(date == 3){
+				e.preventDefault();
+                    var $_this = this;
+                    art.dialog({
+                        title: false,
+                        icon: 'question',
+                        content: '确定要删除吗',
+                        follow: $_this,
+                        close: function () {
+                            $_this.focus();; //关闭时让触发弹窗的元素获取焦点
+                            return true;
+                        },
+                        okVal:"确定",
+                        ok: function () {
+                            window.location.href = url;
+                        },
+                        cancelVal: '关闭',
+                        cancel: true
+                    });
+			}else{
+				window.location.href = url;
+			}
+		})
+	})
+	</script>
+</body>
+</html>

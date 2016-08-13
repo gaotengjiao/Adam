@@ -1,0 +1,57 @@
+/*通配*/
+img{vertical-align: top; border: none;}
+html *{-webkit-tap-highlight-color: rgba(0,0,0,0);}
+button{-webkit-appearance: none; border: none;}
+a,input,textarea{outline: none;}
+input{ -webkit-appearance: none;}
+html{height: 100%;}
+form,p,ul,h3,h2,body{margin:0; padding:0; font-family: "微软雅黑";}
+li{list-style: none;} 
+a{text-decoration: none;}
+table{border-collapse: collapse;}
+td,th{padding:0; border: 1px solid #d6d7dc;}
+td{text-align: center;}
+i,em{ font-style: normal;}
+.clear{ zoom: 1;}
+.clear:after{ content: ""; display: block; clear: both;}
+/*通配*/
+
+.project_main{ width: 100%; height: 2.5rem; background: white; border-bottom: 1px #d6d7dc solid; position: fixed; left: 0; top: 0;  z-index: 10;}
+.pro_title{ width: 15rem; height: 100%; display: flex; margin: 0 auto;}
+.pro_title span{ float: right; line-height: 2.5rem; color: #646464; font-size: 0.55rem;}
+.pYuyue{ width: 10rem; height: 1.4rem; border: 0.05rem #f97fa4 solid; border-radius: 0.125rem; margin: auto auto; position: relative;}
+.pYuyue{ width: 80%; height: 1.4rem; color: #f97fa4;}
+.pYuyue h3{ width: 50%; height: 1.4rem; color: #f97fa4; font-size: 0.7rem; text-align: center; line-height: 1.4rem; float: left; border-radius: 0.125rem; font-weight: normal;}
+.pYuyue h3.pChange{background: #f97fa4;color: white;}
+.pNumber{ width: 100%; height: 2rem; background: white; line-height: 2rem; text-indent: 0.5rem; font-size: 0.5rem; color: #646464; border-bottom: 1px #d6d7dc solid; position: fixed; top: 3.35rem; left: 0; z-index: 10;}
+.shoushu{ width: 100%; position: relative; margin-top: 3rem; padding-bottom: 8rem;}
+.weizheng{ width: 100%; border-top: 0.05rem #e6e7e9 solid; border-bottom: 1px #d6d7dc solid; background: white; margin-top: 0.5rem;  }
+.wz_main{ width: 15rem; margin: 0 auto;}
+.wz_title{ width: 100%; height: 1.375rem; border-bottom: 1px #d6d7dc solid; font-size: 0.6rem; color: #4e4e4e; line-height: 1.75rem;}
+.wz_content{ width: 100%; height: 4.55rem; overflow: hidden; position: relative;}
+.wz_image{ width: 3.55rem; height: 3.55rem; margin-top: 0.75rem; position: relative; float: left;}
+.wz_image img:nth-of-type(1){ width: 100%; height: 100%;}
+.wz_image img:nth-of-type(2){ width: 55%; height: 55%; position: absolute; right: 0; top: 0;}
+.wz_text{ width: 7.5rem; height: 3.55rem; float: left; margin-left: 0.8rem; font-size: 0.45rem; color: #656565; overflow: hidden; margin-top: 0.75rem;}
+.wz_text h3{ width: 100%; height: 1rem; line-height: 1rem; font-size: 0.65rem; color: #F97FA4; margin-bottom: 0.2rem;}
+.wz_text p{ width: 5.15rem; height: 1.12rem; line-height: 0.55rem; margin-bottom: 0.2rem;}
+.wz_text span{ height: 0.75rem; line-height: 0.75rem; display: inline-block; border: 1px #a8a8a8 solid; border-radius: 0.125rem; margin-right: 0.25rem; padding: 0 0.2rem;}
+.wz_delete{ width: 2.25rem; height: 1.5rem; line-height: 1.5rem; text-align: center; border: 1px #f97fa4 solid ; border-radius: 0.25rem; float: right; margin-top: 1.5rem; font-size: 0.6rem; color: #f97fa4; display: none;}
+.wz_activity{ width: 100%; height: 1.45rem; line-height: 1.45rem; background: #f8f8f8; position: relative; overflow: hidden;}
+.wz_activity p{ width: 14.875rem; height: 100%; line-height: 1.45rem; color: #f97fa4; text-align: right; font-size: 0.6rem; float: left;}
+.wz_activity span{ width: 0.3rem; height: 0.625rem;  float: right; margin-right: 0.5rem; margin-top: 0.4rem; display: block;}
+.wz_activity span img{ width: 100%; height: 100%; }
+.wz_activity a{ width: 100%; height: 100%; display: block; position: absolute; left: 0; top: 0;}
+.tishi{ width: 100%; height: 1rem ; line-height: 1rem; font-size: 0.6rem; color: #898989; text-align: center;}
+.timer_bottom{ width: 100%; height: 6rem; background: #f1f1f1; position: fixed; bottom: 0; left: 0; }
+.chooseTime{ width: 100%; height: 2.5rem; background: #F1F1F1;  position: fixed; bottom: 4rem; left: 0; z-index: 10; overflow: hidden;}
+.chooseTime span{ width: 5.55rem; height: 2.5rem; line-height: 2.5rem; font-size: 0.6rem; color: #676767; display: block; float: left; margin-left: 1rem;}
+.chooseRili{ width: 7.8rem; margin-top: 0.5rem; height: 1.5rem; float: left; position: relative; border-radius: 0.3rem; z-index: 100;}
+.chooseRili input{ width: 100%; height: 100%; line-height: 1.5rem; text-indent: 0.7rem; font-size: 0.6rem; border: none; border-radius: 0.3rem; }
+.chooseRili i{ width: 0.6rem; height: 0.35rem; display: block; position: absolute; top:0.7rem; right: 0.35rem; }
+.chooseRili i img{ width: 100%; height: 100%;}
+.nowYuyue{ width: 100%; height: 4rem; background: #F1F1F1; position: fixed; bottom: 0; overflow: hidden; font-size: 0.6rem;}
+.nowYuyue a{ width: 14.5rem; height: 2rem; display: block; color: #f97fa4;  margin: 0.5rem auto; }
+.nowYuyue a input{ border: none; border-radius: 0.25rem; width: 100%; height: 100%; background: #f97fa4; color: white; margin: 0 auto;}
+.xiaoshi{display: none;}
+.chuxian{display: block;}

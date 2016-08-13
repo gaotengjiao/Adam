@@ -1,0 +1,72 @@
+/*通配*/
+img{vertical-align: top; border: none;}
+html *{-webkit-tap-highlight-color: rgba(0,0,0,0);}
+button{-webkit-appearance: none; border: none;}
+a,input,textarea{outline: none;}
+html{height: 100%;}
+form,p,ul,h3,h2,body{margin:0; padding:0; font-family: "微软雅黑";}
+li{list-style: none;}
+a{text-decoration: none;}
+table{border-collapse: collapse;}
+td,th{padding:0; border: 1px solid #d6d7dc;}
+td{text-align: center;}
+input{ -webkit-appearance: none;}
+i,em{ font-style: normal;}
+.clear{ zoom: 1;}
+.clear:after{ content: ""; display: block; clear: both;}
+body{height:100% ;position: relative;  background: #f1f1f1;}
+/*通配*/
+
+.tie_main{ width: 14.2rem; margin: 0 auto; overflow: hidden; }
+/*提示信息*/
+.tie_tips{ width: 100%; height: 1.75rem; font: 0.7rem/1.75rem "微软雅黑"; color: #323232;}
+
+/*输入电话号*/
+.tie_number{ width: 14rem; height: 2.2rem; background: white; border: 1px #d6d7dc solid; overflow: hidden; margin-top: 1rem;}
+.tie_number span{ width: 1.825rem; height: 1.375rem; display: block; float: left; border-right: 1px #d6d7dc solid; margin-top: 0.425rem; display: flex;}
+.tie_number span img{ width: 0.9rem; height: 1.05rem; margin: auto auto; }
+.tie_number input{ width: 11rem; height: 2rem; line-height: 2rem; border: none; text-indent: 0.5rem; color: #acacac; font-size: 0.75rem;}
+.tie_number i{ width: 1rem; height: 100%; display: block; float: right; overflow: hidden;}
+.tie_number i img{ width: 0.8rem; height: 1.05rem; margin-top: 0.5rem; }
+
+/*输入验证码*/
+.tie_yanzhengma{ width: 14.2rem; height: 2.25rem; margin-top: 0.5rem; margin-bottom: 0.5rem;}
+.tie_left{ width: 8.1rem; height: 2.2rem; background: white; border: 1px #d6d7dc solid; float: left;}
+.tie_left span{ width: 1.825rem; height: 1.375rem; display: block; float: left; border-right: 1px #d6d7dc solid; margin-top: 0.425rem; display: flex;}
+.tie_left span img{ width: 0.9rem; height: 1.05rem; margin: auto auto;}
+.tie_left input{ width: 5.4rem; height: 1.8rem; line-height: 1.8rem; border: none; color: #acacac; font-size: 0.75rem; float: left; text-indent: 0.5rem;}
+.tie_right{ width: 5rem; height: 2.2rem; text-align: center; border: 1px #f97fa4 solid; float: right; color: #f97fa4; font-size: 0.75rem; background: white; line-height: 2.2rem; border-radius: 0.125rem;}
+
+/*设置密码*/
+.tie_mima{ width: 14rem; height: 2.2rem; background: white; border: 1px #d6d7dc solid; overflow: hidden; margin-top: 0.5rem; margin-bottom: 1rem;}
+.tie_mima span{ width: 1.825rem; height: 1.375rem; display: block; float: left; border-right: 1px #d6d7dc solid; margin-top: 0.425rem; display: flex;}
+.tie_mima span img{ width: 0.9rem; height: 1.05rem; margin: auto auto; }
+.tie_mima input{ width: 11rem; height: 2.2rem; line-height: 2rem; border: none; text-indent: 0.5rem; color: #acacac; font-size: 0.75rem;}
+.tie_mima i{ width: 1rem; height: 100%; display: block; float: right; overflow: hidden;}
+.tie_mima i img{ width: 0.8rem; height: 1.05rem; margin-top: 0.5rem; }
+
+/*提示*/
+.tie_tips1,.tie_tips2,.tie_tips3{ width: 100%; height: 1rem; line-height: 1rem; font-size: 0.75rem; color: red; display: none; margin-top: 0.5rem;}
+
+/*登陆按钮*/
+.tie_btn{ width: 14.2rem; height: 2.2rem; border-radius: 0.25rem; background: #f97fa4; color: white; text-align: center; font-size: 0.85rem;  border: none; margin: 0.65rem auto;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

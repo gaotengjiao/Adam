@@ -1,0 +1,472 @@
+<admintpl file="header" />
+<style type="text/css">
+    .pic-list li {
+        margin-bottom: 5px;
+    }
+</style>
+<link href="__PUBLIC__/js/umeditor/themes/default/css/umeditor.css" type="text/css" rel="stylesheet">
+<meta charset="utf-8">
+</head>
+<body>
+<div class="wrap js-check-wrap">
+    <ul class="nav nav-tabs"> 
+        <li><a href="{:U('Goods/Goodsadd')}" target="_self">添加产品</a></li>
+        <li class="active"><a href="{:U('Goods/Goodsaddone',array('term'=>empty($term['term_id'])?'':$term['term_id']))}" target="_self">添加产品-模板一</a></li>
+    </ul>
+    <form action="{:U('Goods/Goodsadd_post')}" method="post" class="form-horizontal js-ajax-forms" enctype="multipart/form-data">
+        <input type="hidden" name="s" value="1">
+        <div class="row-fluid">
+            <div class="span9">
+                <table class="table table-bordered">
+                    <tr>
+                        <th width="100">是否推荐医师</th>
+                        <td>
+                            <input type="radio" class="hr" name="radio" value="false" checked>否 &nbsp
+                            <input type="radio" class="hr" name="radio" value="true">是<br><br>
+                            <span id="h4" style="display:none">
+                                <volist name="users" id="he">
+                                    {$he['user_login']} <input type="checkbox" style="margin-top:-2px" name="usersid[]" value="{$he['id']}">&nbsp&nbsp
+                                </volist>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th width="80">产品名称</th>
+                        <td>
+                            <input type="text" name="gname" id="gname" value="" style="width: 400px" placeholder="产品名称"></td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>产品类型</th>
+                        <td>
+                            <select name="gtype" id="gtype">
+                                <option value="0">请选择</option>
+                                <foreach name="face" item="vo"> 
+                                    <option value="{$vo['id']}">{$vo['html']}{$vo['typename']}</option>
+                                </foreach>
+                            </select>
+                            <span class="form-required">*</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>商品简介</th>
+                        <td>
+                            <textarea name="about" id="about" required style="width: 98%; height: 50px;" placeholder="请填写商品简介"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>商品介绍</th>
+                        <td>
+                            <!--<textarea name="content" id="content" required style="width: 98%; height: 50px;" placeholder="请填写商品介绍"></textarea>-->
+                            <script type="text/plain" id="myEditor" name="content" style="width:1000px;height:240px;"></script>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>手术类型</th>
+                        <td>
+                            <select name="opstype" id="">
+                                <option value="手术">手术</option>
+                                <option value="激光">激光</option>
+                                <option value="注射">注射</option>
+                                <option value="微创">微创</option>
+                                <option value="其他">其他</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            治疗时间
+                        </th>
+                        <td>
+                            <input type="text" name="curetime"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            体检项目
+                        </th>
+                        <td>
+                            <input type="text" name="healthproject"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            疼痛指数
+                        </th>
+                        <td>
+                            <input type="text" name="painindex"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            风险指数
+                        </th>
+                        <td>
+                            <input type="text" name="riskindex"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            手术材料
+                        </th>
+                        <td>
+                            <input type="text" name="opsmaterial"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>麻醉方式</th>
+                        <td>
+                            <select name="hocustype" id="">
+                                <option value="无">无</option>
+                                <option value="局部麻醉">局部麻醉</option>
+                                <option value="全身麻醉">全身麻醉</option>
+                                <option value="睡眠麻醉">睡眠麻醉</option>
+                                <option value="表面麻醉">表面麻醉</option>
+                                <option value="静脉麻醉">静脉麻醉</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>拆线天数</th>
+                        <td>
+                            <select name="stitchestype" id="">
+                                <option value="无">无</option>
+                                <option value="3天">3天</option>
+                                <option value="5天">5天</option>
+                                <option value="7天">7天</option>
+                                <option value="14天">14天</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            恢复过程
+                        </th>
+                        <td>
+                            <input type="text" name="rejuvenationname"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            手术优势
+                        </th>
+                        <td>
+                            <input type="text" name="Surgeryadvantage"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            达到最终效果时间
+                        </th>
+                        <td>
+                            <input type="text" name="Thefinaleffectoftime"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            效果维持时间
+                        </th>
+                        <td>
+                            <input type="text"  name="Theeffecttomaintaintime"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            治疗次数
+                        </th>
+                        <td>
+                            <input type="text" name="treatmenttimes"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            住院治疗
+                        </th>
+                        <td>
+                            <select name="hospitalization" id="">
+                                <option value="不需要" selected>不需要</option>
+                                <option value="需要">需要</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>商品价格</th>
+                        <td><input type="text" style="width:400px;" name="price" id="price" required value="" placeholder="请输入商品价格"/></td>
+                    </tr>
+                    <tr>
+                        <th>是否上架</th>
+                        <td>
+                            <select name="state" id="state">
+                                <option value="1">上架</option>
+                                <option value="0">下架</option>
+                            </select>
+                            <span class="form-required">*</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>服务流程</th>
+                            <td>
+                                <select name="service" id="">
+                                        <option value="0">点击获取</option>
+                                    <volist name="service" id="tser">
+                                        <option value="{$tser['sid']}">{$tser['sname']}</option>
+                                    </volist>
+                                </select>
+                            </td>
+                        </tr>
+                    <tr>
+                        <th>关键词</th>
+                        <td><input type="text" name="keyword" id="keyword" value="" style="width: 400px" placeholder="请输入关键字"> 多关键词之间用空格或者英文逗号隔开</td>
+                    </tr>
+                    <tr>
+                        <th>相册图集</th>
+                        <td>
+                            <fieldset>
+                                <legend>原图列表</legend>
+                                <ul id="img" class="pic-list unstyled"></ul>
+                            </fieldset>
+                            <a href="javascript:;" onclick="javascript:flashupload('albums_images', '图片上传','img',change_images,'10,gif|jpg|jpeg|png|bmp,0','','','')" class="btn btn-small">选择图片</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>相册图集</th>
+                        <td>
+                            <fieldset>
+                                <legend>缩略图列表</legend>
+                                <ul id="humbimg" class="pic-list unstyled"></ul>
+                            </fieldset>
+                            <a href="javascript:;" onclick="javascript:flashupload('albums_images', '图片上传','humbimg',change_images,'10,gif|jpg|jpeg|png|bmp,0','','','')" class="btn btn-small">选择图片</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>排序</th>
+                        <td><input type="text" name="order" id="gorder" value="" style="width: 400px" placeholder="请输入排序"></td>
+                    </tr>
+                    <tr>
+                        <th>颜值活动</th>
+                        <td>
+                            <input type="radio" name="aa" value="no" onclick=bb.style.display='none' checked="checked">否
+                            <input type="radio" name="aa" value="yes" onclick=bb.style.display='block'>是<br>
+                            <span  id="bb" style="display:none">
+                            <foreach name="type" item="face">
+                                {$face['p_name']} <input  style="margin-top:-2px;" type="checkbox" name="pid[]" value="{$face['id']}"> &nbsp
+                            </foreach></span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="span3">
+                <table class="table table-bordered">
+
+                </table>
+            </div>
+        </div>
+        <div class="form-actions">
+            <button class="btn btn-primary js-ajax-submit" type="submit">提交</button>
+            <a class="btn" href="{:U('Goods/index')}">返回</a>
+        </div>
+    </form>
+</div>
+<script type="text/javascript" src="__PUBLIC__/js/common.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/content_addtop.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/umeditor/third-party/jquery.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/umeditor/umeditor.config.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/umeditor/umeditor.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/umeditor/lang/zh-cn/zh-cn.js"></script>
+<script src="__PUBLIC__/js/jquery-1.8.3.js"></script>
+<script type="text/javascript">
+    var um = UM.getEditor('myEditor');
+    um.addListener('blur',function(){
+        $('#focush2').html('编辑器失去焦点了')
+    });
+    um.addListener('focus',function(){
+        $('#focush2').html('')
+    });
+    $(".adddoctor").click(function (){
+        var img = $(this).attr("dd");
+        var value = $(this).attr("value");
+       $(".doctorone").append('<p><img width="40px" height="40px" src=__ROOT__'+img+'><a class="deldoctor">DelDoctor</a><input type="hidden" value='+value+'/></p>');
+    })
+    $('.deldoctor').live('click', function() {
+        $(this).parent().remove();
+    });
+    function login() {
+        var portals = document.getElementsByName("portal");
+        for(var i = 0; i < portals.length; i++) {
+            if(portals[i].checked) {
+                if(portals[i].value === "department") {
+                    location.href = "部门管理地址";
+                }
+                else if(portals[i].value === "content") {
+                    location.href = "内容管理地址";
+                }
+            }
+        }
+    }
+    $(function() {
+        $(".js-ajax-close-btn").on('click', function(e) {
+            e.preventDefault();
+            Wind.use("artDialog", function() {
+                art.dialog({
+                    id : "question",
+                    icon : "question",
+                    fixed : true,
+                    lock : true,
+                    background : "#CCCCCC",
+                    opacity : 0,
+                    content : "您确定需要关闭当前页面嘛？",
+                    ok : function() {
+                        setCookie("refersh_time", 1);
+                        window.close();
+                        return true;
+                    }
+                });
+            });
+        });
+        /////---------------------
+        Wind.use('validate', 'ajaxForm', 'artDialog', function() {
+            //javascript
+
+            //编辑器
+            editorcontent = new baidu.editor.ui.Editor();
+            editorcontent.render('content');
+            try {
+                editorcontent.sync();
+            } catch (err) {
+            }
+            //增加编辑器验证规则
+            jQuery.validator.addMethod('editorcontent', function() {
+                try {
+                    editorcontent.sync();
+                } catch (err) {
+                }
+                return editorcontent.hasContents();
+            });
+            var form = $('form.js-ajax-forms');
+            //ie处理placeholder提交问题
+            if ($.browser.msie) {
+                form.find('[placeholder]').each(function() {
+                    var input = $(this);
+                    if (input.val() == input.attr('placeholder')) {
+                        input.val('');
+                    }
+                });
+            }
+        });
+        Wind.use('validate', 'ajaxForm', 'artDialog', function() {
+            //javascript
+
+            //编辑器
+            editorcontent = new baidu.editor.ui.Editor();
+            editorcontent.render('title');
+            try {
+                editorcontent.sync();
+            } catch (err) {
+            }
+            //增加编辑器验证规则
+            jQuery.validator.addMethod('editorcontent', function() {
+                try {
+                    editorcontent.sync();
+                } catch (err) {
+                }
+                return editorcontent.hasContents();
+            });
+            var form = $('form.js-ajax-forms');
+            //ie处理placeholder提交问题
+            if ($.browser.msie) {
+                form.find('[placeholder]').each(function() {
+                    var input = $(this);
+                    if (input.val() == input.attr('placeholder')) {
+                        input.val('');
+                    }
+                });
+            }
+        });
+        ////-------------------------
+    });
+</script>
+</body>
+</html>
+<script type="text/javascript">
+    $("#gname").blur(function (){
+        var Activity = $("#gname").val();
+        if(Activity==""){
+            $(".form-gname").text(" ");
+            $(".form-gname").text("产品名称不能为空");
+
+        }else{
+            $(".form-gname").text(" ");
+            $(".form-gname").text("产品名称可用");
+        }
+    })
+    $("#gtype").blur(function (){
+        var gtype = $("#gtype").val();
+        if(gtype==""){
+            $(".form-gtype").text(" ");
+            $(".form-gtype").text("产品类型不能为空");
+
+        }else{
+            $(".form-gtype").text(" ");
+            $(".form-gtype").text("产品类型可用");
+        }
+    })
+    $("#price").blur(function (){
+        var price = $("#price").val();
+        if(price == ""){
+            $(".form-price").text(" ");
+            $(".form-price").text("价格不能为空");
+        }else{
+            $(".form-price").text(" ");
+            $(".form-price").text("价格可用");
+        }
+    })
+    $("#keyword").blur(function (){
+        var keyword = $("#keyword").val();
+        if(keyword == ""){
+            $(".form-keyword").text(" ");
+            $(".form-keyword").text("关键字不能为空");
+        }else{
+            $(".form-keyword").text(" ");
+            $(".form-keyword").text("关键字可用");
+        }
+    })
+    $("#order").blur(function (){
+        var order = $("#order").val();
+        if(order == ""){
+            $(".form-order").text(" ");
+            $(".form-order").text("排序不能为空");
+        }else{
+            $(".form-order").text(" ");
+            $(".form-order").text("排序可用");
+        }
+    })
+    $("#content").blur(function (){
+        var content = $("#content").val();
+        if(content == ""){
+            $(".form-content").text(" ");
+            $(".form-content").text("介绍不能为空");
+        }else{
+            $(".form-content").text(" ");
+            $(".form-content").text("介绍可用");
+        }
+    })
+    $("#img").blur(function (){
+        var img = $("#img").val();
+        if(img == ""){
+            $(".form-img").text(" ");
+            $(".form-img").text("原图不能为空");
+        }else{
+            $(".form-img").text(" ");
+            $(".form-img").text("原图可用");
+        }
+    })
+    $('.hr').click(function(){
+        var v = $(this).val();
+        if(v){
+            $('#h4').css('display', '');
+        }
+        if(v == 'false'){
+            $('#h4').css('display', 'none')
+        }
+    })
+</script>

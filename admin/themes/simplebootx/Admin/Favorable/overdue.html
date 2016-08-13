@@ -1,0 +1,164 @@
+<admintpl file="header" />
+</head>
+<body>
+	<div class="wrap">
+		<ul class="nav nav-tabs">
+			<li><a href="{:U('Favorable/index')}">{:L('INDEX')}</a></li>
+			<li><a href="{:U('Favorable/add')}">{:L('ADD')}</a></li>
+			<li class="active"><a href="{:U('Favorable/overdue')}">过期优惠</a></li>
+		</ul>
+		<form class="well form-search" method="post" action="{:U('Admin/Favorable/overdue')}">
+            
+            标题： 
+            <input type="text" name="name" style="width: 200px;" value="{$name}" placeholder="请输入标题...">&nbsp&nbsp
+            时间：
+            <input type="text" name="start_time" class="sang_Calender" value="{$time1}" style="width: 80px;" autocomplete="off">-
+            <input type="text" class="sang_Calender" name="end_time" value="{$time2}" style="width: 80px;" autocomplete="off"> &nbsp; &nbsp;
+            <input type="submit" class="btn btn-primary" value="搜索" />
+        </form>
+		<form method="post" class="js-ajax-form">
+			<div class="table-actions">
+				<div class="btn btn-primary btn-small setsub" type="submit" date='1' data-action="{:U('Api/Guestbookadmin/check',array('check'=>4))}" data-subcheck="true">置顶</div>
+				<div class="btn btn-primary btn-small setsub" type="submit" date='2' data-action="{:U('Api/Guestbookadmin/check',array('check'=>5))}" data-subcheck="true">取消置顶</div>
+				<div class="btn btn-primary btn-small setsub" type="submit" date="3" data-action="{:U('Api/Guestbookadmin/check',array('check'=>3))}" data-subcheck="true" data-msg="你确定删除吗？">{:L('DELETE')}</div>
+			</div>
+			<table class="table table-hover table-bordered">
+				<thead>
+					<tr>
+						<th width="15"><label><input type="checkbox" class="js_check" data-direction="x"></label></th>
+						<th width="50">ID</th>
+						<th width="50">{:L('IMG')}</th>
+						<th width="50">{:L('TITLE')}</th>
+						<th width="50">{:L('CONTENT')}</th>
+						<th width="50">{:L('STATE_TIME')}</th>
+						<th width="50">{:L('END_TIME')}</th>
+						<th width="50">{:L('STATUS')}</th>
+						<th width="50">{:L('DSTATUS')}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<foreach name="guestmsgs" item="vo">
+					<tr>
+						<td><input type="checkbox" class="js_s_check" data-yid="js-check-y" data-xid="js-check-x" name="ids[]" value="{$vo.id}"></td>
+						<td>{$vo.id}</td>
+						<td><img style="width:90px" src="__ROOT__{$vo.img}" alt=""></td>
+						<td>{$vo.title}</td>
+						<td>{$vo.content}</td>
+						<td>{$vo.start_time}</td>
+						<td>{$vo.end_time}</td>
+						<td>{$vo.istop}</td>
+						<td>{$vo.status}</td>
+					</tr>
+					</foreach>
+				</tbody> 
+				<thead>
+					<tr>
+						<th width="15"><label><input type="checkbox" class="js_check" data-direction="x"></label></th>
+						<th width="50">ID</th>
+						<th width="50">{:L('IMG')}</th>
+						<th width="50">{:L('TITLE')}</th>
+						<th width="50">{:L('CONTENT')}</th>
+						<th width="50">{:L('STATE_TIME')}</th>
+						<th width="50">{:L('END_TIME')}</th>
+						<th width="50">{:L('STATUS')}</th>
+						<th width="50">{:L('DSTATUS')}</th>
+					</tr>
+				</thead>
+			</table>
+			<div class="table-actions">
+				<div class="btn btn-primary btn-small setsub" type="submit" date='1' data-action="{:U('Api/Guestbookadmin/check',array('check'=>4))}" data-subcheck="true">置顶</div>
+				<div class="btn btn-primary btn-small setsub" type="submit" date='2' data-action="{:U('Api/Guestbookadmin/check',array('check'=>5))}" data-subcheck="true">取消置顶</div>
+				<div class="btn btn-primary btn-small setsub" date='3'  type="submit" data-action="{:U('Api/Guestbookadmin/check',array('check'=>3))}" data-subcheck="true" data-msg="你确定删除吗？">{:L('DELETE')}</div>
+			</div>
+			<div class="pagination">{$show}</div>
+		</form>
+	</div>
+	<script src="__PUBLIC__/js/common.js"></script>
+	<script src="__PUBLIC__/js/datetime.js"></script>
+	<script src="__PUBLIC__/js/jquery-1.8.3.min.js"></script>
+	<script>
+	$(function(){
+		$('.istop').click(function(){
+			var id = $(this).attr('date');
+			var text = $(this).text();
+			if(text == '取消置顶'){
+				$.post("{:U('Favorable/istop')}", {id:id, istop:0}, function(msg){
+					alert(msg);
+				})
+			}else if(text == '置顶'){
+				$.post("{:U('Favorable/istop')}", {id:id, istop:1}, function(msg){
+					alert(msg);
+				})
+			}
+		})
+		$('.js_check').click(function(){
+			var value = $(this).attr('checked');
+			if(value == 'checked'){
+				$('.js_s_check').attr('checked',true);
+				$('.js_check').attr('checked', true	)
+			}else{
+				$('.js_s_check').attr('checked',false);
+				$('.js_check').attr('checked', false);
+			}
+		})
+		$('.setsub').click(function(e){
+			var chk = new Array();
+			$('input[name="ids[]"]:checked').each(function(){
+				chk.push($(this).val());
+			});
+			var url = $(this).attr('data-action');
+			var date = $(this).attr('date');
+			url = url+'&id='+chk;
+			if(date == 3){
+				e.preventDefault();
+                    var $_this = this;
+                    art.dialog({
+                        title: false,
+                        icon: 'question',
+                        content: '确定要删除吗',
+                        follow: $_this,
+                        close: function () {
+                            $_this.focus();; //关闭时让触发弹窗的元素获取焦点
+                            return true;
+                        },
+                        okVal:"确定",
+                        ok: function () {
+                            window.location.href = url;
+                        },
+                        cancelVal: '关闭',
+                        cancel: true
+                    });
+			}else{
+				window.location.href = url;
+			}
+		})
+		$('.deleteh').click(function(e){
+			e.preventDefault();
+			var that = $(this);
+			var id = that.attr('data');
+			var $_this = this;
+			art.dialog({
+                title: false,
+                icon: 'question',
+                content: '确定要删除吗',
+                follow: $_this,
+                close: function () {
+                    $_this.focus();; //关闭时让触发弹窗的元素获取焦点
+                    return true;
+                },
+                okVal:"确定",
+                ok: function () {
+                    $.post("{:U('Favorable/deletes')}", {id:id}, function(msg){
+                    	if(msg == 1){
+                    		that.parent().parent().remove();
+                    	}
+                    })
+                },
+                cancelVal: '关闭',
+                cancel: true
+            });
+		})
+	})
+	</script>
+</body>
+</html>

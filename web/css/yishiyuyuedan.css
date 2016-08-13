@@ -1,0 +1,60 @@
+/*通配*/
+img{vertical-align: top; border: none;}
+html *{-webkit-tap-highlight-color: rgba(0,0,0,0);}
+button{-webkit-appearance: none; border: none;}
+a,input,textarea{outline: none;}
+input{ -webkit-appearance: none;}
+html{height: 100%;}
+form,p,ul,h3,h2,body{margin:0; padding:0; font-family: "微软雅黑";}
+li{list-style: none;}
+a{text-decoration: none;}
+table{border-collapse: collapse;}
+td,th{padding:0; border: 1px solid #d6d7dc;}
+td{text-align: center;}
+i,em{ font-style: normal;}
+body{height:100% ;position: relative;  background: #f1f1f1;}
+.clear{ zoom: 1;}
+.clear:after{ content: ""; display: block; clear: both;}
+/*通配*/
+
+/*主体内容*/
+.doc_doctor{ width: 100%; height: 2.5rem; background: white; border-bottom: 1px #d6d7dc solid;}
+.doc_title{ width: 15rem; height: 100%; display: flex; margin: 0 auto;}
+.dYuyue{ width: 10rem; height: 1.4rem; border: 0.05rem #f97fa4 solid; border-radius: 0.125rem; margin: auto auto; position: relative;}
+.dYuyue a{ width: 100%; height: 100%; color: #f97fa4;}
+.dYuyue h3{ width: 50%; height: 100%; color: #f97fa4; font-size: 0.7rem; text-align: center; line-height: 1.4rem; float: left; border-radius: 0.125rem; font-weight: normal;}
+.dYuyue h3.dChange{ background: #f97fa4;}
+.dYuyue h3.dChange a{ color: white; }
+.dNumber{ width: 100%; height: 2rem; background: white; margin: 0.25rem 0; line-height: 2rem; text-indent: 0.5rem; font-size: 0.6rem; color: #646464; border-bottom: 1px #d6d7dc solid; border-top: 1px #d6d7dc solid; margin-top: 3rem;}
+.dXiangqing{ width: 100%; height: 1.625rem; line-height: 1.625rem; color: #f97fa4; font-size: 0.7rem; text-indent: 0.5rem; }
+.dDate{ width: 100%; height: 2rem; background: white; line-height: 2rem; text-indent: 0.5rem; font-size: 0.6rem; color: #646464; border-bottom: 1px #d6d7dc solid; border-top: 1px #d6d7dc solid;}
+.dDate time{ margin-left: 0.5rem;}
+.dDate span{ color: #f97fa4; float: right; margin-right: 0.5rem;}
+.dDoctor{width: 100%; position: relative;}
+.dDoctor i{ width: 3rem; height: 1.15rem; display: block; border: 1px #f97fa4 solid; border-radius: 0.25rem; line-height: 1.15rem; text-align: center; font-size: 0.5rem; color: #f97fa4; position: absolute; right: 0.5rem; top: 0.3rem;}
+.dDoctor img{width: 6rem; height: 6rem; margin: 0 auto; display: block; padding-top: 1.875rem;}
+.dDoctor h2,.dDoctor h3{font:0.6rem/1.35rem "微软雅黑"; color: #323232; width: 100%; text-align: center;}
+.dDoctor h2 span{margin-right: 0.4rem;}
+.dDoctor h3{font:0.6rem/0.5rem "微软雅黑";}
+.dCancel{ width: 100%; height: 3.75rem; position: fixed; bottom: 0; display: flex;}
+.dCancel a{ width: 14.5rem; height: 2rem; border-radius: 0.25rem; margin: auto auto;}
+.dCancel input{ width: 100%; height: 100%; border: none; border-radius: 0.25rem; background: #f97fa4;  color: white; font-size: 0.75rem; text-align: center;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

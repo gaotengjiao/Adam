@@ -1,0 +1,113 @@
+img{vertical-align: top; border: none;}
+html *{-webkit-tap-highlight-color: rgba(0,0,0,0);}
+button{-webkit-appearance: none; border: none;}
+a,input,textarea{outline: none;}
+html{height: 100%;}
+form,p,ul,h3,h2,body{margin:0; padding:0; font-family: "微软雅黑";}
+li{list-style: none;}
+.clear:after{content:""; display: block; clear: both;}  
+a{text-decoration: none;}
+table{border-collapse: collapse;}
+td,th{padding:0; border: 1px solid #d6d7dc;}
+td{text-align: center;}
+/*----------------------以上是清除默认样式---------------------------------------------------------------*/
+body{height:100% ;position: relative; overflow: hidden; background: #f1f1f1;}
+#header{ width: 16rem; height: 2rem; background: #f97fa4; position:absolute;left: 0; top:0; z-index: 2;}
+.htmlAll{width: 16rem; height: 100%; position: relative; overflow: hidden;}
+.all{ width: 500%; height: 100%; position: absolute; left: 0rem; top:0; transition: 0.5s; overflow: hidden;}
+.wrap{height: 100%; overflow: auto; z-index: 1; float: left; width: 16rem; position: relative;}
+#search1{width: 12.5rem; height: 1.5rem; position: relative; float: left; margin-left: 0.5rem;}
+#shuru{width: 12.5rem; height: 1.25rem; border-radius: 1rem; text-indent: 1.75rem; font:0.6rem/1.5rem "微软雅黑"; color: #afafaf; border: none;}
+#search2{width: 0.7rem; height: 0.7rem; background: url(../img/seachIcon.png) no-repeat; position: absolute; left: 0.75rem; top:0.65rem; background-size: contain;}
+#sao{width: 0.8rem; height: 0.775rem; background: url(../img/saoyisao.png) no-repeat; position: absolute; right:0.75rem; top:0.625rem; background-size: contain;}
+#local{display: block; float: right; font: 0.45rem/0.65rem "微软雅黑"; color: #fff; margin-top: 0.225rem;} 
+#local img{display: block; width: 0.675rem; height: 1rem; margin:0 auto;}
+#banner{width: 100%; height: 5.5rem; overflow: hidden; padding-top:2rem; position: relative;}
+#bannerList{width:64rem; height: 5.5rem; overflow: hidden; position: absolute; left: 0; top:2rem;}
+#bannerList li{float: left;}
+#bannerList li img{width: 16rem; height: 5.5rem;}
+#btn{position: absolute; bottom: 0.25rem; right:0.125rem;}
+#btn span{display: block; width: 0.4rem; height: 0.4rem; background: #fff; border-radius: 1rem; float: left; margin-right: 0.4rem;} 
+#nav{width: 16rem; height:3.625rem; background: #fff; margin-bottom: 0.45rem; padding-top: 0.5rem;}
+#nav p{float: left; width: 20%; height: 3rem; padding:0 0.45rem; box-sizing: border-box;}
+#nav p img{width: 2.15rem; height: 2.15rem; margin: 0 auto; display: block;}
+.good{text-align: center; font: 0.45rem/1.2rem "微软雅黑"; display: block; width: 2.4rem; color: #282828; }
+#main{ position: relative; }
+#main span{background: url(../img/gao.png) no-repeat; background-size: contain; width: 0.8rem; height: 0.675rem; position: absolute; left: 0.5rem; top:0.5rem;}
+#main h3 a{display: block; font: 0.6rem/1.5rem "微软雅黑"; color: #656565; width: 16rem; height: 1.5rem; background: #fff; border-top: 1px solid #d6d7dc; border-bottom: 1px solid #d6d7dc; text-indent: 1.5rem; margin-bottom: 0.5rem;}
+#action{width: 16rem; height: 8.05rem;}
+#action1{width: 7.95rem; height: 8.05rem; float: left;}
+#action1 img{width: 7.95rem; height: 8.05rem; }
+#action2{width: 8rem; float: left; height: 4.025rem;  }
+#action2 img{width: 8rem; height: 4.025rem; }
+#action3{width: 8rem; height: 4rem; float: left;}
+#action3 img{width: 8rem; height:4rem ;}
+#footer{width: 16rem; height: 2.45rem; background: #fff; border-top:1px solid #d6d7dc; position:absolute;bottom: 0; left: 0; z-index: 2;}
+#footer li{float: left; width: 20%; height: 1.825rem; padding:0 0.5rem; box-sizing: border-box; margin-top: 0.425rem;}
+#footer li img{width: 1.125rem; height: 1.125rem; margin: 0 auto; display: block;}
+.text{text-align: center; font: 0.5rem/1rem "微软雅黑"; display: block; width: 2.4rem; color: #989898; letter-spacing: 0.15rem;}
+.select{color: #F97FA4;}
+#project img,#face img,#user img{width: 16rem; height: 25.2rem;}
+/*-----------以上是首页样式---------------------------------------------------------------------------*/
+#chooseTop{width: 16rem; background:#F1F1F1;}
+#chooseTop a{display: block; width: 16rem; height: 2rem; padding-top: 0.4rem; padding-bottom: 0.5rem;}
+#chooseTop img{width: 16rem; height: 2rem;}
+#fenMoney{width: 16rem; height: 2.4rem; border-top: 1px solid #d6d7dc; border-bottom: 1px solid #d6d7dc; background: #fff; margin-bottom: 0.4rem;}
+#fenMoney h2{font:0.7rem/2.4rem "微软雅黑"; color: #282828; background: #fff; text-indent: 1.075rem; float: left;}
+#fenMoney span{color: #f97fa4; font:0.7rem/2.4rem "微软雅黑"; display: block; float: right; margin-right: 0.5rem;}
+#fenMoney img{float: right;}
+.title{width: 16rem; height: 1.25rem; background: #f97fa4;}
+.title h3{float: left; font: 0.45rem/1.25rem "微软雅黑"; color: #fff; height: 1.25rem; text-align: center;}
+.title h3:nth-of-type(1){width: 3rem; }
+.title h3:nth-of-type(2){width: 6.8rem;}
+.title h3:nth-of-type(3){width: 6.2rem;}
+.table{color: #282828; font: 0.45rem "微软雅黑";}
+.tableList td{height: 1.25rem;}
+.tableList td input{ float: right; margin-right: 0.5rem; width: 0.55rem; height: 0.55rem;}
+.tableList td:nth-of-type(1){width: 3rem;}
+.tableList td:nth-of-type(2){width: 6.8rem;}
+.tableList td:nth-of-type(3){width: 6.1rem; text-indent: 1rem;}
+.btn{margin-top: 1.5rem; position: relative;}
+.table button{width: 7.75rem; height: 1.5rem; background: #F97FA4; border-radius: 0.3rem; color: #fff; font: 0.6rem "微软雅黑"; letter-spacing: 0.1rem; position: absolute; left: 50%; top:0; margin-left: -3.875rem; outline: none;}
+/*-----------以上是选择分期---------------------------------------------------------------------------*/
+.mouth{width: 16rem; background: #fff; margin-top: 0.5rem; border-top: 1px solid #D6D7DC; border-bottom: 1px solid #D6D7DC;}
+.mouth li{height: 2rem; border-bottom: 1px solid #d6d7dc; width: 15.175rem; float: right;}
+.mouth li:last-child{border-bottom: none;}
+.icon1{background: url(../img/history1.png) no-repeat; background-size: contain; width: 0.75rem; height: 0.75rem; display: block; float: left; margin-top: 0.6rem;}
+.mouth li h3{font: 0.6rem/2rem "微软雅黑"; color: #282828; text-indent: 0.3rem; float: left;}
+.mouth li:nth-of-type(1) a{display: block; width: 3.45rem; height: 1rem; background: #F97FA4; border-radius: 0.3rem; float: right; color: #fff; font: 0.45rem/1rem "微软雅黑"; text-align: center; margin-top: 0.5rem; margin-right: 0.85rem; }
+.icon2{background: url(../img/history2.png) no-repeat; width: 0.75rem; height: 0.75rem; background-size: contain; float: left; margin-top: 0.6rem;}
+.icon3{background: url(../img/history3.png) no-repeat; width: 0.75rem; height: 0.75rem; background-size: contain; float: left; margin-top: 0.6rem;}
+#totle,#huan{color: #898989; float: right; font: 0.6rem/2rem "微软雅黑"; margin-right: 0.85rem; }
+#huan img{width: 0.25rem; height: 0.45rem; margin-top: 0.8rem; margin-left: 0.325rem;}
+.zhangDan h3{font:0.45rem/1.5rem "微软雅黑"; color: #4d4d4d; text-indent:1rem; }
+.zhangDan span{font-size: 0.35rem; color: #989898; margin-left: 0.4rem;}
+.mingXi{width: 16rem; border-bottom: 1px solid #d6d7dc; border-top: 1px solid #d6d7dc; background: #fff;}
+.mingXi li{height: 2rem; width: 15.175rem;  border-bottom: 1px solid #d6d7dc; float: right; }
+.mingXi li h3{height: 2rem; font: 0.5rem "微软雅黑"; margin-top: 0.25rem; float: left;}
+.mingXi li time{display: block; color: #989898; font: 0.35rem "微软雅黑"}
+.mingXi li span{background: url(../img/history4.jpg) no-repeat; width: 1rem; height: 1rem; display: block; float: left; background-size: contain; margin-top: 0.5rem; margin-right: 0.3rem;}
+.mingXi li:last-child{border-bottom: none;}
+.mingXi li span:nth-of-type(2){background: url(../img/into.png) no-repeat; background-size:contain; width: 0.25rem; height: 0.45rem; display: block; margin-top: 0.85rem; float: right; margin-right: 0.85rem;}
+/*-----------以上是历史账单---------------------------------------------------------------------------*/
+.makeYue{width: 16rem; height: 5.5rem; background: #f97fa4; border-bottom:1px solid #d6d7dc ;}
+.makeYue p{float: left; width: 33.33%; box-sizing: border-box; margin-top: 0.75rem;}
+.makeYue p img{width: 3.1rem; height: 3.1rem; margin: 0 auto; display: block;}
+.makeYue p span{color: #fff;font: 0.6rem/1.4rem "微软雅黑"; display: block; text-align: center;}
+.want{width: 16rem; height: 1.4rem; color: #656565; font: 0.45rem/1.4rem "微软雅黑"; text-indent: 0.875rem; }
+.historyYue{width: 14.325rem; height: 6.1rem; background: #fff; border-top: 1px solid #d6d7dc; border-bottom: 1px solid #d6d7dc; float: left;}
+.historyYue p{width: 33.33%; box-sizing: border-box; padding: 0 0rem; float: left;}
+.historyYue p img{width: 3.1rem; height: 3.1rem; margin-left: 0.875rem;}
+.historyYue p span{color: #656565; font:0.5rem/1.5rem "微软雅黑"; display: block; text-align: center;}
+.historyYue p time{display: block; color: #cfcfcf; font: 0.5rem/1.5rem "微软雅黑"; text-align: center;} 
+.history{width: 1.62rem; height: 6.1rem; background: #fee5ed; float: right; border: 1px solid #d6d7dc; border-right: none; margin-bottom: 0.4rem;}
+.history img{width: 0.55rem; height: 0.625rem; display: block; margin-left: 0.05rem;}
+.history a{color: #989898; font:0.55rem "微软雅黑"; width: 0.55rem; display: block; padding: 1rem 0.44rem;}
+.historyImg img{width: 16rem; height: 5.075rem; }
+/*-----------------以上是预约---------------------------------------------------------------------------*/
+
+
+
+
+
+

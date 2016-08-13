@@ -1,0 +1,101 @@
+<admintpl file="header" />
+<style type="text/css">
+.pic-list li {
+	margin-bottom: 5px;
+}
+.comes{
+	display: none;
+	width: 50px;
+	height: 15px;
+	margin: 0px;
+	padding: 0px;
+}
+</style>
+<link href="__PUBLIC__/js/umeditor/themes/default/css/umeditor.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+	<div class="wrap js-check-wrap">
+		<ul class="nav nav-tabs">
+			<li><a href="{:U('Installment/index')}">分期管理</a> </li>
+			<li><a style="color:#000" href="javascript:void">--> 修改信息</a></li>
+		</ul>
+		<form action="{:U('Installment/edit_post')}" method="post" class="form-horizontal js-ajax-forms" enctype="multipart/form-data">
+			<div class="row-fluid">
+				<div class="span9">
+					<table class="table" border="0" style="width:700px">
+                        <tr>
+							<th width="200">请输入名称 ：</th>
+							<td>
+	                            <input type="text" name="periodstype" readOnly value="{$date['periodstype']}">
+	                            <volist name="first" id="v1">
+									<input type="hidden" name="id[]" value="{$v1['id']}">
+	                            </volist>
+	                        </td>
+						</tr>
+						<tr>
+							<th>选择周期类型：</th>
+							<td>
+	                            <select name="dateint" id="cats" style="width:90px">
+									<option value="1" {$date['period'] == '1' ? 'selected' : ''}>月</option>
+									<option value="3" {$date['period'] == '3' ? 'selected' : ''}>年</option>
+									<option value="2" {$date['period'] == '2' ? 'selected' : ''}>日</option>
+	                            </select>
+	                        </td>
+						</tr>
+						<tr>
+							<th>总期数：</th>
+							<td>
+	                            {$date['num']}<font size="4"> 期</font>
+	                        </td>
+						</tr>
+					</table>
+					<table border="1" cellspacing="0" style="width:700px" id="tabletr" class="table table-bordered">
+						<tr>
+							<th width='50'>期数</th>
+							<th width='250'>费率</th>
+							<th>周期</th>
+							<th>操作</th>
+						</tr>
+						<volist name="first" id="vo">
+						<tr>
+							<td>{$vo['qi']}<input type='hidden' name='periods[]' value="{$vo['qi']}"></td>
+							<td><a>{$vo['lv']}</a><input type='text' style='display:none;width:50px;height:15px;margin:0px;padding:0px;' name='reta[]' value='{$vo['lv']}'></input></td>
+							<td>{$date['period'] == '1' ? '月' :''}{$date['period'] == '2' ? '天' :''}{$date['period'] == '3' ? '年' :''}</td>
+							<td class="editreta">修改</td>
+						</tr>
+						</volist>
+					</table>
+				</div>
+			</div>
+			<div class="form-actions">
+				<button class="btn btn-primary js-ajax-submit" type="submit">修改</button>
+				<a class="btn" href="javascript:void(0)">重置</a>
+			</div>
+		</form>
+	</div>
+	<script src="__PUBLIC__/js/jquery-1.8.3.js"></script>
+	<script>
+		var value = '月';
+		$('#cats').change(function(){
+			value = $(this).val();
+		})
+
+		$('.editreta').live("click",function(){
+			var play = $(this).text();
+			if(play == '修改'){
+				$(this).text('设置');
+				$(this).prev().prev().children('a').remove();
+				$(this).prev().prev().children('input').css('display','');
+			}
+
+			if(play == '设置'){
+				$(this).text('修改');
+				var s = $(this).prev().prev().children('input').val();
+				$(this).prev().prev().html("<a>"+s+"</a><input type='text' name='reta[]' value="+s+"  style='display:none;width:50px;height:15px;margin:0px;padding:0px;'></input>");
+				$(this).prev().prev().children('input').css('display','none');
+			}
+			
+		})
+	</script>
+</body>
+</html>

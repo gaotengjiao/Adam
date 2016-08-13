@@ -1,0 +1,111 @@
+*{
+    box-sizing: border-box;
+}
+
+.bianhao{
+    display: block;
+    width: 100%;
+    height: 0.5rem;
+    color: #646464;
+    font-size: 0.22rem;
+    line-height: 0.5rem;
+    text-align: right;
+    background: #f8f8f8;
+}
+
+.jine{
+    margin: 0;
+    width: 100%;
+    height: 1rem;
+    line-height: 1rem;
+    background: #FFFFFF;
+    border-bottom: 1px solid #d6d7dc;
+}
+
+.jine h1{
+    font-size: 0.36rem;
+    color: #646464;
+}
+
+h2{
+    color: #4D4D4D;
+    font-size: 0.24rem;
+    height: 0.7rem;
+    line-height: 0.7rem;
+}
+
+ul{
+    padding-bottom: 1.3rem;
+}
+
+ul li{
+    background: #FFFFFF;
+    width: 100%;
+    height: 1.4rem;
+    padding: 0.45rem 0.4rem;
+    border-bottom: 1px solid #d8d7dd;
+}
+
+img{
+    float: left;
+    width: 0.32rem;
+    margin: 0.1rem 0.1rem 0 0;
+}
+
+.one{
+    width: 4.3rem;
+    float: left;
+}
+
+.xuan{
+    float: right;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    -webkit-transition: background 0.7s;
+    -moz-transition: background 0.7s;
+    -ms-transition: background 0.7s;
+    -o-transition: background 0.7s;
+    transition: background 0.7s;
+    background: url("../img/duihao-icon.png") #f1f1f1 no-repeat center;
+    background-size: 50%;
+}
+
+.xuanhot{
+    background: url("../img/duihao-icon.png") #2bd27e no-repeat center;
+    background-size: 50%;
+}
+
+li div span:first-child{
+    display: block;
+    width: auto;
+    color: #3c3c3c;
+    font-size: 0.24rem;
+}
+
+li div span:last-child{
+    display: block;
+    width: auto;
+    color: #989898;
+    font-size: 0.18rem;
+}
+
+.kahao{
+    color: #025bd4;
+}
+
+.tj{
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0.3rem;
+    margin: 0 auto;
+    width: 90%;
+    color: #FFFFFF;
+    font-size: 0.3rem;
+    height: 0.9rem;
+    line-height: 0.9rem;
+    text-align: center;
+    border-radius: 0.1rem;
+    background: #F87EA3;
+}

@@ -1,0 +1,164 @@
+*{
+    box-sizing: border-box;
+}
+
+header{
+    background: #FFFFFF;
+    width: 100%;
+    height: auto;
+    padding: 0.2rem;
+    margin-bottom: 0.1rem;
+}
+
+header ul{
+    margin: 0.2rem auto;
+    width: 100%;
+    height: 0.6rem;
+    border: 1px solid #f97fa4;
+    border-radius: 0.1rem;
+}
+
+header div{
+    width: 100%;
+    height: auto;
+    margin: 0.3rem 0 0;
+}
+
+.zongshu{
+    display: block;
+    width: 100%;
+    height: 0.8rem;
+    text-align: center;
+    font-size: 0.6rem;
+    color: #323232;
+    margin: 0 auto 0.1rem;
+}
+
+header div span:last-child{
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 0.24rem;
+    margin-bottom: 0.40rem;
+    word-spacing: 10px;
+    color: #acacac;
+}
+
+.xuan{
+    width: 33.3333333%;
+    height: 100%;
+    font-size: 0.3rem;
+    color: #f97fa4;
+    float: left;
+    text-align: center;
+    line-height: 0.6rem;
+}
+
+.xuanhot{
+    -webkit-transition: background 0.8s;
+    -moz-transition: background 0.8s;
+    -ms-transition: background 0.8s;
+    -o-transition: background 0.8s;
+    transition: background 0.8s;
+    background: #f97fa4;
+    color: #FFFFFF;
+}
+
+.xuan:nth-child(2){
+    border-left: 1px solid #f3a9c9;
+    border-right: 1px solid #f3a9c9;
+}
+
+.context li{
+    width: 100%;
+    height: 1.1rem;
+    padding: 0.18rem 0.18rem;
+    background: #FFFFFF;
+    border-bottom: 1px solid #d8d7dd;
+}
+
+.left{
+    float: left;
+    width: 60%;
+    height: 100%;
+}
+
+.right{
+    float: right;
+    width: 40%;
+    height: 100%;
+    background: url("../img/fanhuijian-icon.png") no-repeat;
+    background-size: 8%;
+    background-position: right 0.2rem;
+
+}
+
+.zonge{
+    font-size: 0.24rem;
+    color: #3c3c3c;
+    display: block;
+    margin-bottom: 0.1rem;
+}
+.xiangmu{
+    display: block;
+    font-size: 0.18rem;
+    color: #989898;
+}
+
+li[data-num="0"] .qi_index{
+    color: #3c3c3c;
+    font-size: 0.24rem;
+    display: block;
+    width: 100%;
+    padding-right: 0.3rem;
+    text-align: right;
+    line-height: 0.35rem;
+}
+
+li[data-num="1"] .qi_index{
+    color: #3c3c3c;
+    font-size: 0.24rem;
+    display: block;
+    width: 100%;
+    padding-right: 0.3rem;
+    text-align: right;
+}
+
+.qi_zong{
+    color: #989898;
+    font-size: 0.18rem;
+    display: block;
+    width: 100%;
+    padding-right: 0.3rem;
+    text-align: right;
+}
+
+li[data-num="2"] .qi_index{
+     color: #3c3c3c;
+     font-size: 0.24rem;
+     display: block;
+     width: 100%;
+     padding-right: 0.3rem;
+     text-align: right;
+     line-height: 0.35rem;
+ }
+
+li[data-num="2"] .qi_no{
+    color: #989898;
+    font-size: 0.24rem;
+    display: block;
+    width: 100%;
+    height: auto;
+    line-height: 0.3rem;
+    padding-right: 0.3rem;
+    text-align: right;
+}
+
+li[data-num="2"] .qi_zong{
+    color: #989898;
+    font-size: 0.18rem;
+    display: block;
+    width: 100%;
+    padding-right: 0.3rem;
+    text-align: right;
+}
